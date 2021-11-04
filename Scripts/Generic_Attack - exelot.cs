@@ -1,6 +1,4 @@
-using System;
 using RBot;
-using System.Collections.Generic;
 
 public class Script {
 	
@@ -13,7 +11,8 @@ public class Script {
 		bot.Options.InfiniteRange = true;
 		
 		SkillList(SkillOrder);
-				
+		
+		bot.Player.SetSpawnPoint()
 		while(!bot.ShouldExit()){		
 			bot.Player.Attack("*");
 		}
