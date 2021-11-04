@@ -1,2 +1,2 @@
 # RbotScripts-Tato
-person collection (most i do not own but was told i could post, if im wrong dm me on disc. you prolly know me >.>
+person collection, i dont own these, i collect these :) smile
