@@ -183,8 +183,8 @@ public class BluuPurpleTemplate
 					bot.Sleep(500);				
 					SafeEquip(FarmingClass);
 					ItemFarm("Picture Of Mutated Critter", 3, true, true, 8382, "Mutated Critter", "byrodax");//Memet's birthday	
-					ItemFarm("Celestial Artifact", 1, true, true, 8385, "Celestial Bird of Paradise", "celestialrealm");//Arlette's's birthday
-					ItemFarm("Infernal Artifact", 1, true, true, 8385, "Fallen Knight|Shadow Beast", "celestialrealm");//Arlette's's birthday
+					ItemFarm("Celestial Artifact", 6, true, true, 8385, "Celestial Bird of Paradise", "celestialrealm");//Arlette's's birthday
+					ItemFarm("Infernal Artifact", 6, true, true, 8385, "Fallen Knight|Shadow Beast", "celestialrealm");//Arlette's's birthday
 					foreach (var Quest in QuestList)
 					{
 						if (!bot.Quests.IsInProgress(Quest)) bot.Quests.EnsureAccept(Quest);
@@ -707,7 +707,7 @@ public class BluuPurpleTemplate
 
 
 
-\                        
+                   
 //                              ▓▓▓▓████████████████▓▓▓▓▒▒              
  //                         ▓▓▓▓████░░░░░░░░░░░░░░░░██████▓▓            
   //                      ▓▓████░░░░░░░░░░░░░░░░░░░░░░░░░░████          
