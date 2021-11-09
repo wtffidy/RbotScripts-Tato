@@ -6,12 +6,11 @@ using System.Windows.Forms;
 public class BluuTemplate
 {
 	//-----------EDIT BELOW-------------//
-	public int MapNumber = 69699;
+	public int MapNumber = 999999999;
 	public string[] RequiredItems = { 
 		"Roentgenium of Nulgath",
 		"Hadean Onyx of Nulgath",
 		"Voucher of Nulgath (non-mem)",
-		"Voucher of Nulgath"
 		"Mystic Quills",
 		"Elemental Ink",
 		"Ember Ink",
@@ -33,22 +32,7 @@ public class BluuTemplate
 		"Nulgath's Approval",
 		"Bone Dust",
 		"Aelita's Emerald",
-		"Elders' Blood",
-		"defeated makai",
-		"Berserker Bunny",
-		"Nulgath Shaped Chocolate",
-		"Mana Energy For Nulgath",
-		"Aelita's Emerald",
-		"Dark Crystal Shard",
-		"Blood Gem of the Archfiend",
-		'Totem of Nulgath',
-		"Diamond of Nulgath",
-		"Unidentified 10",
-        "Gem of Domination",
-        "Fiend Seal",
-        "Archfiend's Favor",
-        "Nulgath's Approval",
-        "Mana Energy For Nulgath"
+		"Elders' Blood"
 	};
 	public string[] EquippedItems = { };
 	public readonly int[] SkillOrder = { 3, 1, 2, 4 };
