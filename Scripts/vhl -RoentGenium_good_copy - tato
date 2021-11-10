@@ -156,8 +156,10 @@ public class Script {
 					bot.Player.Join("shadowblast");
 				
 				bot.Quests.EnsureAccept(4748);
-				
-				bot.Player.HuntForItems("DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", new string[] { "Gem of Domination", "Fiend Seal", "Archfiend's Favor", "Nulgath's Approval" }, new int[] { 1, 25, 1, 1 });
+				//bot.Player.HuntForItems("DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", new string[] { "Gem of Domination", "Fiend Seal", "Archfiend's Favor", "Nulgath's Approval" }, new int[] { 1, 25, 1, 1 });
+
+				bot.Player.HuntForItem("DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "Gem of Domination", 1, false);
+				bot.Player.HuntForItem("DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "Fiend Seal", 25, false);
 				
 				bot.Quests.EnsureComplete(4748);
 				bot.Wait.ForDrop("Emblem of Nulgath");
@@ -176,7 +178,8 @@ public class Script {
 			if(!bot.Inventory.Contains("Nulgath's Approval", 300) || !bot.Inventory.Contains("Archfiend's Favor", 300)){
 				bot.Player.Join("evilwarnul");
 				
-				bot.Player.HuntForItems("Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", new string[] { "Archfiend's Favor", "Nulgath's Approval" }, new int[] { 300, 300 });
+				bot.Player.HuntForItem("Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "Archfiend's Favor", 300, false, true);
+				bot.Player.HuntForItem("Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "Nulgath's Approval", 300, false, true);
 			}
 			
 			if(!bot.Inventory.Contains("Elders' Blood")){
