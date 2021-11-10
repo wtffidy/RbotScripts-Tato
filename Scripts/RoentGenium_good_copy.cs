@@ -191,8 +191,8 @@ public class Script {
 				
 				bot.Quests.EnsureComplete(802);
 				
-				bot.Wait.ForDrop("Elder's Blood");
-				bot.Player.Pickup("Elder's Blood");
+				bot.Wait.ForDrop("Elders' Blood");
+				bot.Player.Pickup("Elders' Blood");
 			}
 			
 			if(!bot.Inventory.Contains("Nulgath Shaped Chocolate")){
