@@ -113,7 +113,7 @@ public class VoidHighLordAIOTesting //🥔
 		"Unidentified 13",
 		"Unidentified 24",
 		"Voucher of Nulgath (non-mem)" };
-	public int[] VHLQuestAmounts = { 0, 300, 0, 20, 1, 19, 0, 0, 0, 150, 0, 0, 17, 200, 0, 0, 200, 30, 15, 200, 200 };
+	public string[] VHLQuestAmounts = { 0, 300, 0, 20, 1, 19, 0, 0, 0, 150, 0, 0, 17, 200, 0, 0, 200, 30, 15, 200, 200 };
 	public string[] EssenceOfDefeat = { "Defeated Makai", "Escherion's Chain", "O-dokuro's Tooth", "Strand of Vath's Hair", "Aracara's Fang", "Hydra Scale", "Tibicenas' Chain", "Dark Crystal Shard", "Essence of Nulgath" };
 	public string[] KissTheVoid = { "Tendurrr The Assistant", "Fragment of Chaos", "Dark Crystal Shard", "Blood Gem of the Archfiend", "Defeated Makai", "EssenceNulgath", "Unidentified 10", "Archfiend's Favor", "Essence of Nulgath"}; // + "Broken Betrayal Blade" x8 Dropped by Legion Fenrir Level 29 - Temp
 	public string[] Merge = { "Roentgenium of Nulgath", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood" };
@@ -178,7 +178,8 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("VoucherNonMem");
 		while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
 		bot.Log("TurnIn");
-while (bot.Inventory.Contains(" new string = { VHLQuest } ", " new int = { VHLQuestAmounts } " ) && bot.Bank.Contains(" new string = { VHLQuest } " , " new int = { VHLQuestAmounts } ")) Roentgenium();		bot.Log("Elder");
+		while (bot.Inventory.Contains(" new string = { VHLQuest } ", " new string = { VHLQuestAmounts } " ) && bot.Bank.Contains(" new string = { VHLQuest } " , " new string = { VHLQuestAmounts } ")) Roentgenium();
+		bot.Log("Elder");
 		while (!bot.Inventory.Contains("Elders' Blood", 1) && !bot.Bank.Contains("Elders' Blood", 1)) GorillaBlood();
 		bot.Log("BKOrb");
 		while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
