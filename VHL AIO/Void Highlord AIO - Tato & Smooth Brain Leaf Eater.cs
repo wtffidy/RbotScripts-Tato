@@ -174,12 +174,12 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
 		bot.Log("Hadeon");
 		while (!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1) && !bot.Bank.Contains("Hadean Onyx of Nulgath", 1)) HadeanOnyxofNulgath();
-		bot.Log("Blood Gem of the Archfiend");
-		while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 		bot.Log("VoucherNonMem");
 		while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
 		bot.Log("TurnIn");
 		while (bot.Inventory.Contains(" new string = { VHLQuest } ") && bot.Bank.Contains(" new string = { VHLQuest } ")) Roentgenium();
+		bot.Log("Elder");
+		while (!bot.Inventory.Contains("Elders' Blood", 1) && !bot.Bank.Contains("Elders' Blood", 1)) GorillaBlood();
 		bot.Log("BKOrb");
 		while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
 		bot.Log("Emerald");
@@ -202,8 +202,6 @@ public class VoidHighLordAIOTesting //🥔
 		while (!bot.Inventory.Contains("Nulgath's Approval", 300) && !bot.Bank.Contains("Nulgath's Approval", 300)) ApprovalNulgath();
 		bot.Log("ArchFavor");
 		while (!bot.Inventory.Contains("Archfiend's Favor", 300) && !bot.Bank.Contains("Archfiend's Favor", 300)) ApprovalArchfiend();
-		bot.Log("Elder");
-		while (!bot.Inventory.Contains("Elders' Blood", 1) && !bot.Bank.Contains("Elders' Blood", 1)) GorillaBlood();
 		bot.Log("Choco");
 		while (!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1) && !bot.Bank.Contains("Nulgath Shaped Chocolate", 1)) Chocolate();
 		bot.Log("Uni 13");
@@ -213,7 +211,9 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("Secret");
 		while (!bot.Inventory.Contains("The Secret 1", 1) && !bot.Bank.Contains("The Secret 1", 1)) TheSecret1();	
 		bot.Log("DarkCrystalShard");
-		while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) EssenceOfDefeatQuest();	
+		while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) EssenceOfDefeatQuest();
+		bot.Log("Blood Gem of the Archfiend");
+		while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 		bot.Log("RoentgeniumCheck");
 		while (!bot.Inventory.Contains("Roentgenium of Nulgath", 17) && !bot.Bank.Contains("Roentgenium of Nulgath", 17)) Roentgenium();
 		bot.Log("BuyVHL");
