@@ -177,8 +177,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("VoucherNonMem");
 		while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
 		bot.Log("TurnIn");
-		while (bot.Inventory.Contains(" new string = { VHLQuest } ") && bot.Bank.Contains(" new string = { VHLQuest } ")) Roentgenium();
-		bot.Log("Elder");
+while (bot.Inventory.Contains(" new string = { VHLQuest } ", " new int = { VHLQuestAmounts } " ) && bot.Bank.Contains(" new string = { VHLQuest } " , " new int = { VHLQuestAmounts } ")) Roentgenium();		bot.Log("Elder");
 		while (!bot.Inventory.Contains("Elders' Blood", 1) && !bot.Bank.Contains("Elders' Blood", 1)) GorillaBlood();
 		bot.Log("BKOrb");
 		while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
