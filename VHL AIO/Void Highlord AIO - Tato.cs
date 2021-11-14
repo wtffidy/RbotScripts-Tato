@@ -220,10 +220,7 @@ public class VoidHighLordAIOTesting //🥔
 		while (bot.Inventory.Contains("Roentgenium of Nulgath", 17) && bot.Bank.Contains("Roentgenium of Nulgath", 17)) BuyVHL();
 	
 
-				//todo;
-				//dragon slayer reward quest has/has not completed
-				//Blood Gems of the Archfiend or w/e
-				//Misc
+				
 
 		
 		}
