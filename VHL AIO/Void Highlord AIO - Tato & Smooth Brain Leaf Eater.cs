@@ -873,7 +873,8 @@ public class VoidHighLordAIOTesting //🥔
 						
 							AttackType("a", "*");
 							bot.Sleep(2500);
-						}		
+						}	
+						ExitCombat();	
 						SafeMapJoin("trainers");
 						bot.Sleep(250);	
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance healer-51");		
