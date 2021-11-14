@@ -180,7 +180,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("TurnIn");
 		while (bot.Inventory.Contains(" new string = { VHLQuest } ", " new string = { VHLQuestAmounts } " ) && bot.Bank.Contains(" new string = { VHLQuest } " , " new string = { VHLQuestAmounts } ")) Roentgenium();
 		bot.Log("Elder");
-		while (!bot.Inventory.Contains("Elders' Blood", 1) && !bot.Bank.Contains("Elders' Blood", 1)) GorillaBlood();
+		while (!bot.Inventory.Contains("Elders' Blood", 5) && !bot.Bank.Contains("Elders' Blood", 5) && bot.Quests.IsAvailable(802)) GorillaBlood();
 		bot.Log("BKOrb");
 		while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
 		bot.Log("Emerald");
@@ -486,24 +486,16 @@ public class VoidHighLordAIOTesting //🥔
 			public void GorillaBlood()
 				{
 					SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood1");
 					UnbankList(EldersBlood);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood2");
 					bot.Sleep(250);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood3");
-
-					if(!bot.Inventory.Contains("Elders' Blood"))					
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood Farm");
+					if(!bot.Inventory.Contains("Elders' Blood", 5))					
 							{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood4");
 							SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood5");
 							ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood6");
 							SafeQuestComplete(802);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood7");
 							bot.Log("Elders' Blood Done");
 							}
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] GorillaBlood8");
 				}	
 
 			public void Chocolate()
