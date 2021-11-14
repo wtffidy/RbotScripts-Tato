@@ -873,8 +873,14 @@ public class VoidHighLordAIOTesting //🥔
 						
 							AttackType("a", "*");
 							bot.Sleep(2500);
-						}						
-							bot.SendPacket("%xt%zm%enhanceItemShop%33392%15651%19606%768%");					
+						}		
+						SafeMapJoin("trainers");
+						bot.Sleep(250);	
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance healer-51");		
+						bot.SendPacket("%xt%zm%enhanceItemShop%33392%15651%19606%768%");						
+						bot.Sleep(250);	
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance stick-51");
+						bot.SendPacket("%xt%zm%enhanceItemShop%35751%3%19604%768%");					
 				}
 
 				
