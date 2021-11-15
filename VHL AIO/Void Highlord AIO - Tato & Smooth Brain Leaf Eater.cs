@@ -362,7 +362,7 @@ public class VoidHighLordAIOTesting //🥔
 				UnbankList(EssenceOfDefeat);
 				//570
 				//items; 
-				while(!bot.Inventory.Contains("Dark Crystal Shard", 1000))
+				while(!bot.Inventory.Contains("Dark Crystal Shard", 200))
 				{
 					SafeEquip(FarmClass);
 					ItemFarm("Defeated Makai", 50, false, false, 570, "Dark Makai", "tercessuinotlim", "m2", "Left");
