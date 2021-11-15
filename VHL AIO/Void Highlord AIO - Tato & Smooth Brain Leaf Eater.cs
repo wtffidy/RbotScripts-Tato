@@ -158,7 +158,7 @@ public class VoidHighLordAIOTesting //🥔
 		
 		SkillList(SkillOrder);
 		EquipList(EquippedItems);	
-		CheckSpace(RequiredItems);
+		//CheckSpace(RequiredItems); InvCheck does the same thing but for a fixed inventory slot amount - as we're banking as we go, we dont need max inventory space
 		GetDropList(RequiredItems);
 		InvCheck();
 
