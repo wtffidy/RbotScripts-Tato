@@ -60,6 +60,11 @@ public class VoidHighLordAIOTesting //🥔
 		"Void Crystal A",
 		"Void Crystal b",
 		"Void Highlord",
+		"Escherion's Chain",
+		"O-dokuro's Tooth",
+		"Strand of Vath's Hair",
+		"Aracara's Fang",
+		"Hydra Scale"
 	};
 	public string[] VHLQuest = { 
 		"Aelita's Emerald",
@@ -340,67 +345,55 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void EssenceofNulgathVHLQuest()
 			{	
-					
-				if(!bot.Inventory.Contains("Essence of Nulgath", 50))
+				while(!bot.Inventory.Contains("Essence of Nulgath", 50))
 					{	
 						SafeEquip(FarmClass);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceofNulgathVHLQuest1");
 						UnbankList(VHLQuest);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceofNulgathVHLQuest2");
 						bot.Sleep(2500);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceofNulgathVHLQuest5");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceNulgathStart");
 						//bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceofNulgathVHLQuestSingleFarm");
 						ItemFarm("Essence of Nulgath", 50, false, false, 5660, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						ItemFarm("Tendurrr The Assistant", 1, false, false, 4734, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						bot.Log("Essence of Nulgath x50 Farmed.");
+						ItemFarm("Tendurrr The Assistant", 1, false, false, 4734, "Dark Makai", "tercessuinotlim", "m2", "Center"); //Show Me More,Shadow-Noob
 					}
+				bot.Log("Essence of Nulgath x50 Farmed.");
 			}
 			public void EssenceOfDefeatQuest()//Dark Crystal Shard
 			{
 				UnbankList(EssenceOfDefeat);
 				//570
 				//items; 
-				while(!bot.Inventory.Contains("Dark Crystal Shard", 200))
+				while(!bot.Inventory.Contains("Dark Crystal Shard", 1000))
 				{
-					ItemFarm("Defeated Makai", 50, false, false, 570, "Dark Makai", "tercessuinotlim", "m2", "Left"); 
-					ItemFarm("Escherion's Chain", 1, false, true, 570, "Escherion", "map"); 
+					SafeEquip(FarmClass);
+					ItemFarm("Defeated Makai", 50, false, false, 570, "Dark Makai", "tercessuinotlim", "m2", "Left");
+					ItemFarm("Escherion's Chain", 1, false, true, 570, "Escherion", "escherion");
+					ItemFarm("Hydra Scale", 1, false, true, 570, "Hydra Head", "hydra"); 
+					SafeEquip(SoloClass);
+					ItemFarm("Strand of Vath's Hair", 1, false, true, 570, "Stalagbite|Vath", "stalagbite");
 					ItemFarm("O-dokuro's Tooth", 1, false, true, 570, "O-Dokuro's Head", "yokaiwar"); 
-					ItemFarm("Strand of Vath's Hair", 1, false, true, 570, "Vath", "stalagbite"); 
 					ItemFarm("Aracara's Fang", 1, false, true, 570, "Aracara", "faerie"); 
-					ItemFarm("Hydra Scale", 1, false, true, 570, " Hydra Head", "hydra"); 
-					ItemFarm("Tibicenas' Chain", 1, false, true, 570, "Tibicenas", "djinn"); 
+					ItemFarm("Tibicenas' Chain", 1, true, true, 570, "Tibicenas", "djinn"); 
 					SafeQuestComplete(570);
 				}
-
 			}						
 
 			public void NationsRecruitSealYourFate()
 				{
-					SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate1");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] NationUnbank");
 					UnbankList(EmblemofNulgath);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate2");
 					bot.Sleep(2500);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate3");
-
-					if(!bot.Inventory.Contains("Emblem of Nulgath", 20))
-					{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate4");
-						SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate5");
-						ItemFarm("Gem of Domination", 1, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate6");
-						bot.Log("Gem of Domination Farmed");
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate7");
-						ItemFarm("Fiend Seal", 25, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate8");
-						bot.Log("Fiend Seal x25 Farmed");
-						SafeQuestComplete(4748);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate9");
-						bot.Log("Nations Recruit Complete.");
-						
-					}
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationsRecruitSealYourFate10");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] NationCheck");
+					while (!bot.Inventory.Contains("Emblem of Nulgath", 20))
+						{
+							SafeEquip(FarmClass);
+							ItemFarm("Gem of Domination", 1, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
+							bot.Log("Gem of Domination Farmed");
+							ItemFarm("Fiend Seal", 25, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
+							bot.Log("Fiend Seal x25 Farmed");
+							SafeQuestComplete(4748);
+							bot.Log("Nations Recruit Complete.");
+						}
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
 				}
 			
 			public void TaintedGems()
