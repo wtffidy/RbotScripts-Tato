@@ -633,8 +633,10 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.DropExists("Roentgenium")) 
 					bot.Player.Pickup("Roentgenium");					
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
-				bot.Sleep(10000);	
+				bot.Sleep(10000);
+				bot.Log("LOGOUT TIME BABY");
 				bot.Player.Logout();
+				bot.Sleep(100000);
 			}
 
 			public void Spellcrafting()
