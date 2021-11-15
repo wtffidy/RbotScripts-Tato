@@ -214,7 +214,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("Secret");
 		while (!bot.Inventory.Contains("The Secret 1", 1) && !bot.Bank.Contains("The Secret 1", 1)) TheSecret1();	
 		bot.Log("DarkCrystalShard");
-		while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) EssenceOfDefeatQuest();
+		while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
 		bot.Log("Blood Gem of the Archfiend");
 		while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 		bot.Log("RoentgeniumCheck");
@@ -288,15 +288,21 @@ public class VoidHighLordAIOTesting //🥔
 					if(!bot.Inventory.Contains("Black Knight Orb"))
 						{	
 							{
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");	
 							ItemFarm("Black Knight Leg Piece", 1, true, true, 318, "Gell Oh No", "well");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");		
-							ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
+							
 							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece);		
-							ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");		
+							ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
+							
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");								
+							ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");							
+								
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Arm Piece);
 							ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");	
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed);	
+							
 							}	
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed);	
+								
 							bot.Log("BKO Quest Turnin."); 
 							bot.Quests.EnsureComplete(318);		
 							
@@ -357,25 +363,43 @@ public class VoidHighLordAIOTesting //🥔
 					}
 				bot.Log("Essence of Nulgath x50 Farmed.");
 			}
+								
 			public void EssenceOfDefeatQuest()//Dark Crystal Shard
 			{
 				UnbankList(EssenceOfDefeat);
 				//570
 				//items; 
-				while(!bot.Inventory.Contains("Dark Crystal Shard", 200))
+				while(!bot.Inventory.Contains("Dark Crystal Shard", 200)) // ihave no idea what is wrong here it all looks right maybe ill add some delays
 				{
 					SafeEquip(FarmClass);
-					ItemFarm("Defeated Makai", 50, false, false, 570, "Dark Makai", "tercessuinotlim", "m2", "Left");
-					ItemFarm("Escherion's Chain", 1, false, true, 570, "Escherion", "escherion");
-					ItemFarm("Hydra Scale", 1, false, true, 570, "Hydra Head", "hydra"); 
-					SafeEquip(SoloClass);
-					ItemFarm("Strand of Vath's Hair", 1, false, true, 570, "Stalagbite|Vath", "stalagbite");
-					ItemFarm("O-dokuro's Tooth", 1, false, true, 570, "O-Dokuro's Head", "yokaiwar"); 
-					ItemFarm("Aracara's Fang", 1, false, true, 570, "Aracara", "faerie"); 
-					ItemFarm("Tibicenas' Chain", 1, true, true, 570, "Tibicenas", "djinn"); 
+					bot.Sleep(500);
+					bot.Log("Defeated Makai");
+					ItemFarm("Defeated Makai", 50, false, false, 570, "Dark Makai", "tercessuinotlim", "m2", "Left");		
+					bot.Sleep(500);
+					bot.Log("Escherion's Chain");
+					ItemFarm("Escherion's Chain", 1, false, true, 570, "Escherion", "escherion");		
+					bot.Sleep(500);
+					bot.Log("Hydra Scale");
+					ItemFarm("Hydra Scale", 1, false, true, 570, "Hydra Head", "hydra"); 		
+					bot.Sleep(500);
+					SafeEquip(SoloClass);		
+					bot.Sleep(500);
+					bot.Log("Strand of Vath's Hair");
+					ItemFarm("Strand of Vath's Hair", 1, false, true, 570, "Stalagbite|Vath", "stalagbite");		
+					bot.Sleep(500);
+					bot.Log("O-dokuro's Tooth");
+					ItemFarm("O-dokuro's Tooth", 1, false, true, 570, "O-Dokuro's Head", "yokaiwar"); 		
+					bot.Sleep(500);
+					bot.Log("Aracara's Fang");
+					ItemFarm("Aracara's Fang", 1, false, true, 570, "Aracara", "faerie"); 		
+					bot.Sleep(500);
+					bot.Log("Tibicenas' Chain");
+					ItemFarm("Tibicenas' Chain", 1, true, true, 570, "Tibicenas", "djinn"); 		
+					bot.Sleep(500);
+					bot.Log("EssenceofDefeat Turnin");
 					SafeQuestComplete(570);
 				}
-			}						
+			}		
 
 			public void NationsRecruitSealYourFate()
 				{
