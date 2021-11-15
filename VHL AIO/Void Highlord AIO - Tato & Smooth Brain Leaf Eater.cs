@@ -327,23 +327,18 @@ public class VoidHighLordAIOTesting //🥔
 			public void GemofNulgath()
 				{
 					SafeEquip(FarmClass);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemUnbank");
 						UnbankList(GemOfNulgath);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemSleep");
 						bot.Sleep(2500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");
-
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemStart");
 					while(!bot.Inventory.Contains("Gem of Nulgath", 20))
 						{
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");
 							SafeMapJoin("tercessuinotlim");
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");
 							ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");          
-							SafeQuestComplete(4778);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] GemofNulgath");
-						bot.Log("Gem of Nulgathfarmed");
-					}
+							SafeQuestComplete(4778, 6136);
+						}
+					bot.Log("Gem of Nulgath Farmed");
 				}
 			
 			public void EssenceofNulgathVHLQuest()
