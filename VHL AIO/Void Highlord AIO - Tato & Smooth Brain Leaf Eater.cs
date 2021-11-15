@@ -286,20 +286,20 @@ public class VoidHighLordAIOTesting //🥔
 				UnbankList(BKOrb);
 				SafeEquip(SoloClass);
 					if(!bot.Inventory.Contains("Black Knight Orb"))
-						{								
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] fixme3.1");
-							bot.Sleep(2500);
+						{	
+							{
 							ItemFarm("Black Knight Leg Piece", 1, true, true, 318, "Gell Oh No", "well");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] fixme3.6");		
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");		
 							ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] fixme3.7");		
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece);		
 							ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] fixme3.8");		
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");		
 							ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");	
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] fixme3.9");		
-							bot.Quests.EnsureComplete(318);
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] fixme3.10");		
-							bot.Log("Black Knight Orb Farmed."); 
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed);	
+							}	
+							bot.Log("BKO Quest Turnin."); 
+							bot.Quests.EnsureComplete(318);		
+							
 						}					
 			}	
 
