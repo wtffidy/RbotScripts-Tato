@@ -490,7 +490,8 @@ public class VoidHighLordAIOTesting //🥔
 							{
 							SafeEquip(FarmClass);
 							ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
-							SafeQuestComplete(802);
+							ExitCombat();
+							bot.Quests.EnsureComplete(802);
 							bot.Log("Elders' Blood Done");
 							}
 				}	
