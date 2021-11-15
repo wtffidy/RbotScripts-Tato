@@ -1099,7 +1099,7 @@ public class VoidHighLordAIOTesting //🥔
 		{
 			if (bot.Map.Name != MapName.ToLower()) SafeMapJoin(MapName.ToLower(), "Wait", "Spawn");
 			ExitCombat();
-			if (!bot.Shops.IsShopLoaded)
+			/*if (!bot.Shops.IsShopLoaded)*/
 			{
 				bot.Shops.Load(ShopID);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Loaded Shop {ShopID}.");
