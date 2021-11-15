@@ -161,7 +161,7 @@ public class VoidHighLordAIOTesting //🥔
 		{
 		while (!bot.Player.Loaded) { }
 		if (bot.Player.DropExists( " new string = { RequiredItems } " )) bot.Player.Pickup(" new string = { RequiredItems } " ); 
-		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? no? then well do it for you :D
+		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 		bot.Sleep(2500);
 		UnbankList(VHLQuest);
 
@@ -169,7 +169,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("You Level 51+?");
 		if (bot.Player.Level < 51) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
 		bot.Log("Checking if you did the Dragonslayer Quests");
-		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //dragonslayer Reward Quest Check, have you done them? no? then well do it for you :D
+		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 		bot.Log("You're Experienced But Can You Complete It?");
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
 		bot.Log("Hadeon");
