@@ -1122,7 +1122,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		ExitCombat();
 		bot.Quests.EnsureAccept(QuestID);
-		bot.Quests.EnsureComplete(QuestID, ItemID, tries: TurnInAttempts);
+		bot.Quests.EnsureComplete(QuestID, ItemID, tries: 10);
 		if (bot.Quests.IsInProgress(QuestID))
 		{
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Failed to turn in Quest {QuestID}. Logging out.");
