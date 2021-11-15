@@ -301,36 +301,28 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void Emerald()
 				{
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emerald1");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldUnbank");
 				UnbankList(ShopItems);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emerald2");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldSleep");
 				bot.Sleep(2500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emerald3");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldPurchase");
 				SafePurchase("Aelita's Emerald", 1, "yulgar", 16);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emerald4");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldDone");
 				}
 						
 			public void ElementalInk()
 				{
+					UnbankList(ShopItems);
+					bot.Sleep(2500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elemental Ink Start");
 					while(!bot.Inventory.Contains("Mystic Quills", 4))
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk1");
 						{
-						UnbankList(ShopItems);
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk2");
-						bot.Sleep(2500);
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk3");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk4");
-						ItemFarm("Mystic Quills", 4, false, true, 0, "Slugfit", "mobius");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk5");
-						SafeMapJoin("spellcraft");
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk6");
-						bot.Sleep(500);
-						SafePurchase("Elemental Ink", 10, "spellcraft", 549);
-						bot.Sleep(500);
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk7");
+							ItemFarm("Mystic Quills", 4, false, true, 0, "Slugfit", "mobius");
 						}
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] ElementalInk8");
-				}	
+					SafePurchase("Elemental Ink", 10, "spellcraft", 549);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elemental Ink Purchased");
+				}
+					
 
 			public void GemofNulgath()
 				{
