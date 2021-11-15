@@ -291,13 +291,13 @@ public class VoidHighLordAIOTesting //🥔
 							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");	
 							ItemFarm("Black Knight Leg Piece", 1, true, true, 318, "Gell Oh No", "well");
 							
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece);		
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece");		
 							ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
 							
 							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");								
 							ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");							
 								
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Arm Piece);
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Arm Piece");
 							ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");	
 							
 							}	
