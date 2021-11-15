@@ -33,6 +33,7 @@ public class VoidHighLordAIOTesting //🥔
 		"Elemental Ink",
 		"Ember Ink",
 		"Emblem of Nulgath",
+		"Escherion's Helm",
 		"Essence of Nulgath",
 		"Fragment of Chaos",
 		"Fiend Seal",
@@ -619,19 +620,22 @@ public class VoidHighLordAIOTesting //🥔
 			}
 
 			public void Roentgenium()
-				{
+			{
 				if(bot.Inventory.Contains(" new string = { VHLQuest } ", 1))
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Roentgenium1");
 				SafeMapJoin("party");
 				UnbankList(VHLQuest);
 				if (!bot.Quests.IsInProgress(5660)) 
 					bot.Quests.EnsureAccept(5660);
-				if (bot.Quests.CanComplete(5660)) bot.Quests.EnsureComplete(5660);	
-				if (bot.Player.DropExists("Roentgenium")) bot.Player.Pickup("Roentgenium");					
-					bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
-					bot.Sleep(3000);	
-					bot.Player.Logout();
-				}
+				if (bot.Quests.CanComplete(5660)) 
+					bot.Quests.EnsureComplete(5660);
+				bot.Sleep(2000);
+				if (bot.Player.DropExists("Roentgenium")) 
+					bot.Player.Pickup("Roentgenium");					
+				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
+				bot.Sleep(10000);	
+				bot.Player.Logout();
+			}
 
 			public void Spellcrafting()
 				{
