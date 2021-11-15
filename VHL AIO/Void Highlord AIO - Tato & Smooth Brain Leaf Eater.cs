@@ -628,6 +628,7 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Quests.CanComplete(5660)) SafeQuestComplete(5660);							
 					bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");				
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Throw It Back now Ya'all");
+					bot.Player.Logout();
 				}
 
 			public void Spellcrafting()
