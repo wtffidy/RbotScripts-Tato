@@ -301,7 +301,7 @@ public class VoidHighLordAIOTesting //🥔
 							ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");	
 							
 							}	
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed);	
+							bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed");	
 								
 							bot.Log("BKO Quest Turnin."); 
 							bot.Quests.EnsureComplete(318);		
@@ -626,10 +626,10 @@ public class VoidHighLordAIOTesting //🥔
 				UnbankList(VHLQuest);
 				if (!bot.Quests.IsInProgress(5660)) 
 					bot.Quests.EnsureAccept(5660);
-				if (bot.Quests.CanComplete(5660)) 
-					bot.Quests.EnsureComplete(5660);						
-					bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");				
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Throw It Back now Ya'all");
+				if (bot.Quests.CanComplete(5660)) bot.Quests.EnsureComplete(5660);	
+				if (bot.Player.DropExists("Roentgenium")) bot.Player.Pickup("Roentgenium");					
+					bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
+					bot.Sleep(3000);	
 					bot.Player.Logout();
 				}
 
