@@ -126,7 +126,7 @@ public class VoidHighLordAIOTesting //🥔
 	public string[] ShopItems = { "Aelita's Emerald", "Elemental Ink", "Nulgath Shaped Chocolate", "Mystic Quills", };
 	public string[] GemOfNulgath = { "Gem of Nulgath", "Essence of Nulgath" };
 	public string[] EmblemofNulgath = { "Emblem of Nulgath", "Gem of Domination", "Fiend Seal" };
-	public string[] TaintedGem = { "Tainted Gem", "Bone Dust" };	
+	public string[] TaintedGem = { "Tainted Gem", "Bone Dust", "Cubes" };	
 	public string[] Favor = { "Nulgath's Approval", "Archfiend's Favor" };
 	public string[] EldersBlood = { "Elders' Blood" };
 	public string[] Unidentified13 = { "Unidentified 13" };
@@ -199,9 +199,9 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("EmblemNulgath");
 		while (!bot.Inventory.Contains("Emblem of Nulgath", 20) && !bot.Bank.Contains("Emblem of Nulgath", 20)) NationsRecruitSealYourFate();
 		bot.Log("Tainted");
-		while (!bot.Inventory.Contains("Tainted Gem") && !bot.Bank.Contains("Tainted Gem", 300)) SpinTheWheel();
+		while (!bot.Inventory.Contains("Tainted Gem", 300) && !bot.Bank.Contains("Tainted Gem", 300)) TaintedGemFarm();
 		bot.Log("BoneDust");
-		while (!bot.Inventory.Contains("Bone Dust") && !bot.Bank.Contains("Bone Dust", 20)) BoneDust();
+		while (!bot.Inventory.Contains("Bone Dust", 20) && !bot.Bank.Contains("Bone Dust", 20)) BoneDust();
 		bot.Log("NulApproval");
 		while (!bot.Inventory.Contains("Nulgath's Approval", 300) && !bot.Bank.Contains("Nulgath's Approval", 300)) ApprovalNulgath();
 		bot.Log("ArchFavor");
@@ -222,14 +222,15 @@ public class VoidHighLordAIOTesting //🥔
 		while (!bot.Inventory.Contains("Roentgenium of Nulgath", 17) && !bot.Bank.Contains("Roentgenium of Nulgath", 17)) Roentgenium();
 		bot.Log("BuyVHL");
 		while (bot.Inventory.Contains("Roentgenium of Nulgath", 17) && bot.Bank.Contains("Roentgenium of Nulgath", 17)) BuyVHL();
-	
-
-				
-
-		
 		}
 		
 	}
+	
+	
+	
+	
+	
+	
 	//                              ▓▓▓▓████████████████▓▓▓▓▒▒              
  //                         ▓▓▓▓████░░░░░░░░░░░░░░░░██████▓▓            
   //                      ▓▓████░░░░░░░░░░░░░░░░░░░░░░░░░░████          
@@ -421,33 +422,34 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
 				}
 			
-			public void TaintedGems()
-				{
-					SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems1");
-					UnbankList(VHLQuest);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems2");
-					bot.Sleep(250);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems3");
-					
-
-					if(!bot.Inventory.Contains("Tainted Gem", 100))
+			public void TaintedGemFarm()
+			{
+				SafeEquip(FarmClass);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedUnbank");
+				UnbankList(TaintedGem);
+				bot.Sleep(2500);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedCheck");
+				while(!bot.Inventory.Contains("Tainted Gem", 300))
 					{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems4");
-						if(!bot.Inventory.Contains("Bone Dust", 50))
-						{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems5");
-							ItemFarm("Bone Dust", 50, false, false, 568, "*", "battleunderb");
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems6");
-							bot.Log("Bone Dust Get");
-						}
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems7");
-						SafeQuestComplete(568);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems8");
-						bot.Log("Tainted Gem Get");
-					}
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedGems9");
-				}
+						if (!bot.Quests.IsInProgress(569)) 
+							bot.Quests.EnsureAccept(569);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] CubeCheck");
+						if (!bot.Inventory.Contains("Cubes", 25))
+							{
+								bot.Log($"[{DateTime.Now:HH:mm:ss}] CubeFarm");
+								ItemFarm("Cubes", 480, false, true, 569, "Grizzlespit|Box Guardian", "boxes"); //Sneevils might be faster, haven't decided yet.
+								bot.Log($"[{DateTime.Now:HH:mm:ss}] Cubes x480 Complete");
+							}
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] IceCubeCheck");
+						if (!bot.Inventory.ContainsTempItem("Ice Cubes", 1))
+							{
+								bot.Log($"[{DateTime.Now:HH:mm:ss}] IceCubeFarm");
+								ItemFarm("Ice Cubes", 5, true, false, 569, "Snow Golem", "mountfrost", "War", "Left");
+								bot.Log($"[{DateTime.Now:HH:mm:ss}] Ice Cubes Complete");
+							}
+						SafeQuestComplete(569);
+					}	
+			}
 
 			public void ApprovalArchfiend()
 				{	
