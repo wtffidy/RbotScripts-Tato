@@ -119,31 +119,31 @@ public class VoidHighLordAIOTesting //🥔
 		"Unidentified 13",
 		"Unidentified 24",
 		"Voucher of Nulgath (non-mem)" };
-	public string[] EssenceOfDefeat = { "Defeated Makai", "Escherion's Chain", "O-dokuro's Tooth", "Strand of Vath's Hair", "Aracara's Fang", "Hydra Scale", "Tibicenas' Chain", "Dark Crystal Shard", "Essence of Nulgath" };
-	public string[] KissTheVoid = { "Tendurrr The Assistant", "Fragment of Chaos", "Dark Crystal Shard", "Blood Gem of the Archfiend", "Defeated Makai", "EssenceNulgath", "Unidentified 10", "Archfiend's Favor", "Essence of Nulgath"}; // + "Broken Betrayal Blade" x8 Dropped by Legion Fenrir Level 29 - Temp
-	public string[] Merge = { "Roentgenium of Nulgath", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood" };
-	public string[] AelitasEmerald = { "Aelita's Emerald" };
-	public string[] ShopItems = { "Aelita's Emerald", "Elemental Ink", "Nulgath Shaped Chocolate", "Mystic Quills", };
-	public string[] GemOfNulgath = { "Gem of Nulgath", "Essence of Nulgath" };
-	public string[] EmblemofNulgath = { "Emblem of Nulgath", "Gem of Domination", "Fiend Seal" };
-	public string[] TaintedGem = { "Tainted Gem", "Bone Dust", "Cubes" };	
-	public string[] Favor = { "Nulgath's Approval", "Archfiend's Favor" };
-	public string[] EldersBlood = { "Elders' Blood" };
-	public string[] Unidentified13 = { "Unidentified 13" };
-	public string[] ManaGolem = { "Mana Energy For Nulgath" };
-	public string[] BD = { "Bone Dust" };
-	public string[] VHLTurninRequirements = { "Hadean Onyx of Nulgath",	"Voucher of Nulgath (non-mem)"	};
-	public string[] DSSergMons = { "Bronze Draconian", "Purple Draconian", "Venom Draconian" };
-	public string[] DSRewardMons = { "Bronze Draconian", "Dark Draconian", "Golden Draconian", "Purple Draconian", "Venom Draconian", "Water Draconian", "Wyvern" };
-	public string[] DSRewardItems = { "Dragonslayer Veteran Medal", "Dragonslayer Sergeant Medal", "Dragonslayer Captain's Medal", "Dragonslayer Marshal Medal", "Wisp of Dragonspirit" };
-	public string[] EquippedItems = { };
-	public string[] VHlbuy = { "Roentgenium of Nulgath", "Void Crystal A", "Void Crystal B", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Blood Gem of the Archfiend", "Diamond of Nulgath", "Totem of Nulgath", "Elders' Blood" };
-	public string[] VCAList = { "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem" };
-	public string[] VCBList = { "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood" };
-	public string[] BKOrb = { "Black Knight Orb" };
+	public string[] Rebank = { }; //Empty to rebank everything
+	public string[] EldersBlood = {"Elders' Blood"};
+	public string[] Larvae = {"Mana Energy For Nulgath", "Unidentified 10", "Unidentified 13", "Tainted Gem", "Dark Crystal Shard", "Diamond of Nulgath", "Voucher of Nulgath", "Voucher of Nulgath (non-mem)", "Totem of Nulgath", "Gem of Nulgath", "Blood Gem of the Archfiend"};
+	public string[] Uni13 = {"Unidentified 13", "Crag & Bamboozle", "Diamond of Nulgath"};
+	public string[] BKOrb = {"Black Knight Orb"};
+	public string[] ShopItems = {"Aelita's Emerald", "Elemental Ink", "Nulgath Shaped Chocolate", "Mystic Quills"};
+	public string[] Spellcraft = {"Mystic Quills"};
+	public string[] NulArchFavor = {"Nulgath's Approval", "Archfiend's Favor"};
+	//public string[] EssenceOfDefeat = {"Defeated Makai", "Escherion's Chain", "O-dokuro's Tooth", "Strand of Vath's Hair", "Aracara's Fang", "Hydra Scale", "Tibicenas' Chain", "Dark Crystal Shard", "Essence of Nulgath"};
+	public string[] KissTheVoid = {"Tendurrr The Assistant", "Fragment of Chaos", "Dark Crystal Shard", "Blood Gem of the Archfiend", "Defeated Makai", "EssenceNulgath", "Unidentified 10", "Archfiend's Favor", "Essence of Nulgath"};
+	public string[] Merge = {"Roentgenium of Nulgath", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood"};
+	public string[] GemOfNulgath = {"Gem of Nulgath", "Essence of Nulgath"};
+	public string[] EssenceOfNulgathItems = {"Essence of Nulgath", "Tendurrr The Assistant", "Defeated Makai"};
+	public string[] EmblemofNulgath = {"Emblem of Nulgath", "Gem of Domination", "Fiend Seal"};
+	public string[] TaintedGem = {"Tainted Gem", "Bone Dust", "Cubes"};	
+	public string[] Favor = {"Nulgath's Approval", "Archfiend's Favor"};
+	public string[] BD = {"Bone Dust"};
+	public string[] DSSergMons = {"Bronze Draconian", "Purple Draconian", "Venom Draconian"};
+	public string[] DSRewardMons = {"Bronze Draconian", "Dark Draconian", "Golden Draconian", "Purple Draconian", "Venom Draconian", "Water Draconian", "Wyvern"};
+	public string[] DSRewardItems = {"Dragonslayer Veteran Medal", "Dragonslayer Sergeant Medal", "Dragonslayer Captain's Medal", "Dragonslayer Marshal Medal", "Wisp of Dragonspirit"};
+	public string[] VHlbuy = {"Roentgenium of Nulgath", "Void Crystal A", "Void Crystal B", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Blood Gem of the Archfiend", "Diamond of Nulgath", "Totem of Nulgath", "Elders' Blood"};
+	public string[] VCAList = {"Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem"};
+	public string[] VCBList = {"Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood"};
 
 	//-----------EDIT ABOVE-------------//
-
 
 	public int FarmLoop;
 	public int SavedState;
@@ -152,76 +152,74 @@ public class VoidHighLordAIOTesting //🥔
 	{
 		if (bot.Player.Cell != "Wait") bot.Player.Jump("Wait", "Spawn");
 		
-
 		ConfigureBotOptions();
 		ConfigureLiteSettings();
 		DeathHandler();
 		
-		SkillList(SkillOrder);
-		EquipList(EquippedItems);	
+		SkillList(SkillOrder);	
 		//CheckSpace(RequiredItems); InvCheck does the same thing but for a fixed inventory slot amount - as we're banking as we go, we dont need max inventory space
 		GetDropList(RequiredItems);
 		InvCheck();
 
 		while (!bot.ShouldExit())
 		{
-		while (!bot.Player.Loaded) { }
-		if (bot.Player.DropExists( " new string = { RequiredItems } " )) bot.Player.Pickup(" new string = { RequiredItems } " ); 
-		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
-		bot.Sleep(2500);
-		UnbankList(VHLQuest);
+			while (!bot.Player.Loaded) { }
+			if (bot.Player.DropExists( " new string = { RequiredItems } " )) bot.Player.Pickup(" new string = { RequiredItems } " ); 
+			if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
+			bot.Sleep(2500);
+			UnbankList(VHLQuest);
 
-		bot.Quests.EnsureAccept(5660);
-		bot.Log("You Level 51+?");
-		if (bot.Player.Level < 51) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
-		bot.Log("Checking if you did the Dragonslayer Quests");
-		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
-		bot.Log("You're Experienced But Can You Complete It?");
-		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
-		bot.Log("Hadeon");
-		while (!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1) && !bot.Bank.Contains("Hadean Onyx of Nulgath", 1)) HadeanOnyxofNulgath();
-		bot.Log("VoucherNonMem");
-		while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
-		bot.Log("Elder");
-		while (!bot.Inventory.Contains("Elders' Blood", 5) && !bot.Bank.Contains("Elders' Blood", 5) && bot.Quests.IsAvailable(802)) GorillaBlood();
-		bot.Log("BKOrb");
-		while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
-		bot.Log("Emerald");
-		while (!bot.Inventory.Contains("Aelita's Emerald", 1) && !bot.Bank.Contains("Aelita's Emerald", 1)) Emerald();
-		bot.Log("Spellcrafting");
-		while (bot.Player.GetFactionRank("SpellCrafting") < 3) Spellcrafting();
-		bot.Log("Elemental Ink");
-		while (!bot.Inventory.Contains("Elemental Ink", 10) && !bot.Bank.Contains("Elemental Ink", 10)) ElementalInk();
-		bot.Log("GemNulgath");
-		while (!bot.Inventory.Contains("Gem of Nulgath", 20) && !bot.Bank.Contains("Gem of Nulgath", 20)) GemofNulgath();
-		bot.Log("EssenceNulgath");
-		while (!bot.Inventory.Contains("Essence of Nulgath", 50) && !bot.Bank.Contains("Essence of Nulgath", 50)) EssenceofNulgathVHLQuest();
-		bot.Log("EmblemNulgath");
-		while (!bot.Inventory.Contains("Emblem of Nulgath", 20) && !bot.Bank.Contains("Emblem of Nulgath", 20)) NationsRecruitSealYourFate();
-		bot.Log("Tainted");
-		while (!bot.Inventory.Contains("Tainted Gem", 300) && !bot.Bank.Contains("Tainted Gem", 300)) TaintedGemFarm();
-		bot.Log("BoneDust");
-		while (!bot.Inventory.Contains("Bone Dust", 20) && !bot.Bank.Contains("Bone Dust", 20)) BoneDust();
-		bot.Log("NulApproval");
-		while (!bot.Inventory.Contains("Nulgath's Approval", 300) && !bot.Bank.Contains("Nulgath's Approval", 300)) ApprovalNulgath();
-		bot.Log("ArchFavor");
-		while (!bot.Inventory.Contains("Archfiend's Favor", 300) && !bot.Bank.Contains("Archfiend's Favor", 300)) ApprovalArchfiend();
-		bot.Log("Choco");
-		while (!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1) && !bot.Bank.Contains("Nulgath Shaped Chocolate", 1)) Chocolate();
-		bot.Log("Uni 13");
-		while (!bot.Inventory.Contains("Unidentified 13", 1) && !bot.Bank.Contains("Unidentified 13", 1)) Uni13(); //Must have completed the 'Dragonslayer Reward' quest.
-		bot.Log("Dwakel");
-		while (!bot.Inventory.Contains("Dwakel Decoder", 1) && !bot.Bank.Contains("Dwakel Decoder", 1)) DwakelDecoder();	
-		bot.Log("Secret");
-		while (!bot.Inventory.Contains("The Secret 1", 1) && !bot.Bank.Contains("The Secret 1", 1)) TheSecret1();	
-		bot.Log("DarkCrystalShard");
-		while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
-		bot.Log("Blood Gem of the Archfiend");
-		while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
-		bot.Log("RoentgeniumCheck");
-		while (!bot.Inventory.Contains("Roentgenium of Nulgath", 17) && !bot.Bank.Contains("Roentgenium of Nulgath", 17)) Roentgenium();
-		bot.Log("BuyVHL");
-		while (bot.Inventory.Contains("Roentgenium of Nulgath", 17) && bot.Bank.Contains("Roentgenium of Nulgath", 17)) BuyVHL();
+			bot.Quests.EnsureAccept(5660);
+			bot.Log("You Level 51+?");
+			if (bot.Player.Level < 51) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
+			bot.Log("Checking if you did the Dragonslayer Quests");
+			if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
+			bot.Log("You're Experienced But Can You Complete It?");
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
+			bot.Log("Elder");
+			while (!bot.Inventory.Contains("Elders' Blood", 5) && !bot.Bank.Contains("Elders' Blood", 5) && bot.Quests.IsAvailable(802)) GorillaBlood();
+			bot.Log("Hadean");
+			while (!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1) && !bot.Bank.Contains("Hadean Onyx of Nulgath", 1)) HadeanOnyxofNulgath();
+			bot.Log("VoucherNonMem");
+			while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
+			bot.Log("DarkCrystalShard");
+			while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
+			bot.Log("Uni 13");
+			while (!bot.Inventory.Contains("Unidentified 13", 1) && !bot.Bank.Contains("Unidentified 13", 1)) Unidentified13();
+			bot.Log("BKOrb");
+			while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
+			bot.Log("Emerald");
+			while (!bot.Inventory.Contains("Aelita's Emerald", 1) && !bot.Bank.Contains("Aelita's Emerald", 1)) Emerald();
+			bot.Log("Spellcrafting");
+			while (bot.Player.GetFactionRank("SpellCrafting") < 3) Spellcrafting();
+			bot.Log("Elemental Ink");
+			while (!bot.Inventory.Contains("Elemental Ink", 10) && !bot.Bank.Contains("Elemental Ink", 10)) ElementalInk();
+			bot.Log("GemNulgath");
+			while (!bot.Inventory.Contains("Gem of Nulgath", 20) && !bot.Bank.Contains("Gem of Nulgath", 20)) GemofNulgath();
+			bot.Log("EssenceNulgath");
+			while (!bot.Inventory.Contains("Essence of Nulgath", 50) && !bot.Bank.Contains("Essence of Nulgath", 50)) EssenceofNulgathVHLQuest();
+			bot.Log("EmblemNulgath");
+			while (!bot.Inventory.Contains("Emblem of Nulgath", 20) && !bot.Bank.Contains("Emblem of Nulgath", 20)) NationsRecruitSealYourFate();
+			bot.Log("Tainted");
+			while (!bot.Inventory.Contains("Tainted Gem", 100) && !bot.Bank.Contains("Tainted Gem", 100)) TaintedGemFarm();
+			bot.Log("BoneDust");
+			while (!bot.Inventory.Contains("Bone Dust", 310) && !bot.Bank.Contains("Bone Dust", 310)) BoneDust();
+			bot.Log("NulgathApproval");
+			while (!bot.Inventory.Contains("Nulgath's Approval", 300) && !bot.Bank.Contains("Nulgath's Approval", 300)) NulArchApprovalFavor();
+			bot.Log("ArchfiendsFavor");
+			while (!bot.Inventory.Contains("Archfiend's Favor", 300) && !bot.Bank.Contains("Archfiend's Favor", 300)) NulArchApprovalFavor();
+			bot.Log("Choco");
+			while (!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1) && !bot.Bank.Contains("Nulgath Shaped Chocolate", 1)) Chocolate();
+			bot.Log("Dwakel");
+			while (!bot.Inventory.Contains("Dwakel Decoder", 1) && !bot.Bank.Contains("Dwakel Decoder", 1)) DwakelDecoder();	
+			bot.Log("Secret");
+			while (!bot.Inventory.Contains("The Secret 1", 1) && !bot.Bank.Contains("The Secret 1", 1)) TheSecret1();	
+			bot.Log("Blood Gem of the Archfiend");
+			while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
+			bot.Log("RoentgeniumCheck");
+			while (!bot.Inventory.Contains("Roentgenium of Nulgath", 17) && !bot.Bank.Contains("Roentgenium of Nulgath", 17)) Roentgenium();
+			bot.Log("BuyVHL");
+			while (bot.Inventory.Contains("Roentgenium of Nulgath", 17) && bot.Bank.Contains("Roentgenium of Nulgath", 17)) BuyVHL();
 		}
 		
 	}
@@ -277,39 +275,74 @@ public class VoidHighLordAIOTesting //🥔
       //        ░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░            
 		
 			
-			public void AIORequirements()
-			{
-
+	
+	
+	
+	
+			public void HadeanOnyxofNulgath()
+			{	
+				if(!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1))
+					{
+						SafeEquip(SoloClass);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgathJoin");
+						SafeMapJoin("tercessuinotlim");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgathEquip");
+						SafeEquip(SoloClass);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgathStart");
+						ItemFarm("Hadean Onyx of Nulgath", 1, false, true, 5660, "Shadow of Nulgath", "tercessuinotlim");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgath Finish");
+					}
 			}
-
-
+			
+			public void LarvaeFarm()
+			{
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeUnbank");
+				UnbankList(Larvae);
+				SafeEquip(SoloClass);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeStart");
+				ItemFarm("Mana Energy for Nulgath", 1, false, true, 2566, "Mana Golem", "elemental");
+				SafeEquip(FarmClass);
+				ItemFarm("Charged Mana Energy for Nulgath", 5, true, true, 2566, "Mana Falcon|Mana Imp", "elemental");
+				bot.Log("LarvaeTurnIn");
+				SafeQuestComplete(2566); 
+				bot.Log("LarvaeComplete");
+			}
+			
+			public void GorillaBlood()
+			{
+				SafeEquip(FarmClass);
+				UnbankList(EldersBlood);
+				bot.Sleep(250);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood Farm");
+				if(!bot.Inventory.Contains("Elders' Blood", 5))					
+					{
+						SafeEquip(FarmClass);
+						ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
+						SafeQuestComplete(802);
+						bot.Log("Elders' Blood Done");
+					}
+			}
+			
 			public void BlackKnightOrb()
 			{
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] BKOUnbank");
 				UnbankList(BKOrb);
 				SafeEquip(SoloClass);
-					if(!bot.Inventory.Contains("Black Knight Orb"))
-						{	
-							{
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");	
-							ItemFarm("Black Knight Leg Piece", 1, true, true, 318, "Gell Oh No", "well");
-							
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece");		
-							ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
-							
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");								
-							ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");							
-								
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Arm Piece");
-							ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");	
-							
-							}	
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed");	
-								
-							bot.Log("BKO Quest Turnin."); 
-							bot.Quests.EnsureComplete(318);		
-							
-						}					
-			}	
+				if(!bot.Inventory.Contains("Black Knight Orb"))
+					{						
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");	
+						ItemFarm("Black Knight Leg Piece", 1, true, true, 318, "Gell Oh No", "well");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece");		
+						ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");								
+						ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");							
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Black Knight Arm Piece");
+						ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");		
+						bot.Log("BKO Quest Turnin."); 
+						bot.Quests.EnsureComplete(318);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed");
+					}
+			}
 
 			public void Emerald()
 			{
@@ -321,7 +354,53 @@ public class VoidHighLordAIOTesting //🥔
 				SafePurchase("Aelita's Emerald", 1, "yulgar", 16);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldDone");
 			}
-						
+			
+			public void Spellcrafting()
+			{
+				UnbankList(Spellcraft);
+				bot.Sleep(2500);
+				if (bot.Player.GetFactionRank("SpellCrafting") < 2)
+					{
+						bot.Log("Welcome");
+						bot.Quests.EnsureAccept(3052);
+						SafeMapJoin("dragonrune");
+						bot.SendPacket("%xt%zm%getMapItem%101795%1921%");
+						bot.Sleep(500);
+						bot.SendPacket("%xt%zm%getMapItem%101795%1922%");
+						bot.Sleep(500);
+						bot.SendPacket("%xt%zm%getMapItem%101795%1923%");
+						bot.Sleep(500);
+						bot.SendPacket("%xt%zm%getMapItem%101795%1924%");
+						bot.Sleep(500);
+						bot.Quests.EnsureComplete(3052);
+					}
+				if (bot.Player.GetFactionRank("SpellCrafting") < 2)
+					{
+						SafeEquip(FarmClass);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting3");
+						bot.Log("Spellbook");
+						bot.Quests.EnsureAccept(2260);
+						ItemFarm("Arcane Parchment", 13, true, true, 0, "Skeletal Warrior|Big Jack Sprat", "graveyard");
+						SafeMapJoin("dragonrune");
+						bot.Sleep(500);
+						bot.SendPacket("%xt%zm%getMapItem%101928%1920%");
+						bot.Quests.EnsureComplete(2260);
+					}	
+				else while (bot.Player.GetFactionRank("SpellCrafting") >= 2)
+					{
+						SafeEquip(FarmClass);
+						if(!bot.Inventory.Contains("Mystic Quills", 10))
+							{
+								ItemFarm("Mystic Quills", 10, false, true, 2353, "Mana Imp|Mana Falcon", "elemental");
+							}
+						SafeMapJoin("spellcraft");
+						SafePurchase("Runic Ink", 1, "spellcraft", 549);
+						bot.Quests.EnsureAccept(2353);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting7");
+						SafeQuestComplete(2353);
+					}
+			}
+			
 			public void ElementalInk()
 			{
 				UnbankList(ShopItems);
@@ -353,20 +432,19 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void EssenceofNulgathVHLQuest()
 			{	
-				while(!bot.Inventory.Contains("Essence of Nulgath", 50))
+				while(!bot.Inventory.Contains("Essence of Nulgath", 55))
 					{	
 						SafeEquip(FarmClass);
-						UnbankList(VHLQuest);
+						UnbankList(EssenceOfNulgathItems);
 						bot.Sleep(2500);
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceNulgathStart");
 						//bot.Log($"[{DateTime.Now:HH:mm:ss}] EssenceofNulgathVHLQuestSingleFarm");
-						ItemFarm("Essence of Nulgath", 50, false, false, 5660, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						ItemFarm("Tendurrr The Assistant", 1, false, false, 4734, "Dark Makai", "tercessuinotlim", "m2", "Center"); //Show Me More,Shadow-Noob
+						ItemFarm("Essence of Nulgath", 55, false, false, 5660, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
+						bot.Log("Essence of Nulgath x50 Farmed.");
 					}
-				bot.Log("Essence of Nulgath x50 Farmed.");
 			}
-								
-			public void EssenceOfDefeatQuest()//Dark Crystal Shard
+			
+			/*public void EssenceOfDefeatQuest()//Dark Crystal Shard
 			{
 				UnbankList(EssenceOfDefeat);
 				//570
@@ -401,26 +479,26 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Log("EssenceofDefeat Turnin");
 					SafeQuestComplete(570);
 				}
-			}		
+			}*/		
 
 			public void NationsRecruitSealYourFate()
-				{
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] NationUnbank");
-					UnbankList(EmblemofNulgath);
-					bot.Sleep(2500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] NationCheck");
-					while (!bot.Inventory.Contains("Emblem of Nulgath", 20))
-						{
-							SafeEquip(FarmClass);
-							ItemFarm("Gem of Domination", 1, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
-							bot.Log("Gem of Domination Farmed");
-							ItemFarm("Fiend Seal", 25, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
-							bot.Log("Fiend Seal x25 Farmed");
-							SafeQuestComplete(4748);
-							bot.Log("Nations Recruit Complete.");
-						}
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
-				}
+			{
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationUnbank");
+				UnbankList(EmblemofNulgath);
+				bot.Sleep(2500);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationCheck");
+				while (!bot.Inventory.Contains("Emblem of Nulgath", 20))
+					{
+						SafeEquip(FarmClass);
+						ItemFarm("Gem of Domination", 1, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
+						bot.Log("Gem of Domination Farmed");
+						ItemFarm("Fiend Seal", 25, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
+						bot.Log("Fiend Seal x25 Farmed");
+						SafeQuestComplete(4748);
+						bot.Log("Nations Recruit Complete.");
+					}
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
+			}
 			
 			public void TaintedGemFarm()
 			{
@@ -429,7 +507,7 @@ public class VoidHighLordAIOTesting //🥔
 				UnbankList(TaintedGem);
 				bot.Sleep(2500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedCheck");
-				while(!bot.Inventory.Contains("Tainted Gem", 300))
+				while(!bot.Inventory.Contains("Tainted Gem", 100))
 					{
 						if (!bot.Quests.IsInProgress(569)) 
 							bot.Quests.EnsureAccept(569);
@@ -448,168 +526,95 @@ public class VoidHighLordAIOTesting //🥔
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Ice Cubes Complete");
 							}
 						SafeQuestComplete(569);
-					}	
+					}
+			}
+			
+			public void BoneDust()
+			{	
+				SafeEquip(FarmClass);		
+				UnbankList(BD);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] BoneDust2");
+				SafeEquip(FarmClass);
+				ItemFarm("Bone Dust", 310, false, false, 5660, "Skeleton Warrior", "battleunderb", "Enter", "Spawn");					
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] BoneDust3");
 			}
 
-			public void ApprovalArchfiend()
-				{	
-					SafeEquip(FarmClass);				
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalArchfiend1");
-					UnbankList(VHLQuest);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalArchfiend2");
-					bot.Sleep(2500);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalArchfiend3");
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalArchfiend4");
+			public void NulArchApprovalFavor()
+			{		
+				SafeEquip(FarmClass);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalUnbank");
+				UnbankList(NulArchFavor);
+				bot.Sleep(2500);
+				SafeEquip(FarmClass);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalStart");	
+				if (!bot.Inventory.Contains("Nulgath's Approval", 300))
+				ItemFarm("Nulgath's Approval", 300, false, true, 5660, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
+				bot.Log("Nulgath's Approval x 300 Farmed");
+				if (!bot.Inventory.Contains("Archfiend's Favor", 300))
 					ItemFarm("Archfiend's Favor", 300, false, true, 5660, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalArchfiend5");
-						bot.Log("Archfiend's Favor x 300 Farmed");
-					ItemFarm("Nulgath's Approval", 300, false, true, 5660, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
-						bot.Log("Nulgath's Approval x 300 Farmed");
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalArchfiend6");	
-				}	
-
-			public void ApprovalNulgath()
-				{		
-					SafeEquip(FarmClass);			
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalNulgath1");
-					UnbankList(VHLQuest);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalNulgath2");
-					bot.Sleep(2500);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalNulgath3");
-					SafeEquip(FarmClass);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] ApprovalNulgath4");					
-					ItemFarm("Nulgath's Approval", 300, false, true, 5660, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
-						bot.Log("Nulgath's Approval x 300 Farmed");	
-				}
-
-			public void GorillaBlood()
-				{
-					SafeEquip(FarmClass);
-					UnbankList(EldersBlood);
-					bot.Sleep(250);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood Farm");
-					if(!bot.Inventory.Contains("Elders' Blood", 5))					
-							{
-							SafeEquip(FarmClass);
-							ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
-							ExitCombat();
-							bot.Quests.EnsureComplete(802);
-							bot.Log("Elders' Blood Done");
-							}
-				}	
+				bot.Log("Archfiend's Favor x 300 Farmed");
+			}
 
 			public void Chocolate()
-				{
-					SafeEquip(SoloClass);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate1");
-					UnbankList(ShopItems);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate2");
-					bot.Sleep(250);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate3");
-					
-					if(!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1))
-						{		
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate4");	
-							while(bot.Player.Gold < 2000000)
-								{
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate5");
-										bot.Log("Making some money");
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate6");
-									SafeEquip(SoloClass);
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate7");
-									ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate8");
-									SafeQuestComplete(236);								
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate9");
-									SafeSell("Berserker Bunny", 0);
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate10");
-								}
-							bot.Log("We got money, buying some chocolate for you");
-							SafePurchase("Nulgath Shaped Chocolate", 1, "citadel", 44);
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate11");
-						}
-										bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate12");
-				}
-			public void Uni13() //869 diamond exchange
 			{
-				if(!bot.Inventory.Contains("Unidentified 13", 1))
-				{		
-					while(!bot.Inventory.Contains("Diamond of Nulgath", 15)) SpinTheWheel();
-				ItemFarm("Essence of Nulgath", 100, false, true, 869, "Dark Makai", "tercessuinotlim");
-				ItemFarm("Lesser Tainted Core", 1, true, true, 869, "Tainted Elemental", "tercessuinotlim");
-				bot.Quests.EnsureComplete(869);
-				}
-			}
-
-			public void LarvaeFarm()
-					{
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeFarm1");
-					bot.Sleep(250);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeFarm2");
-					UnbankList(VHLQuest);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeFarm3");
-					if(!bot.Inventory.Contains("Unidentified 13", 1))
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeFarm4");
-					
-					SafeEquip(SoloClass);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] LarvaeFarm");
-					ItemFarm("Mana Energy for Nulgath", 1, false, true, 2566, "Mana Golem", "elemental");
-					bot.Log("LarvaeFarm5");
-					SafeEquip(FarmClass);
-					bot.Log("LarvaeFarm6");
-					ItemFarm("Charged Mana Energy for Nulgath", 5, true, true, 2566, "Mana Falcon|Mana Imp", "elemental");
-					bot.Log("LarvaeFarm7");
-					SafeQuestComplete(2566); 
-					bot.Log("LarvaeFarm8");
+				SafeEquip(SoloClass);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate1");
+				UnbankList(ShopItems);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate2");
+				bot.Sleep(250);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate3");
+				if(!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1))
+					{		
+						while(bot.Player.Gold < 2000000)
+							{
+								bot.Log("Making some money");
+								SafeEquip(SoloClass);
+								bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate7");
+								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
+								SafeQuestComplete(236);								
+								SafeSell("Berserker Bunny", 0);
+							}
+						bot.Log("We got money, buying some chocolate for you");
+						SafePurchase("Nulgath Shaped Chocolate", 1, "citadel", 44);
 					}
-
-			public void BoneDust()
-				{	
-					SafeEquip(FarmClass);		
-					UnbankList(VHLQuest);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] BoneDust2");
-					SafeEquip(FarmClass);
-					ItemFarm("Bone Dust", 20, false, false, 5660, "Skeleton Warrior", "battleunderb", "Enter", "Spawn");					
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] BoneDust3");
-						
-				}
-
-			public void InvCheck()
-				{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] InvCheck1");
-					int FreeInvSpace = bot.GetGameObject<int>("world.myAvatar.objData.iBagSlots") - bot.GetGameObject<int>("world.myAvatar.items.length"); //>.> good idea 
-			
-					if(FreeInvSpace <= 18)
-							
-					StopBot("Bot Requires 18 Inv Slots, Please Fix And Try again");
-				}
-
-
-
-			public void HadeanOnyxofNulgath()
-			{	
-				if(!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1))
-				{
-				SafeEquip(SoloClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgath1");
-				SafeMapJoin("tercessuinotlim");
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgath2");
-				SafeEquip(SoloClass);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgath3");
-				ItemFarm("Hadean Onyx of Nulgath", 1, false, true, 5660, "Shadow of Nulgath", "tercessuinotlim");
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgath4");
-				}
 			}
 
+			public void Unidentified13()
+			{
+				UnbankList(Uni13);
+				bot.Sleep(2500);
+				while(!bot.Inventory.Contains("Unidentified 13", 1))
+					{	
+						if(bot.Inventory.Contains("Crag & Bamboozle")) 
+							Craggie();
+						else LarvaeFarm();
+					}
+			}
+		
+			public void Craggie()
+			{
+				SafeEquip(FarmClass);
+				ItemFarm("Dark Makai Sigil", 1, true, true, 869, "Dark Makai", "tercessuinotlim");
+				SafeQuestComplete(869);
+			}
+			
+			public void InvCheck()
+			{
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] InvCheck1");
+				int FreeInvSpace = bot.GetGameObject<int>("world.myAvatar.objData.iBagSlots") - bot.GetGameObject<int>("world.myAvatar.items.length"); //>.> good idea 
+				if(FreeInvSpace <= 18)
+					StopBot("Bot Requires 18 Inv Slots, Please Fix And Try again");
+			}
+				
 			public void DwakelDecoder()
 			{
-				 if(!bot.Inventory.Contains("Dwakel Decoder", 1))
-				 {
-        			SafeMapJoin("crashsite", "Farm2", "Right");
-					bot.Sleep(1000);
-       				bot.SendPacket($"%xt%zm%getMapItem%442235%106%");
-					bot.Sleep(1000);
-				 }
+				if(!bot.Inventory.Contains("Dwakel Decoder", 1))
+					{
+						SafeMapJoin("crashsite", "Farm2", "Right");
+						bot.Sleep(1000);
+						bot.SendPacket($"%xt%zm%getMapItem%442235%106%");
+						bot.Sleep(1000);
+					}
 			}
 
 			public void TheSecret1()
@@ -635,64 +640,13 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.DropExists("Roentgenium")) 
 					bot.Player.Pickup("Roentgenium");					
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
-				bot.Sleep(10000);
+				bot.Sleep(5000);
+				UnbankList(Rebank);
+				bot.Sleep(5000);
 				bot.Log("LOGOUT TIME BABY");
 				bot.Player.Logout();
 				bot.Sleep(100000);
 			}
-
-			public void Spellcrafting()
-				{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] Spellcrafting1");
-					{
-					if (bot.Player.GetFactionRank("SpellCrafting") < 2)
-						{
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] Spellcrafting2");
-							bot.Log("Welcome");
-							bot.Quests.EnsureAccept(3052);
-							SafeMapJoin("dragonrune");
-							bot.SendPacket("%xt%zm%getMapItem%101795%1921%");
-							bot.Sleep(500);
-							bot.SendPacket("%xt%zm%getMapItem%101795%1922%");
-							bot.Sleep(500);
-							bot.SendPacket("%xt%zm%getMapItem%101795%1923%");
-								bot.Sleep(500);
-							bot.SendPacket("%xt%zm%getMapItem%101795%1924%");
-							bot.Sleep(500);
-							bot.Quests.EnsureComplete(3052);
-						}
-
-					if (bot.Player.GetFactionRank("SpellCrafting") < 2)
-						{
-							SafeEquip(FarmClass);
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting3");
-							bot.Log("Spellbook");
-							bot.Quests.EnsureAccept(2260);
-							ItemFarm("Arcane Parchment", 13, true, true, 0, "Skeletal Warrior|Big Jack Sprat", "graveyard");
-							SafeMapJoin("dragonrune");
-							bot.Sleep(500);
-							bot.SendPacket("%xt%zm%getMapItem%101928%1920%");
-							bot.Quests.EnsureComplete(2260);
-						}	
-					
-					else while (bot.Player.GetFactionRank("SpellCrafting") >= 2)
-						{
-							SafeEquip(FarmClass);
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting4");
-							if(!bot.Inventory.Contains("Mystic Quills", 10))
-							{
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting5");
-								ItemFarm("Mystic Quills", 10, false, true, 2353, "Mana Imp|Mana Falcon", "elemental");
-							}
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting6");
-								SafeMapJoin("spellcraft");
-								SafePurchase("Runic Ink", 1, "spellcraft", 549);
-								bot.Quests.EnsureAccept(2353);
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting7");
-								SafeQuestComplete(2353);
-						}
-					}
-				}
 
 			public void BuyVHL()
 				{
@@ -726,42 +680,12 @@ public class VoidHighLordAIOTesting //🥔
 						}
 				}
 				
-
-
-			public void DarkCrystalShard()
-				{
-				//'The Assistant'
-
-				}
-				
-				public void Unidentified10()
-				{
-
-				}
 				
 				public void TotemofNulgath()
 				{
 					LarvaeFarm();
 				}
 				
-				public void DrudgentheSalesman() //blood gems of the archfiend
-				{		
-					UnbankList(VHLQuest);	
-					
-					bot.Log("unbank DrudgentheSalesman");	
-					while(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30))
-					{
-					bot.Log("u got teh gems?");
-					if(!bot.Inventory.Contains("Unidentified 13", 1)) Uni13();
-					ItemFarm("Tainted Rune of Evil", 1, true, true, 605, "Tainted Elemental", "tercessuinotlim");
-					bot.Log("Tainted Rune");
-					ItemFarm("Diamonds Of Time", 1, false, true, 605, "Acornent|Karasu", "cloister");
-					bot.Log("diamond of time");
-					//Diamonds Of Time
-					bot.Quests.EnsureComplete(605, 22332);
-					bot.Log("DrudgentheSalesman turnin");
-					}
-				}
 				public void KissTheVoidQuest()
 				{
 					bot.Log("KissTheVoidBank");
@@ -776,31 +700,15 @@ public class VoidHighLordAIOTesting //🥔
 					}
 				}
 
-				public void WarTornMemorabilia()
-				{					
-					Unbank(Assistant);
-					bot.Sleep(1000);
-					while(bot.Player.Gold < 100000)
-					{
-						ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
-						SafeQuestComplete(236);
-						bot.Sleep(1000);
-						bot.Log("SellBunny");
-						SafeSell("Berserker Bunny", 0);
-					}
-					SafePurchase("War-Torn Memorabilia", 1, "evilwarnul", 456);
-					SafeQuestComplete(2859);
-				}
-				
-				public void SpinTheWheel()
+				/*public void SpinTheWheel()
 				{
 					UnbankList(WheelItems);
 				ItemFarm("Escherion's Helm", 1, false, true, 2857, "Escherion", "escherion");
 				SafeQuestComplete(2857);
 				//ItemFarm("ItemName", ItemQuantity, Temporary, HuntFor, QuestID, "MonsterName", "MapName", "CellName", "PadName");
-				}
+				}*/
 				
-				public void Unbank(params string[] Unbank)
+				/*public void Unbank(params string[] Unbank)
 				{
 				if (bot.Player.Cell != "Wait") bot.Player.Jump("Wait", "Spawn");
 				while (bot.Player.State == 2) { }
@@ -810,7 +718,7 @@ public class VoidHighLordAIOTesting //🥔
 					{
 						if (bot.Bank.Contains(item)) bot.Bank.ToInventory(item);
 					}
-				}
+				}*/
 
 				public void DragonSlayerRewardQuests()
 				{   					
@@ -893,17 +801,6 @@ public class VoidHighLordAIOTesting //🥔
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance stick-51");
 						bot.SendPacket("%xt%zm%enhanceItemShop%35751%3%19604%768%");					
 				}
-
-				
-			
-
-	
-	
-
-		
-
-	
-
 
 	/*------------------------------------------------------------------------------------------------------------
 													 Invokable Functions
