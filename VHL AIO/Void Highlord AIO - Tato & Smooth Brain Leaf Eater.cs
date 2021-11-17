@@ -2,7 +2,8 @@ using System;
 using RBot;
 using System.Collections.Generic;
 
-//Bot by; 🥔 Tato 🥔 & Smooth Brain Leaf Eater
+//Bot by; 🥔 Tato 🥔
+//Tested by; Smooth Brain Leaf Eater
 
 public class VoidHighLordAIOTesting //🥔
 {
