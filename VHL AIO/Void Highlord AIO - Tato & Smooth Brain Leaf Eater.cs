@@ -100,7 +100,7 @@ public class VoidHighLordAIOTesting //🥔
 		"Shadow Destroyer",
 		"Shadowrise Guard"
 	};
-	public string[] Assistant = {
+	/*public string[] WheelItems = {
 		"Dark Crystal Shard",
 		"Diamond of Nulgath",
 		"Gem of Nulgath",
@@ -108,17 +108,7 @@ public class VoidHighLordAIOTesting //🥔
 		"Unidentified 10",
 		"Unidentified 13",
 		"Unidentified 24",
-		"Voucher of Nulgath (non-mem)"
-	};
-	public string[] WheelItems = {
-		"Dark Crystal Shard",
-		"Diamond of Nulgath",
-		"Gem of Nulgath",
-		"Tainted Gem",
-		"Unidentified 10",
-		"Unidentified 13",
-		"Unidentified 24",
-		"Voucher of Nulgath (non-mem)" };
+		"Voucher of Nulgath (non-mem)" };*/
 	public string[] Rebank = { }; //Empty to rebank everything
 	public string[] EldersBlood = {"Elders' Blood"};
 	public string[] Larvae = {"Mana Energy For Nulgath", "Unidentified 10", "Unidentified 13", "Tainted Gem", "Dark Crystal Shard", "Diamond of Nulgath", "Voucher of Nulgath", "Voucher of Nulgath (non-mem)", "Totem of Nulgath", "Gem of Nulgath", "Blood Gem of the Archfiend"};
@@ -130,7 +120,7 @@ public class VoidHighLordAIOTesting //🥔
 	//public string[] EssenceOfDefeat = {"Defeated Makai", "Escherion's Chain", "O-dokuro's Tooth", "Strand of Vath's Hair", "Aracara's Fang", "Hydra Scale", "Tibicenas' Chain", "Dark Crystal Shard", "Essence of Nulgath"};
 	public string[] KissTheVoid = {"Tendurrr The Assistant", "Fragment of Chaos", "Dark Crystal Shard", "Blood Gem of the Archfiend", "Defeated Makai", "EssenceNulgath", "Unidentified 10", "Archfiend's Favor", "Essence of Nulgath"};
 	public string[] Merge = {"Roentgenium of Nulgath", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood"};
-	public string[] GemOfNulgath = {"Gem of Nulgath", "Essence of Nulgath"};
+	public string[] GemOfNulgath = {"Gem of Nulgath", "Essence of Nulgath", "Totem of Nulgath", "Defeated Makai"};
 	public string[] EssenceOfNulgathItems = {"Essence of Nulgath", "Tendurrr The Assistant", "Defeated Makai"};
 	public string[] EmblemofNulgath = {"Emblem of Nulgath", "Gem of Domination", "Fiend Seal"};
 	public string[] TaintedGem = {"Tainted Gem", "Bone Dust", "Cubes"};	
@@ -159,11 +149,11 @@ public class VoidHighLordAIOTesting //🥔
 		SkillList(SkillOrder);	
 		//CheckSpace(RequiredItems); InvCheck does the same thing but for a fixed inventory slot amount - as we're banking as we go, we dont need max inventory space
 		GetDropList(RequiredItems);
+		UnbankList(Rebank);
 		InvCheck();
 
-		while (!bot.ShouldExit())
+		while (!bot.Player.Loaded) { }
 		{
-			while (!bot.Player.Loaded) { }
 			if (bot.Player.DropExists( " new string = { RequiredItems } " )) bot.Player.Pickup(" new string = { RequiredItems } " ); 
 			if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 			bot.Sleep(2500);
@@ -196,6 +186,8 @@ public class VoidHighLordAIOTesting //🥔
 			while (!bot.Inventory.Contains("Elemental Ink", 10) && !bot.Bank.Contains("Elemental Ink", 10)) ElementalInk();
 			bot.Log("GemNulgath");
 			while (!bot.Inventory.Contains("Gem of Nulgath", 20) && !bot.Bank.Contains("Gem of Nulgath", 20)) GemofNulgath();
+			bot.Log("TotemNulgath");
+			while (!bot.Inventory.Contains("Totem of Nulgath", 15) && !bot.Bank.Contains("Totem of Nulgath", 15)) TotemofNulgath();
 			bot.Log("EssenceNulgath");
 			while (!bot.Inventory.Contains("Essence of Nulgath", 50) && !bot.Bank.Contains("Essence of Nulgath", 50)) EssenceofNulgathVHLQuest();
 			bot.Log("EmblemNulgath");
@@ -430,6 +422,22 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log("Gem of Nulgath Farmed");
 			}
 			
+			public void TotemofNulgath()
+			{
+				SafeEquip(FarmClass);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] TotemUnbank");
+				UnbankList(GemOfNulgath);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] TotemSleep");
+				bot.Sleep(2500);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] TotemStart");
+				while(!bot.Inventory.Contains("Totem of Nulgath", 15))
+					{
+						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
+						SafeQuestComplete(4778, 5357);
+					}
+				bot.Log("Totem of Nulgath Farmed");
+			}
+			
 			public void EssenceofNulgathVHLQuest()
 			{	
 				while(!bot.Inventory.Contains("Essence of Nulgath", 55))
@@ -602,7 +610,7 @@ public class VoidHighLordAIOTesting //🥔
 			{
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] InvCheck1");
 				int FreeInvSpace = bot.GetGameObject<int>("world.myAvatar.objData.iBagSlots") - bot.GetGameObject<int>("world.myAvatar.items.length"); //>.> good idea 
-				if(FreeInvSpace <= 18)
+				if(FreeInvSpace < 18)
 					StopBot("Bot Requires 18 Inv Slots, Please Fix And Try again");
 			}
 				
@@ -642,7 +650,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
 				UnbankList(Rebank);
-				bot.Sleep(5000);
+				bot.Sleep(10000);
 				bot.Log("LOGOUT TIME BABY");
 				bot.Player.Logout();
 				bot.Sleep(100000);
@@ -678,12 +686,6 @@ public class VoidHighLordAIOTesting //🥔
 							SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355) ;
 							}
 						}
-				}
-				
-				
-				public void TotemofNulgath()
-				{
-					LarvaeFarm();
 				}
 				
 				public void KissTheVoidQuest()
@@ -1154,7 +1156,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Options.SafeTimings = SafeTimings;
 		bot.Options.RestPackets = RestPackets;
 		bot.Options.AutoRelogin = AutoRelogin;
-        	bot.Options.AutoReloginAny = AutoReloginAny;
+		bot.Options.AutoReloginAny = AutoReloginAny;
 		bot.Options.PrivateRooms = PrivateRooms;
 		bot.Options.InfiniteRange = InfiniteRange;
 		bot.Options.SkipCutscenes = SkipCutscenes;
