@@ -1165,7 +1165,7 @@ public class VoidHighLordAIOTesting //🥔
 	/// Change the player's name and guild for your bots specifications.
 	/// Recommended Default Bot Configurations.
 	/// </summary>
-	public void ConfigureBotOptions(string PlayerName = "Tato", string GuildName = "https://auqw.tk/", bool LagKiller = true, bool SafeTimings = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
+	public void ConfigureBotOptions(string PlayerName = "Tato", string GuildName = "https://auqw.tk/", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
 	{
 		SendMSGPacket("Drink Water.", "You Look Thirsty :(", "moderator");
 		bot.Options.CustomName = PlayerName;
