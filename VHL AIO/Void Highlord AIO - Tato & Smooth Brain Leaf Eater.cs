@@ -1052,6 +1052,22 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] Turned In Quest {QuestID} successfully.");
 		while (!bot.Quests.IsInProgress(QuestID)) bot.Quests.EnsureAccept(QuestID);
 	}
+	
+	public void SafeQuestCompleteDaily(int QuestID, int ItemID = -1)
+	{
+		//Must have the following functions in your script:
+		//ExitCombat
+
+		ExitCombat();
+		bot.Quests.EnsureAccept(QuestID);
+		bot.Quests.EnsureComplete(QuestID, ItemID, tries: 10);
+		if (bot.Quests.IsInProgress(QuestID))
+		{
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] Failed to turn in Quest {QuestID}. Logging out.");
+			bot.Player.Logout();
+		}
+		bot.Log($"[{DateTime.Now:HH:mm:ss}] Turned In Quest {QuestID} successfully.");
+	}
 
 	/// <summary>
 	/// Stops the bot at yulgar if no parameters are set, or your specified map if the parameters are set.
