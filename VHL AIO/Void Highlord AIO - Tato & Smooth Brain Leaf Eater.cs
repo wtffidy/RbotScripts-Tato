@@ -27,8 +27,8 @@ public class VoidHighLordAIOTesting //🥔
 		"Cubes",
 		"Dark Crystal Shard",
 		"Defeated Makai",
+		"Dessicated Heart",
 		"Diamond of Nulgath",
-		"Diamonds Of Time",
 		"Dwakel Decoder",
 		"Elders' Blood",
 		"Elemental Ink",
@@ -41,6 +41,7 @@ public class VoidHighLordAIOTesting //🥔
 		"Gem of Domination",
 		"Gem of Nulgath",
 		"Hadean Onyx of Nulgath",
+		"Legion Blade",
 		"Mana Energy For Nulgath",
 		"Mystic Quills",
 		"Nulgath Shaped Chocolate",
@@ -117,7 +118,7 @@ public class VoidHighLordAIOTesting //🥔
 	public string[] BKOrb = {"Black Knight Orb"};
 	public string[] ShopItems = {"Aelita's Emerald", "Elemental Ink", "Nulgath Shaped Chocolate", "Mystic Quills"};
 	public string[] Spellcraft = {"Mystic Quills"};
-	public string[] NulArchFavor = {"Nulgath's Approval", "Archfiend's Favor"};
+	public string[] NulArchDiamondFavor = {"Nulgath's Approval", "Archfiend's Favor", "Diamond of Nulgath", "Dessicated Heart", "Legion Blade", "Unidentified 13"};
 	//public string[] EssenceOfDefeat = {"Defeated Makai", "Escherion's Chain", "O-dokuro's Tooth", "Strand of Vath's Hair", "Aracara's Fang", "Hydra Scale", "Tibicenas' Chain", "Dark Crystal Shard", "Essence of Nulgath"};
 	public string[] KissTheVoid = {"Tendurrr The Assistant", "Fragment of Chaos", "Dark Crystal Shard", "Blood Gem of the Archfiend", "Defeated Makai", "EssenceNulgath", "Unidentified 10", "Archfiend's Favor", "Essence of Nulgath"};
 	public string[] Merge = {"Roentgenium of Nulgath", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood"};
@@ -177,8 +178,6 @@ public class VoidHighLordAIOTesting //🥔
 			while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
 			bot.Log("Uni 13");
 			while (!bot.Inventory.Contains("Unidentified 13", 1) && !bot.Bank.Contains("Unidentified 13", 1)) Unidentified13();
-			bot.Log("Diamond of Nulgath");
-			while (!bot.Inventory.Contains("Diamond of Nulgath", 1) && !bot.Bank.Contains("Diamond of Nulgath", 1)) NullyDiamond(); // or w/e we're replacing this wit
 			bot.Log("BKOrb");
 			while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
 			bot.Log("Emerald");
@@ -199,10 +198,12 @@ public class VoidHighLordAIOTesting //🥔
 			while (!bot.Inventory.Contains("Tainted Gem", 100) && !bot.Bank.Contains("Tainted Gem", 100)) TaintedGemFarm();
 			bot.Log("BoneDust");
 			while (!bot.Inventory.Contains("Bone Dust", 310) && !bot.Bank.Contains("Bone Dust", 310)) BoneDust();
+			bot.Log("Diamond of Nulgath");
+			while (!bot.Inventory.Contains("Diamond of Nulgath", 200) && !bot.Bank.Contains("Diamond of Nulgath", 200)) NulArchApprovalFavorDiamond();
 			bot.Log("NulgathApproval");
-			while (!bot.Inventory.Contains("Nulgath's Approval", 300) && !bot.Bank.Contains("Nulgath's Approval", 300)) NulArchApprovalFavor();
+			while (!bot.Inventory.Contains("Nulgath's Approval", 300) && !bot.Bank.Contains("Nulgath's Approval", 300)) NulArchApprovalFavorDiamond();
 			bot.Log("ArchfiendsFavor");
-			while (!bot.Inventory.Contains("Archfiend's Favor", 300) && !bot.Bank.Contains("Archfiend's Favor", 300)) NulArchApprovalFavor();
+			while (!bot.Inventory.Contains("Archfiend's Favor", 300) && !bot.Bank.Contains("Archfiend's Favor", 300)) NulArchApprovalFavorDiamond();
 			bot.Log("Choco");
 			while (!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1) && !bot.Bank.Contains("Nulgath Shaped Chocolate", 1)) Chocolate();
 			bot.Log("Dwakel");
@@ -551,19 +552,34 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] BoneDust3");
 			}
 
-			public void NulArchApprovalFavor()
+			public void NulArchApprovalFavorDiamond()
 			{		
 				SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalUnbank");
-				UnbankList(NulArchFavor);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalDiamondUnbank");
+				UnbankList(NulArchDiamondFavor);
 				bot.Sleep(2500);
 				SafeEquip(FarmClass);
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalStart");	
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalDiamondStart");
+				while (!bot.Inventory.Contains("Diamond of Nulgath", 200))
+					{
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond Farm Start");
+						ItemFarm("Legion Blade", 1, false, false, 2219, "*", "evilwarnul", "r3", "Right");
+						ItemFarm("Dessicated Heart", 20, false, false, 2219, "*", "evilwarnul", "r3", "Right");
+						ItemFarm("Legion Helm", 5, true, false, 2219, "*", "evilwarnul", "r3", "Right");
+						ItemFarm("Undead Skull", 3, true, false, 2219, "*", "evilwarnul", "r3", "Right");
+						ItemFarm("Legion Champion Medal", 5, true, false, 2219, "*", "evilwarnul", "r3", "Right");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond Turn In");
+						if (bot.Player.IsMember)
+							SafeQuestComplete(2221);
+						else
+							SafeQuestComplete(2219);
+					}
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath x 200 Farmed");
 				if (!bot.Inventory.Contains("Nulgath's Approval", 300))
-				ItemFarm("Nulgath's Approval", 300, false, true, 5660, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
+					ItemFarm("Nulgath's Approval", 300, false, true, 0, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
 				bot.Log("Nulgath's Approval x 300 Farmed");
 				if (!bot.Inventory.Contains("Archfiend's Favor", 300))
-					ItemFarm("Archfiend's Favor", 300, false, true, 5660, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
+					ItemFarm("Archfiend's Favor", 300, false, true, 0, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
 				bot.Log("Archfiend's Favor x 300 Farmed");
 			}
 
