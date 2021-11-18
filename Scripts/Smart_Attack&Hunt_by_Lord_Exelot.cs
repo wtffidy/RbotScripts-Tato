@@ -102,7 +102,7 @@ public class ExeBot {
 	{
 		bot.Options.AggroMonsters = false;
 		bot.Player.Jump("Wait", "Spawn");
-		bot.Sleep(1000);
+		bot.Sleep(2000);
 		while (bot.Player.State == 2) { }
 	}
 }
