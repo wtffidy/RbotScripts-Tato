@@ -175,10 +175,10 @@ public class VoidHighLordAIOTesting //🥔
 			while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
 			bot.Log("DarkCrystalShard");
 			while (!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
-			bot.Log("Diamond of Nulgath");
-			while (!bot.Inventory.Contains("Diamond of Nulgath", 1) && !bot.Bank.Contains("Diamond of Nulgath", 1)) NullyDiamond(); // or w/e we're replacing this wit
 			bot.Log("Uni 13");
 			while (!bot.Inventory.Contains("Unidentified 13", 1) && !bot.Bank.Contains("Unidentified 13", 1)) Unidentified13();
+			bot.Log("Diamond of Nulgath");
+			while (!bot.Inventory.Contains("Diamond of Nulgath", 1) && !bot.Bank.Contains("Diamond of Nulgath", 1)) NullyDiamond(); // or w/e we're replacing this wit
 			bot.Log("BKOrb");
 			while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
 			bot.Log("Emerald");
