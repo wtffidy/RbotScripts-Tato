@@ -654,6 +654,7 @@ public class VoidHighLordAIOTesting //🥔
 				}
 			}
 
+
 			public void Roentgenium()
 			{
 				if(bot.Inventory.Contains(" new string = { VHLQuest } ", 1))
@@ -669,17 +670,21 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Player.Pickup("Roentgenium");					
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
-				relog();
+				Relogin();
 			}
 
-			public void relog()
+			
+			public void Relogin()
 			{
+				bot.Options.AutoRelogin = false;
+				bot.Sleep(2000);
 				bot.Player.Logout();
 				bot.Sleep(5000);
 				bot.Player.Login(bot.Player.Username, bot.Player.Password);
-				bot.Player.Connect(Options.LoginServer RBot.Servers.ServerList.Servers[0]);
+				bot.Player.Connect(Options.LoginServer ?? RBot.Servers.ServerList.Servers[0]);
 				while(!bot.Player.LoggedIn) { bot.Sleep(500); }
 				bot.Sleep(5000);
+				bot.Options.AutoRelogin = true;
 			}
 
 			public void BuyVHL()
