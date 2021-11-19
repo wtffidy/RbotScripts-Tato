@@ -670,6 +670,7 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Player.Pickup("Roentgenium");					
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
+				bot.Log("taking a nap");
 				Relogin();
 			}
 
