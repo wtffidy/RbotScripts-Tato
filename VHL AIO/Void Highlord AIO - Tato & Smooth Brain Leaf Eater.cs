@@ -1,6 +1,7 @@
 using System;
 using RBot;
 using System.Collections.Generic;
+using RBot.Severs; 
 
 //Bot by; 🥔 Tato 🥔
 //Tested by; Smooth Brain Leaf Eater
@@ -673,16 +674,17 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log("taking a nap");
 				Relogin();
 			}
+						
 
-			
 			public void Relogin()
 			{
 				bot.Options.AutoRelogin = false;
 				bot.Sleep(2000);
 				bot.Player.Logout();
 				bot.Sleep(5000);
+				RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
 				bot.Player.Login(bot.Player.Username, bot.Player.Password);
-				bot.Player.Connect(bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0]);
+				bot.Player.Connect(server);
 				while(!bot.Player.LoggedIn) { bot.Sleep(500); }
 				bot.Sleep(5000);
 				bot.Options.AutoRelogin = true;
