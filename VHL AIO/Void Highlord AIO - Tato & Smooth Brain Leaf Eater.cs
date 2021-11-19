@@ -1,7 +1,7 @@
 using System;
 using RBot;
 using System.Collections.Generic;
-using RBot.Severs; 
+using RBot.Servers;
 
 //Bot by; 🥔 Tato 🥔
 //Tested by; Smooth Brain Leaf Eater
@@ -11,65 +11,66 @@ public class VoidHighLordAIOTesting //🥔
 	//-----------EDIT BELOW-------------//
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 3, 1, 2, 4 };
-	//public readonly int[] SkillOrderSoloClass = { 3, 1, 2, 4 };
-	//public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
-	public int SaveStateLoops = 8700;
-	public int TurnInAttempts = 10;
-	public string SoloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);
-	public string FarmClass = "Vampire Lord"; //<-----Edit to your preference - SafeEquip(FarmClass);
-	public int[] QuestList1 = { 5660,3743 };
-	public string[] RequiredItems = { 
-		"Aelita's Emerald",
-		"Archfiend's Favor",
-		"Berserker Bunny",
-		"Black Knight Orb",
-		"Blood Gem of the Archfiend",
-		"Bone Dust",
-		"Cubes",
-		"Dark Crystal Shard",
-		"Defeated Makai",
-		"Dessicated Heart",
-		"Diamond of Nulgath",
-		"Dwakel Decoder",
-		"Elders' Blood",
-		"Elemental Ink",
-		"Ember Ink",
-		"Emblem of Nulgath",
-		"Escherion's Helm",
-		"Essence of Nulgath",
-		"Fragment of Chaos",
-		"Fiend Seal",
-		"Gem of Domination",
-		"Gem of Nulgath",
-		"Hadean Onyx of Nulgath",
-		"Legion Blade",
-		"Mana Energy For Nulgath",
-		"Mystic Quills",
-		"Nulgath Shaped Chocolate",
-		"Nulgath's Approval",
-		"Receipt of Swindle",
-		"Roentgenium of Nulgath",
-		"Runic Ink",
-		"StoneCrusher",
-		"Tainted Gem",
-		"Tendurrr The Assistant",
-		"The Secret 1",
-		"Totem of Nulgath",
-		"Unidentified 10",
-		"Unidentified 13",
-		"Unidentified 24",
-		"Vampire Lord",
-		"Voucher of Nulgath (non-mem)",
-		"Voucher of Nulgath",
-		"Void Crystal A",
-		"Void Crystal b",
-		"Void Highlord",
-		"Escherion's Chain",
-		"O-dokuro's Tooth",
-		"Strand of Vath's Hair",
-		"Aracara's Fang",
-		"Hydra Scale"
-	};
+    //public readonly int[] SkillOrderSoloClass = { 3, 1, 2, 4 };
+    //public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
+    private int saveStateLoops = 8700;
+    private int turnInAttempts = 10;
+    private string soloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);
+    private string farmClass = "Vampire Lord"; //<-----Edit to your preference - SafeEquip(FarmClass);
+    public int[] QuestList1 = { 5660,3743 };
+    private static readonly string[] p = {
+        "Aelita's Emerald",
+        "Archfiend's Favor",
+        "Berserker Bunny",
+        "Black Knight Orb",
+        "Blood Gem of the Archfiend",
+        "Bone Dust",
+        "Cubes",
+        "Dark Crystal Shard",
+        "Defeated Makai",
+        "Dessicated Heart",
+        "Diamond of Nulgath",
+        "Dwakel Decoder",
+        "Elders' Blood",
+        "Elemental Ink",
+        "Ember Ink",
+        "Emblem of Nulgath",
+        "Escherion's Helm",
+        "Essence of Nulgath",
+        "Fragment of Chaos",
+        "Fiend Seal",
+        "Gem of Domination",
+        "Gem of Nulgath",
+        "Hadean Onyx of Nulgath",
+        "Legion Blade",
+        "Mana Energy For Nulgath",
+        "Mystic Quills",
+        "Nulgath Shaped Chocolate",
+        "Nulgath's Approval",
+        "Receipt of Swindle",
+        "Roentgenium of Nulgath",
+        "Runic Ink",
+        "StoneCrusher",
+        "Tainted Gem",
+        "Tendurrr The Assistant",
+        "The Secret 1",
+        "Totem of Nulgath",
+        "Unidentified 10",
+        "Unidentified 13",
+        "Unidentified 24",
+        "Vampire Lord",
+        "Voucher of Nulgath (non-mem)",
+        "Voucher of Nulgath",
+        "Void Crystal A",
+        "Void Crystal b",
+        "Void Highlord",
+        "Escherion's Chain",
+        "O-dokuro's Tooth",
+        "Strand of Vath's Hair",
+        "Aracara's Fang",
+        "Hydra Scale"
+    };
+    public string[] RequiredItems = P;
 	public string[] VHLQuest = { 
 		"Aelita's Emerald",
 		"Archfiend's Favor",
@@ -141,7 +142,15 @@ public class VoidHighLordAIOTesting //🥔
 	public int FarmLoop;
 	public int SavedState;
 	public ScriptInterface bot => ScriptInterface.Instance;
-	public void ScriptMain(ScriptInterface bot)
+
+    public static string[] P => p;
+
+    public int SaveStateLoops { get => saveStateLoops; set => saveStateLoops = value; }
+    public int TurnInAttempts { get => turnInAttempts; set => turnInAttempts = value; }
+    public string SoloClass { get => soloClass; set => soloClass = value; }
+    public string FarmClass { get => farmClass; set => farmClass = value; }
+
+    public void ScriptMain(ScriptInterface bot)
 	{
 		if (bot.Player.Cell != "Wait") bot.Player.Jump("Wait", "Spawn");
 		
@@ -149,11 +158,13 @@ public class VoidHighLordAIOTesting //🥔
 		ConfigureLiteSettings();
 		DeathHandler();
 		
+		
 		SkillList(SkillOrder);	
 		//CheckSpace(RequiredItems); InvCheck does the same thing but for a fixed inventory slot amount - as we're banking as we go, we dont need max inventory space
 		GetDropList(RequiredItems);
 		UnbankList(Rebank);
 		InvCheck();
+		
 
 		while (!bot.Player.Loaded) { }
 		{
@@ -220,6 +231,7 @@ public class VoidHighLordAIOTesting //🥔
 		}
 		
 	}
+	
 	
 	
 	
@@ -682,10 +694,10 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Sleep(2000);
 				bot.Player.Logout();
 				bot.Sleep(5000);
-				RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
-				bot.Player.Login(bot.Player.Username, bot.Player.Password);
-				bot.Player.Connect(server);
-				while(!bot.Player.LoggedIn) { bot.Sleep(500); }
+        bot.Player.Login(bot.Player.Username, bot.Player.Password);
+        RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
+        bot.Player.Connect(server);
+        while (!bot.Player.LoggedIn) { bot.Sleep(500); }
 				bot.Sleep(5000);
 				bot.Options.AutoRelogin = true;
 			}
