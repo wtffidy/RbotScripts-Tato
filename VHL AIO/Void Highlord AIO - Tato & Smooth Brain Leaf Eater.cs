@@ -681,7 +681,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Player.Logout();
 				bot.Sleep(5000);
 				bot.Player.Login(bot.Player.Username, bot.Player.Password);
-				bot.Player.Connect(Options.LoginServer ?? RBot.Servers.ServerList.Servers[0]);
+				bot.Player.Connect(bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0]);
 				while(!bot.Player.LoggedIn) { bot.Sleep(500); }
 				bot.Sleep(5000);
 				bot.Options.AutoRelogin = true;
