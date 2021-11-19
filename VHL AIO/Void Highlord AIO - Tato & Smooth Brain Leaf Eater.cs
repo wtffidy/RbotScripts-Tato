@@ -669,11 +669,17 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Player.Pickup("Roentgenium");					
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
-				UnbankList(Rebank);
-				bot.Sleep(10000);
-				bot.Log("LOGOUT TIME BABY");
+				relog();
+			}
+
+			public void relog()
+			{
 				bot.Player.Logout();
-				bot.Sleep(100000);
+				bot.Sleep(5000);
+				bot.Player.Login(bot.Player.Username, bot.Player.Password);
+				bot.Player.Connect(Options.LoginServer RBot.Servers.ServerList.Servers[0]);
+				while(!bot.Player.LoggedIn) { bot.Sleep(500); }
+				bot.Sleep(5000);
 			}
 
 			public void BuyVHL()
