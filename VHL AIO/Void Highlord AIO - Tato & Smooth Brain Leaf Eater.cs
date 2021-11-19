@@ -300,7 +300,7 @@ public class VoidHighLordAIOTesting //🥔
 				SafeEquip(FarmClass);
 				ItemFarm("Charged Mana Energy for Nulgath", 5, true, true, 2566, "Mana Falcon|Mana Imp", "elemental");
 				bot.Log("LarvaeTurnIn");
-				SafeQuestComplete(2566); 
+				bot.Quests.EnsureComplete(2566); 
 				bot.Log("LarvaeComplete");
 			}
 			
@@ -315,7 +315,7 @@ public class VoidHighLordAIOTesting //🥔
 						SafeEquip(FarmClass);
 						ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
 						ExitCombat();
-						SafeQuestCompleteDaily(802);
+						bot.Quests.EnsureComplete(802);
 						bot.Log("Elders' Blood Done");
 					}
 			}
@@ -394,7 +394,7 @@ public class VoidHighLordAIOTesting //🥔
 						SafePurchase("Runic Ink", 1, "spellcraft", 549);
 						bot.Quests.EnsureAccept(2353);
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting7");
-						SafeQuestComplete(2353);
+						bot.Quests.EnsureComplete(2353);
 					}
 			}
 			
@@ -422,7 +422,7 @@ public class VoidHighLordAIOTesting //🥔
 				while(!bot.Inventory.Contains("Gem of Nulgath", 20))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						SafeQuestComplete(4778, 6136);
+						bot.Quests.EnsureComplete(4778, 6136);
 					}
 				bot.Log("Gem of Nulgath Farmed");
 			}
@@ -438,7 +438,7 @@ public class VoidHighLordAIOTesting //🥔
 				while(!bot.Inventory.Contains("Totem of Nulgath", 15))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						SafeQuestComplete(4778, 5357);
+						bot.Quests.EnsureComplete(4778, 5357);
 					}
 				bot.Log("Totem of Nulgath Farmed");
 			}
@@ -507,7 +507,7 @@ public class VoidHighLordAIOTesting //🥔
 						bot.Log("Gem of Domination Farmed");
 						ItemFarm("Fiend Seal", 25, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
 						bot.Log("Fiend Seal x25 Farmed");
-						SafeQuestComplete(4748);
+						bot.Quests.EnsureComplete(4748);
 						bot.Log("Nations Recruit Complete.");
 					}
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
@@ -538,7 +538,7 @@ public class VoidHighLordAIOTesting //🥔
 								ItemFarm("Ice Cubes", 5, true, false, 569, "Snow Golem", "mountfrost", "War", "Left");
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Ice Cubes Complete");
 							}
-						SafeQuestComplete(569);
+						bot.Quests.EnsureComplete(569);
 					}
 			}
 			
@@ -570,9 +570,9 @@ public class VoidHighLordAIOTesting //🥔
 						ItemFarm("Legion Champion Medal", 5, true, false, 2219, "*", "evilwarnul", "r3", "Right");
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond Turn In");
 						if (bot.Player.IsMember)
-							SafeQuestComplete(2221);
+							bot.Quests.EnsureComplete(2221);
 						else
-							SafeQuestComplete(2219);
+							bbot.Quests.EnsureComplete(2219);
 					}
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath x 200 Farmed");
 				if (!bot.Inventory.Contains("Nulgath's Approval", 300))
@@ -599,7 +599,7 @@ public class VoidHighLordAIOTesting //🥔
 								SafeEquip(SoloClass);
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate7");
 								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
-								SafeQuestComplete(236);								
+								bot.Quests.EnsureComplete(236);								
 								SafeSell("Berserker Bunny", 0);
 							}
 						bot.Log("We got money, buying some chocolate for you");
@@ -623,7 +623,7 @@ public class VoidHighLordAIOTesting //🥔
 			{
 				SafeEquip(FarmClass);
 				ItemFarm("Dark Makai Sigil", 1, true, true, 869, "Dark Makai", "tercessuinotlim");
-				SafeQuestComplete(869);
+				bot.Quests.EnsureComplete(869);
 			}
 			
 			public void InvCheck()
