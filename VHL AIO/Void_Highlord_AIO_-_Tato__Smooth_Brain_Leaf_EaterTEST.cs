@@ -361,6 +361,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Sleep(2500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldPurchase");
 				SafePurchase("Aelita's Emerald", 1, "yulgar", 16);
+				bot.Sleep(2000);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldDone");
 			}
 			
@@ -1051,6 +1052,8 @@ public class VoidHighLordAIOTesting //🥔
 			}
 			bot.Shops.BuyItem(ItemName);
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Purchased {ItemName} from Shop {ShopID}.");
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking if {ItemName} was purchased from Shop {ShopID}.");
+			if(!bot.Inventory.Contains(ItemName)) Relogin();
 		}
 	}
 
