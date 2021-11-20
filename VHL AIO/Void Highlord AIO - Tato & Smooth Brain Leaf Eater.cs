@@ -585,7 +585,7 @@ public class VoidHighLordAIOTesting //🥔
 						if (bot.Player.IsMember)
 							bot.Quests.EnsureComplete(2221);
 						else
-							bbot.Quests.EnsureComplete(2219);
+							bot.Quests.EnsureComplete(2219);
 					}
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath x 200 Farmed");
 				if (!bot.Inventory.Contains("Nulgath's Approval", 300))
