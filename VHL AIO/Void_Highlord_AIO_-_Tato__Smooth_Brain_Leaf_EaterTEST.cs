@@ -104,15 +104,6 @@ public class VoidHighLordAIOTesting //🥔
 		"Shadow Destroyer",
 		"Shadowrise Guard"
 	};
-	/*public string[] WheelItems = {
-		"Dark Crystal Shard",
-		"Diamond of Nulgath",
-		"Gem of Nulgath",
-		"Tainted Gem",
-		"Unidentified 10",
-		"Unidentified 13",
-		"Unidentified 24",
-		"Voucher of Nulgath (non-mem)" };*/
 	public string[] Rebank = { }; //Empty to rebank everything
 	public string[] EldersBlood = {"Elders' Blood"};
 	public string[] Larvae = {"Mana Energy For Nulgath", "Unidentified 10", "Unidentified 13", "Tainted Gem", "Dark Crystal Shard", "Diamond of Nulgath", "Voucher of Nulgath", "Voucher of Nulgath (non-mem)", "Totem of Nulgath", "Gem of Nulgath", "Blood Gem of the Archfiend"};
@@ -121,7 +112,6 @@ public class VoidHighLordAIOTesting //🥔
 	public string[] ShopItems = {"Aelita's Emerald", "Elemental Ink", "Nulgath Shaped Chocolate", "Mystic Quills"};
 	public string[] Spellcraft = {"Mystic Quills"};
 	public string[] NulArchDiamondFavor = {"Nulgath's Approval", "Archfiend's Favor", "Diamond of Nulgath", "Dessicated Heart", "Legion Blade", "Unidentified 13"};
-	//public string[] EssenceOfDefeat = {"Defeated Makai", "Escherion's Chain", "O-dokuro's Tooth", "Strand of Vath's Hair", "Aracara's Fang", "Hydra Scale", "Tibicenas' Chain", "Dark Crystal Shard", "Essence of Nulgath"};
 	public string[] KissTheVoid = {"Tendurrr The Assistant", "Fragment of Chaos", "Dark Crystal Shard", "Blood Gem of the Archfiend", "Defeated Makai", "EssenceNulgath", "Unidentified 10", "Archfiend's Favor", "Essence of Nulgath"};
 	public string[] Merge = {"Roentgenium of Nulgath", "Unidentified 10", "Gem of Nulgath", "Dark Crystal Shard", "Tainted Gem", "Diamond of Nulgath", "Blood Gem of the Archfiend", "Totem of Nulgath", "Elders' Blood"};
 	public string[] GemOfNulgath = {"Gem of Nulgath", "Essence of Nulgath", "Totem of Nulgath", "Defeated Makai"};
@@ -186,6 +176,8 @@ public class VoidHighLordAIOTesting //🥔
 			bot.Log("Hadean");
 			while (!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1) && !bot.Bank.Contains("Hadean Onyx of Nulgath", 1)) HadeanOnyxofNulgath();
 			bot.Log("Unbanking for any LarvaeUsers");
+			ExitCombat();
+			bot.Sleep(2000);
 			UnbankList(Larvae);
 			bot.Log("VoucherNonMem");
 			while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
@@ -290,7 +282,9 @@ public class VoidHighLordAIOTesting //🥔
 	
 	
 			public void HadeanOnyxofNulgath()
-			{	
+			{
+				ExitCombat();
+				bot.Sleep(2000);				
 				if(!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1))
 					{
 						SafeEquip(SoloClass);
@@ -318,6 +312,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void GorillaBlood()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);
 				UnbankList(EldersBlood);
 				bot.Sleep(250);
@@ -334,6 +330,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void BlackKnightOrb()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] BKOUnbank");
 				UnbankList(BKOrb);
 				SafeEquip(SoloClass);
@@ -355,6 +353,8 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void Emerald()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldUnbank");
 				UnbankList(ShopItems);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] EmeraldSleep");
@@ -366,6 +366,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void Spellcrafting()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				UnbankList(Spellcraft);
 				bot.Sleep(2500);
 				if (bot.Player.GetFactionRank("SpellCrafting") < 2)
@@ -412,6 +414,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void ElementalInk()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				UnbankList(ShopItems);
 				bot.Sleep(2500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Elemental Ink Start");
@@ -425,6 +429,8 @@ public class VoidHighLordAIOTesting //🥔
 	
 			public void GemofNulgath()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] GemUnbank");
 				UnbankList(GemOfNulgath);
@@ -441,6 +447,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void TotemofNulgath()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] TotemUnbank");
 				UnbankList(GemOfNulgath);
@@ -456,7 +464,9 @@ public class VoidHighLordAIOTesting //🥔
 			}
 			
 			public void EssenceofNulgathVHLQuest()
-			{	
+			{
+				ExitCombat();
+				bot.Sleep(2000);
 				while(!bot.Inventory.Contains("Essence of Nulgath", 55))
 					{	
 						SafeEquip(FarmClass);
@@ -469,45 +479,10 @@ public class VoidHighLordAIOTesting //🥔
 					}
 			}
 			
-			/*public void EssenceOfDefeatQuest()//Dark Crystal Shard
-			{
-				UnbankList(EssenceOfDefeat);
-				//570
-				//items; 
-				while(!bot.Inventory.Contains("Dark Crystal Shard", 200)) // ihave no idea what is wrong here it all looks right maybe ill add some delays
-				{
-					SafeEquip(FarmClass);
-					bot.Sleep(500);
-					bot.Log("Defeated Makai");
-					ItemFarm("Defeated Makai", 50, false, false, 570, "Dark Makai", "tercessuinotlim", "m2", "Left");		
-					bot.Sleep(500);
-					bot.Log("Escherion's Chain");
-					ItemFarm("Escherion's Chain", 1, false, true, 570, "Escherion", "escherion");		
-					bot.Sleep(500);
-					bot.Log("Hydra Scale");
-					ItemFarm("Hydra Scale", 1, false, true, 570, "Hydra Head", "hydra"); 		
-					bot.Sleep(500);
-					SafeEquip(SoloClass);		
-					bot.Sleep(500);
-					bot.Log("Strand of Vath's Hair");
-					ItemFarm("Strand of Vath's Hair", 1, false, true, 570, "Stalagbite|Vath", "stalagbite");		
-					bot.Sleep(500);
-					bot.Log("O-dokuro's Tooth");
-					ItemFarm("O-dokuro's Tooth", 1, false, true, 570, "O-Dokuro's Head", "yokaiwar"); 		
-					bot.Sleep(500);
-					bot.Log("Aracara's Fang");
-					ItemFarm("Aracara's Fang", 1, false, true, 570, "Aracara", "faerie"); 		
-					bot.Sleep(500);
-					bot.Log("Tibicenas' Chain");
-					ItemFarm("Tibicenas' Chain", 1, true, true, 570, "Tibicenas", "djinn"); 		
-					bot.Sleep(500);
-					bot.Log("EssenceofDefeat Turnin");
-					SafeQuestComplete(570);
-				}
-			}*/		
-
 			public void NationsRecruitSealYourFate()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationUnbank");
 				UnbankList(EmblemofNulgath);
 				bot.Sleep(2500);
@@ -527,6 +502,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void TaintedGemFarm()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedUnbank");
 				UnbankList(TaintedGem);
@@ -555,7 +532,9 @@ public class VoidHighLordAIOTesting //🥔
 			}
 			
 			public void BoneDust()
-			{	
+			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);		
 				UnbankList(BD);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] BoneDust2");
@@ -567,7 +546,9 @@ public class VoidHighLordAIOTesting //🥔
 			}
 
 			public void NulArchApprovalFavorDiamond()
-			{		
+			{	
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] NulApprovalDiamondUnbank");
 				UnbankList(NulArchDiamondFavor);
@@ -599,6 +580,8 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void Chocolate()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(SoloClass);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate1");
 				UnbankList(ShopItems);
@@ -623,6 +606,8 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void Unidentified13()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				UnbankList(Uni13);
 				bot.Sleep(2500);
 				while(!bot.Inventory.Contains("Unidentified 13", 1))
@@ -635,6 +620,8 @@ public class VoidHighLordAIOTesting //🥔
 		
 			public void Craggie()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(FarmClass);
 				ItemFarm("Dark Makai Sigil", 1, true, true, 869, "Dark Makai", "tercessuinotlim");
 				SafeQuestComplete(869);
@@ -650,6 +637,8 @@ public class VoidHighLordAIOTesting //🥔
 				
 			public void DwakelDecoder()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				if(!bot.Inventory.Contains("Dwakel Decoder", 1))
 					{
 						SafeMapJoin("crashsite", "Farm2", "Right");
@@ -661,6 +650,8 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void TheSecret1()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				SafeEquip(SoloClass);
 				if(!bot.Inventory.Contains("The Secret 1", 1))
 				{
@@ -671,6 +662,8 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void Roentgenium()
 			{
+				ExitCombat();
+				bot.Sleep(2000);
 				if(bot.Inventory.Contains(" new string = { VHLQuest } ", 1))
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Roentgenium1");
 				SafeMapJoin("party");
