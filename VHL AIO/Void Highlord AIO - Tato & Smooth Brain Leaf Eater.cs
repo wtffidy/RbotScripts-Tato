@@ -432,7 +432,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] GemSleep");
 				bot.Sleep(2500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] GemStart");
-				while(!bot.Inventory.Contains("Gem of Nulgath", 20))
+				while(!bot.Inventory.Contains("Gem of Nulgath", 150))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
 						bot.Quests.EnsureComplete(4778, 6136);
@@ -533,7 +533,7 @@ public class VoidHighLordAIOTesting //🥔
 				UnbankList(TaintedGem);
 				bot.Sleep(2500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] TaintedCheck");
-				while(!bot.Inventory.Contains("Tainted Gem", 100))
+				while(!bot.Inventory.Contains("Tainted Gem", 200))
 					{
 						if (!bot.Quests.IsInProgress(569)) 
 							bot.Quests.EnsureAccept(569);
