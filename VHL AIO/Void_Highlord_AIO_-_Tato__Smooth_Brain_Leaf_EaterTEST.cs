@@ -166,6 +166,7 @@ public class VoidHighLordAIOTesting //🥔
 		while (!bot.ShouldExit())
 		{
 			while (!bot.Player.Loaded) { }
+			bot.Log("Inventory space maker");
 			UnbankList(Rebank);
 			InvCheck();
 			if (bot.Player.DropExists( " new string = { RequiredItems } " )) bot.Player.Pickup(" new string = { RequiredItems } " ); 
@@ -228,7 +229,6 @@ public class VoidHighLordAIOTesting //🥔
 			while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 			bot.Log("RoentgeniumCheck");
 			if (!bot.Inventory.Contains("Roentgenium of Nulgath", 17) && !bot.Bank.Contains("Roentgenium of Nulgath", 17)) Roentgenium();
-			Relogin();
 		}
 		
 	}
@@ -312,7 +312,7 @@ public class VoidHighLordAIOTesting //🥔
 				SafeEquip(FarmClass);
 				ItemFarm("Charged Mana Energy for Nulgath", 5, true, true, 2566, "Mana Falcon|Mana Imp", "elemental");
 				bot.Log("LarvaeTurnIn");
-				bot.Quests.EnsureComplete(2566); 
+				SafeQuestComplete(2566); 
 				bot.Log("LarvaeComplete");
 			}
 			
@@ -406,7 +406,7 @@ public class VoidHighLordAIOTesting //🥔
 						SafePurchase("Runic Ink", 1, "spellcraft", 549);
 						bot.Quests.EnsureAccept(2353);
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] SpellCrafting7");
-						bot.Quests.EnsureComplete(2353);
+						SafeQuestComplete(2353);
 					}
 			}
 			
@@ -434,7 +434,7 @@ public class VoidHighLordAIOTesting //🥔
 				while(!bot.Inventory.Contains("Gem of Nulgath", 150))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						bot.Quests.EnsureComplete(4778, 6136);
+						SafeQuestComplete(4778, 6136);
 					}
 				bot.Log("Gem of Nulgath Farmed");
 			}
@@ -450,7 +450,7 @@ public class VoidHighLordAIOTesting //🥔
 				while(!bot.Inventory.Contains("Totem of Nulgath", 15))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
-						bot.Quests.EnsureComplete(4778, 5357);
+						SafeQuestComplete(4778, 5357);
 					}
 				bot.Log("Totem of Nulgath Farmed");
 			}
@@ -519,7 +519,7 @@ public class VoidHighLordAIOTesting //🥔
 						bot.Log("Gem of Domination Farmed");
 						ItemFarm("Fiend Seal", 25, false, true, 4748, "DoomBringer|Legion Fenrir|Legion Cannon|Legion Airstrike|Paragon|DoomKnight Prime|Draconic DoomKnight|Shadow Destroyer|Shadowrise Guard", "shadowblast");
 						bot.Log("Fiend Seal x25 Farmed");
-						bot.Quests.EnsureComplete(4748);
+						SafeQuestComplete(4748);
 						bot.Log("Nations Recruit Complete.");
 					}
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
@@ -550,7 +550,7 @@ public class VoidHighLordAIOTesting //🥔
 								ItemFarm("Ice Cubes", 5, true, false, 569, "Snow Golem", "mountfrost", "War", "Left");
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Ice Cubes Complete");
 							}
-						bot.Quests.EnsureComplete(569);
+						SafeQuestComplete(569);
 					}
 			}
 			
@@ -584,9 +584,9 @@ public class VoidHighLordAIOTesting //🥔
 						ItemFarm("Legion Champion Medal", 5, true, false, 2219, "*", "evilwarnul", "r3", "Right");
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond Turn In");
 						if (bot.Player.IsMember)
-							bot.Quests.EnsureComplete(2221);
+							SafeQuestComplete(2221);
 						else
-							bot.Quests.EnsureComplete(2219);
+							SafeQuestComplete(2219);
 					}
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath x 200 Farmed");
 				if (!bot.Inventory.Contains("Nulgath's Approval", 300))
@@ -613,7 +613,7 @@ public class VoidHighLordAIOTesting //🥔
 								SafeEquip(SoloClass);
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Chocolate7");
 								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
-								bot.Quests.EnsureComplete(236);								
+								SafeQuestComplete(236);								
 								SafeSell("Berserker Bunny", 0);
 							}
 						bot.Log("We got money, buying some chocolate for you");
@@ -637,7 +637,7 @@ public class VoidHighLordAIOTesting //🥔
 			{
 				SafeEquip(FarmClass);
 				ItemFarm("Dark Makai Sigil", 1, true, true, 869, "Dark Makai", "tercessuinotlim");
-				bot.Quests.EnsureComplete(869);
+				SafeQuestComplete(869);
 			}
 			
 			public void InvCheck()
@@ -685,6 +685,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
 				bot.Log("taking a nap");
+				Relogin();
 			}
 
 			public void Relogin()
