@@ -793,7 +793,8 @@ public class VoidHighLordAIOTesting //🥔
 						while(bot.Player.Gold < 100000000)
 							{
 								SafeEquip(SoloClass);
-								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
+								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");	
+								ExitCombat();								
 								SafeQuestComplete(236);								
 								SafeSell("Berserker Bunny", 0);
 								if (bot.Quests.IsAvailable(802)) GorillaBlood();
