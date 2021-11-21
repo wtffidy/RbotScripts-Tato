@@ -167,7 +167,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			bot.Quests.EnsureAccept(5660);
 			bot.Log("You Level 51+?");
-			if (bot.Player.Level < 51) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
+			if (bot.Player.Level < 75) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
 			bot.Log("Checking if you did the Dragonslayer Quests");
 			if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 			bot.Log("You're Experienced But Can You Complete It?");
@@ -317,6 +317,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void GorillaBlood()
 			{
+				if (!bot.Quests.IsAvailable(802)) MaxMePls();
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
@@ -684,7 +685,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
 				bot.Log("taking a nap");
-				bot.Player.Logout();
+				Relogin();
 			}
 
 			public void Relogin()
@@ -765,7 +766,12 @@ public class VoidHighLordAIOTesting //🥔
 					if(!bot.Inventory.Contains("Totem of Nulgath", 15)) TotemofNulgath();
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood check-vhlbuy");
 					if(!bot.Inventory.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
-					if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) Roentgenium();
+					if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) MaxMePls();
+
+
+
+			
+					
 					bot.Sleep(500);
 					SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1355);
 					goto VHlbuystart;
@@ -779,10 +785,32 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Buying VHL-vhlbuy");
 					SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
 					goto VHlbuystart;
-
-
-
 				}
+
+					public void MaxMePls()
+					{
+					bot.Log("Maxing Gold Cap");
+						while(bot.Player.Gold < 100000000)
+							{
+								SafeEquip(SoloClass);
+								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
+								SafeQuestComplete(236);								
+								SafeSell("Berserker Bunny", 0);
+								if (bot.Quests.IsAvailable(802)) GorillaBlood();
+							}
+					
+						bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
+						bot.Log("Maxing Level Cap");
+						while (bot.Player.Level < 100)								
+							{
+								bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
+								AttackType("a", "*");
+								bot.Sleep(2500);
+								if (bot.Quests.IsAvailable(802)) GorillaBlood();
+							}
+						if (bot.Quests.IsAvailable(802)) GorillaBlood();
+					}
+				
 				
 				public void KissTheVoidQuest()
 				{
@@ -797,6 +825,7 @@ public class VoidHighLordAIOTesting //🥔
 						bot.Quests.EnsureComplete(3743);
 					}
 				}
+				
 
 				/*public void SpinTheWheel()
 				{
@@ -884,7 +913,7 @@ public class VoidHighLordAIOTesting //🥔
 				{
 					
 					bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
-						while (bot.Player.Level < 51)	
+						while (bot.Player.Level < 75)	
 						{
 						bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
 						
