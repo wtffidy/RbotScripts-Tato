@@ -2,6 +2,7 @@ using System;
 using RBot;
 using System.Collections.Generic;
 using RBot.Servers;
+using System.Windows.Forms;
 
 //Bot by; 🥔 Tato 🥔
 //Tested by; Smooth Brain Leaf Eater
@@ -172,7 +173,7 @@ public class VoidHighLordAIOTesting //🥔
 			bot.Log("You're Experienced But Can You Complete It?");
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
 			bot.Log("Elder");
-			while (!bot.Inventory.Contains("Elders' Blood", 5) && !bot.Bank.Contains("Elders' Blood", 5) && bot.Quests.IsAvailable(802)) GorillaBlood();
+			while (!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
 			bot.Log("Hadean");
 			while (!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1) && !bot.Bank.Contains("Hadean Onyx of Nulgath", 1)) HadeanOnyxofNulgath();
 			bot.Log("Unbanking for any LarvaeUsers");
@@ -220,7 +221,11 @@ public class VoidHighLordAIOTesting //🥔
 			bot.Log("Blood Gem of the Archfiend");
 			while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 			bot.Log("RoentgeniumCheck");
-			if (!bot.Inventory.Contains("Roentgenium of Nulgath", 17) && !bot.Bank.Contains("Roentgenium of Nulgath", 17)) Roentgenium();
+			if (!bot.Inventory.Contains("Roentgenium of Nulgath", 15) && !bot.Bank.Contains("Roentgenium of Nulgath", 15)) Roentgenium();
+			bot.Log("VoidCrystakACheck");
+			if (!bot.Inventory.Contains("Void Crystak A", 1) && !bot.Bank.Contains("Void Crystak A", 1)) BuyVHL();
+			bot.Log("VoidCrystakBCheck");
+			if (!bot.Inventory.Contains("Void Crystak B", 1) && !bot.Bank.Contains("Void Crystak B", 1)) BuyVHL();
 		}
 		
 	}
@@ -323,7 +328,7 @@ public class VoidHighLordAIOTesting //🥔
 						SafeEquip(FarmClass);
 						ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
 						ExitCombat();
-						bot.Quests.EnsureComplete(802);
+						SafeQuestCompleteDaily(802);
 						bot.Log("Elders' Blood Done");
 					}
 			}
@@ -679,7 +684,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log("Roentgenium Farmed, Gathering Mats for Tomarrow.");
 				bot.Sleep(5000);
 				bot.Log("taking a nap");
-				Relogin();
+				bot.Player.Logout();
 			}
 
 			public void Relogin()
@@ -688,10 +693,10 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Sleep(2000);
 				bot.Player.Logout();
 				bot.Sleep(5000);
-        bot.Player.Login(bot.Player.Username, bot.Player.Password);
-        RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
-        bot.Player.Connect(server);
-        while (!bot.Player.LoggedIn) { bot.Sleep(500); }
+       			bot.Player.Login(bot.Player.Username, bot.Player.Password);
+        		RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
+        		bot.Player.Connect(server);
+        		while (!bot.Player.LoggedIn) { bot.Sleep(1000); }
 				bot.Sleep(5000);
 				bot.Options.AutoRelogin = true;
 			}
@@ -699,33 +704,84 @@ public class VoidHighLordAIOTesting //🥔
 			public void BuyVHL()
 				{
 					SafeMapJoin("tercessuinotlim");
+					bot.Sleep(500);
 					UnbankList(VHlbuy);
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] vhlbuy-bank");
-						if(bot.Inventory.Contains("Roentgenium of Nulgath", 17))					
-						{
-							Roentgenium();
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] reont check");
-								if(bot.Inventory.Contains(" new string = { VCAList } ", 1))
-									{
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] vhlbuy-vcAlist");
-										SafeMapJoin("tercessuinotlim");
-										SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1335);
-									}
-								
-						if(bot.Inventory.Contains(" new string = { VCBList } ", 1))
-							{
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] vhlbuy-vcBlist");
-								SafeMapJoin("tercessuinotlim");
-								SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1335);
-							}
 
-						if(!bot.Inventory.Contains("Void Highlord", 1))
-							{
-							bot.Log($"[{DateTime.Now:HH:mm:ss}] vhlbuy-vhlcheckandbuy");
-							SafeMapJoin("tercessuinotlim");
-							SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355) ;
-							}
+				VHlbuystart:	
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking for VCA");			
+					if(!bot.Inventory.Contains("Void Crystal A", 1))
+						{	
+						goto VCAbuy;
+						}	
+
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking for VCB");
+					if(!bot.Inventory.Contains("Void Crystal B", 1))
+						{	
+						goto VCBbuy;
 						}
+					
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking for VHL");
+					if(!bot.Inventory.Contains("Void Highlord", 1))
+						{
+						goto VHLbuy;
+						}
+					MessageBox.Show($"Tato Lord Aquired");
+					StopBot();
+					
+				
+
+
+					VCAbuy:
+					SafeMapJoin("tercessuinotlim");
+					bot.Sleep(500);
+					ExitCombat();
+					UnbankList(VHlbuy);
+					bot.Sleep(500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Unidentified 10 check-vhlbuy");
+					if(!bot.Inventory.Contains("Unidentified 10", 200)) LarvaeFarm();
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Gem of Nulgath check-vhlbuy");
+					if(!bot.Inventory.Contains("Gem of Nulgath", 150)) GemofNulgath();
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Dark Crystal Shard check-vhlbuy");
+					if(!bot.Inventory.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Tainted Gem check-vhlbuy");
+					if(!bot.Inventory.Contains("Tainted Gem", 200)) TaintedGemFarm();
+					bot.Sleep(500);
+					SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1355);
+					goto VHlbuystart;
+
+					VCBbuy:
+					SafeMapJoin("tercessuinotlim");
+					bot.Sleep(500);
+					ExitCombat();
+					UnbankList(VHlbuy);
+					bot.Sleep(500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] VCB Item Checks");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath check-vhlbuy");
+					if(!bot.Inventory.Contains("Diamond of Nulgath", 200)) NulArchApprovalFavorDiamond();
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Blood Gem of the Archfiend check-vhlbuy");
+					if(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Totem of Nulgath check-vhlbuy");
+					if(!bot.Inventory.Contains("Totem of Nulgath", 15)) TotemofNulgath();
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood check-vhlbuy");
+					if(!bot.Inventory.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
+					if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) Roentgenium();
+					bot.Sleep(500);
+					SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1355);
+					goto VHlbuystart;
+
+					VHLbuy:
+					SafeMapJoin("tercessuinotlim");
+					bot.Sleep(500);
+					ExitCombat();
+					UnbankList(VHlbuy);
+					bot.Sleep(500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Buying VHL-vhlbuy");
+					SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
+					goto VHlbuystart;
+
+
+
 				}
 				
 				public void KissTheVoidQuest()
