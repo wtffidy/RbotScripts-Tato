@@ -704,6 +704,7 @@ public class VoidHighLordAIOTesting //🥔
         		while (!bot.Player.LoggedIn) { bot.Sleep(1000); }
 				bot.Sleep(5000);
 				bot.Options.AutoRelogin = true;
+				bot.Sleep(10000);
 				MainScript();
 			}
 			
@@ -836,7 +837,7 @@ public class VoidHighLordAIOTesting //🥔
 			UnbankList(TatoLord);
 			bot.Sleep(2000);
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Buy VHL");
-			SafePurchase("Void Highlord11", 1, "tercessuinotlim", 1355);
+			SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
 			StopBot();
 		}
 			
