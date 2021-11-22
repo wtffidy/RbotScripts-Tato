@@ -289,12 +289,12 @@ public class VoidHighLordAIOTesting //🥔
 		while (!bot.Inventory.Contains("The Secret 1", 1) && !bot.Bank.Contains("The Secret 1", 1)) TheSecret1();	
 		bot.Log("Blood Gem of the Archfiend");
 		while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
+		bot.Log("RoentgeniumCheck");
+		if (!bot.Inventory.Contains("Roentgenium of Nulgath", 15) && !bot.Bank.Contains("Roentgenium of Nulgath", 15)) Roentgenium();
 		bot.Log("VoidCrystalACheck");
 		if (!bot.Inventory.Contains("Void Crystal A", 1) && !bot.Bank.Contains("Void Crystal A", 1)) VCA();
 		bot.Log("VoidCrystalBCheck");
 		if (!bot.Inventory.Contains("Void Crystal B", 1) && !bot.Bank.Contains("Void Crystal B", 1)) VCB();
-		bot.Log("RoentgeniumCheck");
-		if (!bot.Inventory.Contains("Roentgenium of Nulgath", 15) && !bot.Bank.Contains("Roentgenium of Nulgath", 15)) Roentgenium();
 	}
 	
 	public void HadeanOnyxofNulgath()
