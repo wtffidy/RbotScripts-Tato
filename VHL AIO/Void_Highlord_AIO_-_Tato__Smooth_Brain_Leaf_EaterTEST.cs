@@ -222,10 +222,10 @@ public class VoidHighLordAIOTesting //🥔
 			while (!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 			bot.Log("RoentgeniumCheck");
 			if (!bot.Inventory.Contains("Roentgenium of Nulgath", 15) && !bot.Bank.Contains("Roentgenium of Nulgath", 15)) Roentgenium();
-			bot.Log("VoidCrystakACheck");
-			if (!bot.Inventory.Contains("Void Crystak A", 1) && !bot.Bank.Contains("Void Crystak A", 1)) BuyVHL();
-			bot.Log("VoidCrystakBCheck");
-			if (!bot.Inventory.Contains("Void Crystak B", 1) && !bot.Bank.Contains("Void Crystak B", 1)) BuyVHL();
+			bot.Log("VoidCrystalACheck");
+			if (!bot.Inventory.Contains("Void Crystal A", 1) && !bot.Bank.Contains("Void Crystal A", 1)) BuyVHL();
+			bot.Log("VoidCrystalBCheck");
+			if (!bot.Inventory.Contains("Void Crystal B", 1) && !bot.Bank.Contains("Void Crystal B", 1)) BuyVHL();
 		}
 		
 	}
