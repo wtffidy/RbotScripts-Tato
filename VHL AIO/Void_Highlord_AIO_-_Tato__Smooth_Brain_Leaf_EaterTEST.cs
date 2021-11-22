@@ -743,7 +743,7 @@ public class VoidHighLordAIOTesting //🥔
 				SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1355);
 			}
 
-			public void BuyVHL()
+			/*public void BuyVHL()
 				{
 					SafeMapJoin("tercessuinotlim");
 					bot.Sleep(500);
@@ -770,7 +770,6 @@ public class VoidHighLordAIOTesting //🥔
 					MessageBox.Show($"Tato Lord Aquired");
 					StopBot();
 					
-					/*
 					VCAbuy:
 					SafeMapJoin("tercessuinotlim");
 					bot.Sleep(500);
@@ -789,9 +788,7 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(500);
 					SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1355);
 					goto VHlbuystart;
-					*/
-
-					/*
+					
 					VCBbuy:
 					SafeMapJoin("tercessuinotlim");
 					bot.Sleep(500);
@@ -812,7 +809,7 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(500);
 					SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1355);
 					goto VHlbuystart;
-					*/
+					
 
 					VHLbuy:
 					SafeMapJoin("tercessuinotlim");
@@ -824,6 +821,7 @@ public class VoidHighLordAIOTesting //🥔
 					SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
 					goto VHlbuystart;
 				}
+				*/
 
 					public void MaxMePls()
 					{
