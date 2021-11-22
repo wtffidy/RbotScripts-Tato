@@ -217,12 +217,17 @@ public class VoidHighLordAIOTesting //🥔
 	public void MainScript()
 	{
 		while (!bot.Player.Loaded) { }
-		bot.Log("Inventory space maker");
+		bot.Log("bank everything");
 		UnbankList(Rebank);
+		bot.Log("invcheck-scriptstart");
 		InvCheck();
+		bot.Log("*if script ran previously check for drops*");
 		if (bot.Player.DropExists( " new string = { RequiredItems } " )) bot.Player.Pickup(" new string = { RequiredItems } " ); 
-		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
+		bot.Log("Dragon Slayer Quest Chain");
+		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D		
+		bot.Log("MainSleep");
 		bot.Sleep(2500);
+		bot.Log("unbank vhlquest");
 		UnbankList(VHLQuest);
 		
 		bot.Quests.EnsureAccept(5660);
@@ -836,8 +841,8 @@ public class VoidHighLordAIOTesting //🥔
 			UnbankList(TatoLord);
 			bot.Sleep(2000);
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Buy VHL");
-			SafePurchase("Void Highlord11", 1, "tercessuinotlim", 1355);
-			StopBot();
+			SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);			
+			StopBot(); MessageBox.Show($"Tato Lord Aquired");
 		}
 			
 					public void MaxMePls()
