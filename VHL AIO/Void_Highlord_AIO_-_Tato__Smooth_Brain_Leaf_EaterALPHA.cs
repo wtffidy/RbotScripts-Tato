@@ -700,15 +700,16 @@ public class VoidHighLordAIOTesting //🥔
 			public void Relogin()
 			{
 				bot.Options.AutoRelogin = false;
-				bot.Sleep(2000);
+				bot.Sleep(10000);
 				bot.Player.Logout();
-				bot.Sleep(5000);
+				bot.Sleep(10000);
        			bot.Player.Login(bot.Player.Username, bot.Player.Password);
         		RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
         		bot.Player.Connect(server);
-        		while (!bot.Player.LoggedIn) { bot.Sleep(1000); }
-				bot.Sleep(5000);
+        		while (!bot.Player.LoggedIn) { bot.Sleep(2500); }
+				bot.Sleep(10000);
 				bot.Options.AutoRelogin = true;
+				bot.Sleep(10000);
 				MainScript();
 			}
 			
@@ -841,8 +842,8 @@ public class VoidHighLordAIOTesting //🥔
 			UnbankList(TatoLord);
 			bot.Sleep(2000);
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Buy VHL");
-			SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);			
-			StopBot(); MessageBox.Show($"Tato Lord Aquired");
+			SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
+			StopBot();
 		}
 			
 					public void MaxMePls()
