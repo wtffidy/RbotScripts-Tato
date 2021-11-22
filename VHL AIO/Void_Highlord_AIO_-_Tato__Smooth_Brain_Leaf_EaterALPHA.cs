@@ -232,13 +232,13 @@ public class VoidHighLordAIOTesting //🥔
 		
 		bot.Quests.EnsureAccept(5660);
 		bot.Log("You Level 51+?");
-		if (bot.Player.Level < 75) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
+		if (bot.Player.Level < 55) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
 		bot.Log("Checking if you did the Dragonslayer Quests");
 		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 		bot.Log("You're Experienced But Can You Complete It?");
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
 		bot.Log("VHLPurchaseCheck");
-		if (bot.Inventory.Contains("Roentgenium of Nulgath", 15) | bot.Bank.Contains("Roentgenium of Nulgath", 15) && bot.Inventory.Contains("Void Crystal A", 1) | bot.Bank.Contains("Void Crystal A", 1) && bot.Inventory.Contains("Void Crystal B") | bot.Bank.Contains("Void Crystal B", 1)) TatoHighLord();
+		if ((bot.Inventory.Contains("Roentgenium of Nulgath", 15) || bot.Bank.Contains("Roentgenium of Nulgath", 15)) && (bot.Inventory.Contains("Void Crystal A", 1) || bot.Bank.Contains("Void Crystal A", 1)) && (bot.Inventory.Contains("Void Crystal B", 1) || bot.Bank.Contains("Void Crystal B", 1))) TatoHighLord();
 		bot.Log("Elder");
 		while (!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
 		bot.Log("Hadean");
