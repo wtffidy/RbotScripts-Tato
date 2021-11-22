@@ -740,13 +740,13 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(500);
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Unidentified 10 check-vhlbuy");
-					if(!bot.Inventory.Contains("Unidentified 10", 200)) LarvaeFarm();
+					while(!bot.Inventory.Contains("Unidentified 10", 200)) LarvaeFarm();
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Gem of Nulgath check-vhlbuy");
-					if(!bot.Inventory.Contains("Gem of Nulgath", 150)) GemofNulgath();
+					while(!bot.Inventory.Contains("Gem of Nulgath", 150)) GemofNulgath();
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Dark Crystal Shard check-vhlbuy");
-					if(!bot.Inventory.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
+					while(!bot.Inventory.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Tainted Gem check-vhlbuy");
-					if(!bot.Inventory.Contains("Tainted Gem", 200)) TaintedGemFarm();
+					while(!bot.Inventory.Contains("Tainted Gem", 200)) TaintedGemFarm();
 					bot.Sleep(500);
 					SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1355);
 					goto VHlbuystart;
