@@ -366,8 +366,8 @@ public class VoidHighLordAIOTesting //🥔
 						ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");		
 						bot.Log("BKO Quest Turnin."); 
 						bot.Quests.EnsureComplete(318);
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed");
 					}
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] BKO farmed");
 			}
 
 			public void Emerald()
