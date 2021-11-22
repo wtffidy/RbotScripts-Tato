@@ -238,9 +238,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("You're Experienced But Can You Complete It?");
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
 		bot.Log("VHLPurchaseCheck");
-		UnbankList(TatoLord);
-		bot.Sleep(2000);
-		if (bot.Inventory.Contains("Roentgenium of Nulgath", 15) && bot.Inventory.Contains("Void Crystal A", 1) && bot.Inventory.Contains("Void Crystal B")) TatoHighLord();
+		if (bot.Inventory.Contains("Roentgenium of Nulgath", 15) || bot.Bank.Contains("Roentgenium of Nulgath", 15) && bot.Inventory.Contains("Void Crystal A", 1) || bot.Bank.Contains("Void Crystal A", 1) && bot.Inventory.Contains("Void Crystal B") || bot.Bank.Contains("Void Crystal B", 1)) TatoHighLord();
 		bot.Log("Elder");
 		while (!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
 		bot.Log("Hadean");
@@ -839,11 +837,12 @@ public class VoidHighLordAIOTesting //🥔
 		{
 			SafeMapJoin("tercessuinotlim");
 			bot.Sleep(2000);
+			bot.Log("UnbankTatoLord");
 			UnbankList(TatoLord);
 			bot.Sleep(2000);
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Buy VHL");
 			SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
-			StopBot();
+			StopBot("Tato HighLord puchased");
 		}
 			
 					public void MaxMePls()
