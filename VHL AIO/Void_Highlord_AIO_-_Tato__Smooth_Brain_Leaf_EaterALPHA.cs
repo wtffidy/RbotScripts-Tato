@@ -686,10 +686,9 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Roentgenium1");*/
 				SafeMapJoin("party");
 				UnbankList(VHLQuest);
-				if (!bot.Quests.IsInProgress(5660)) 
-					bot.Quests.EnsureAccept(5660);
-				if (bot.Quests.CanComplete(5660)) 
-					bot.Quests.EnsureComplete(5660);
+				if (!bot.Quests.IsInProgress(5660)) bot.Quests.EnsureAccept(5660);
+				if (!bot.Quests.CanComplete(5660)) VCA();
+				else bot.Quests.EnsureComplete(5660);
 				bot.Sleep(2000);
 				if (bot.Player.DropExists("Roentgenium of Nulgath")) 
 					bot.Player.Pickup("Roentgenium of Nulgath");					
@@ -717,29 +716,31 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void VCA()
 			{
-					SafeMapJoin("tercessuinotlim");
-					bot.Sleep(500);
-					ExitCombat();
-					UnbankList(VCAList);
-					bot.Sleep(500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
-					Unbank(Larvae);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Unidentified 10 check-VCA");
-					while(!bot.Inventory.Contains("Unidentified 10", 200) && !bot.Bank.Contains("Unidentified 10", 200)) LarvaeFarm();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Dark Crystal Shard check-VCA");
-					while(!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Gem of Nulgath check-VCA");
-					while(!bot.Inventory.Contains("Gem of Nulgath", 150) && !bot.Bank.Contains("Gem of Nulgath", 150)) GemofNulgath();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Tainted Gem check-VCA");
-					while(!bot.Inventory.Contains("Tainted Gem", 200) && !bot.Bank.Contains("Tainted Gem", 200)) TaintedGemFarm();
-					bot.Sleep(2000);
-					ExitCombat();
-					UnbankList(VCAList);
-					SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1355);
+				if (bot.Inventory.Contains("Void Crystal A", 1) || bot.Bank.Contains("Void Crystal A", 1)) VCB();
+				SafeMapJoin("tercessuinotlim");
+				bot.Sleep(500);
+				ExitCombat();
+				UnbankList(VCAList);
+				bot.Sleep(500);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
+				Unbank(Larvae);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Unidentified 10 check-VCA");
+				while(!bot.Inventory.Contains("Unidentified 10", 200) && !bot.Bank.Contains("Unidentified 10", 200)) LarvaeFarm();
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Dark Crystal Shard check-VCA");
+				while(!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Gem of Nulgath check-VCA");
+				while(!bot.Inventory.Contains("Gem of Nulgath", 150) && !bot.Bank.Contains("Gem of Nulgath", 150)) GemofNulgath();
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Tainted Gem check-VCA");
+				while(!bot.Inventory.Contains("Tainted Gem", 200) && !bot.Bank.Contains("Tainted Gem", 200)) TaintedGemFarm();
+				bot.Sleep(2000);
+				ExitCombat();
+				UnbankList(VCAList);
+				SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1355);
 			}
 			
 			public void VCB()
 			{
+				if (bot.Inventory.Contains("Void Crystal B", 1) || bot.Bank.Contains("Void Crystal B", 1)) Relogin();
 				SafeMapJoin("tercessuinotlim");
 				bot.Sleep(500);
 				ExitCombat();
@@ -747,11 +748,11 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Sleep(500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] VCB Item Checks");
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath check-VCB");
-				if(!bot.Inventory.Contains("Diamond of Nulgath", 200) && !bot.Bank.Contains("Diamond of Nulgath", 200)) NulArchApprovalFavorDiamond();
+				while(!bot.Inventory.Contains("Diamond of Nulgath", 200) && !bot.Bank.Contains("Diamond of Nulgath", 200)) NulArchApprovalFavorDiamond();
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Blood Gem of the Archfiend check-VCB");
-				if(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
+				while(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Totem of Nulgath check-VCB");
-				if(!bot.Inventory.Contains("Totem of Nulgath", 15) && !bot.Bank.Contains("Totem of Nulgath", 15)) TotemofNulgath();
+				while(!bot.Inventory.Contains("Totem of Nulgath", 15) && !bot.Bank.Contains("Totem of Nulgath", 15)) TotemofNulgath();
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood check-VCB");
 				if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
 				if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) MaxMePls();
