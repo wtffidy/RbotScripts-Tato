@@ -17,7 +17,7 @@ public class VoidHighLordAIOTesting //🥔
     public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
     private int saveStateLoops = 8700;
     private int turnInAttempts = 10;
-    private string soloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);
+    private string soloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);  https://github.com/BrenoHenrike/Rbot-Scripts - run brenos "5Wolfwing(Darkovia)" in the chaoslords folder (use the guide on the site to configure your folder correctly)
     private string farmClass = "Vampire Lord"; //<-----Edit to your preference - SafeEquip(FarmClass);
     public int[] QuestList1 = { 5660,3743,6294,6295 };
     private static readonly string[] p = {
@@ -156,8 +156,16 @@ public class VoidHighLordAIOTesting //🥔
 		GetDropList(RequiredItems);
 		
 		while (!bot.ShouldExit())
+		{SkillList(FarmClass, SkillOrderFarmClass);
+		if (bot.Player.Level < 51)
 		{
-			MainScript();
+		MessageBox.Show($"YOU NEED LEVEL 51 TO DO THIS I CBA'ED MAKING A LEVELING FROM LVL 1 BECAUSE THIS IS TAKING TO DAMN LONG TO MAKE.... ");
+		bot.Options.AutoRelogin = false;
+		bot.Player.Logout();
+		StopBot();
+		}
+
+		MainScript();
 		}
 	}
 	
@@ -234,6 +242,8 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Sleep(2500);
 		bot.Log("unbank vhlquest");
 		UnbankList(VHLQuest);
+		//you wanna do lycan?
+		//if (!bot.Inventory.Contains("Lycan", 1) && !bot.Bank.Contains("Lycan", 1)) //idk if this works
 		
 		bot.Quests.EnsureAccept(5660);
 		bot.Log("You Level 51+?");
@@ -971,16 +981,29 @@ public class VoidHighLordAIOTesting //🥔
 		}
 		
 		public void Leveling()
-		{
+		{	
 			SkillList(FarmClass, SkillOrderFarmClass);
+			
 			while (bot.Player.Level < 75)
-			{
+			{				
 				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
 				ItemFarm("Fire Dragon Heart", 3, true, true, 6295, "Fire Drakel", "firewar");
 				ExitCombat();
 				SafeQuestComplete(6294);
 				SafeQuestComplete(6295);
 			}					
+		}
+
+		public void Lycan() //https://github.com/BrenoHenrike/Rbot-Scripts - run brenos "5Wolfwing(Darkovia)" in the chaoslords folder (use the guide on the site to configure your folder correctly)
+		{
+			if (!bot.Quests.IsAvailable(537)) MainScript();
+
+			while (bot.Player.GetFactionRank("Lycan") < 10)
+			{
+				ItemFarm("Sanguine Mask", 1, true, true, 537, "Sanguine", "lycan");
+				SafeQuestComplete(537);
+			}
+			
 		}
 
 
@@ -1433,7 +1456,8 @@ public class VoidHighLordAIOTesting //🥔
 			{
 				foreach (var Skill in Skillset)
 				{
-					bot.Player.UseSkill(Skill);
+					if (bot.Player.CanUseSkill(Skill))
+    				bot.Player.UseSkill(Skill);
 				}
 			}
 		}, skillSetName);
