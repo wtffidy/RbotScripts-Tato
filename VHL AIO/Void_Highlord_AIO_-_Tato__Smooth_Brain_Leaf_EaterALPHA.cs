@@ -12,6 +12,7 @@ public class VoidHighLordAIOTesting //🥔
 	//-----------EDIT BELOW-------------//
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 2, 4, 3, 1 };
+	public readonly int[] SkillOrder2 = { 5, 2, 3 };
     //public readonly int[] SkillOrderSoloClass = { 3, 1, 2, 4 };
     //public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
     private int saveStateLoops = 8700;
@@ -217,6 +218,7 @@ public class VoidHighLordAIOTesting //🥔
 	public void MainScript()
 	{
 		while (!bot.Player.Loaded) { }
+
 		bot.Log("bank everything");
 		UnbankList(Rebank);
 		bot.Log("invcheck-scriptstart");
@@ -236,7 +238,9 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("Checking if you did the Dragonslayer Quests");
 		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 		bot.Log("You're Experienced But Can You Complete It?");
-		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");
+		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");		
+		bot.Log("VHL Owner?");
+		while (bot.Inventory.Contains("Void Highlord", 1) && bot.Bank.Contains("Void Highlord", 1)) VHLEnhanceRank();
 		bot.Log("VHLPurchaseCheck");
 		if ((bot.Inventory.Contains("Roentgenium of Nulgath", 15) || bot.Bank.Contains("Roentgenium of Nulgath", 15)) && (bot.Inventory.Contains("Void Crystal A", 1) || bot.Bank.Contains("Void Crystal A", 1)) && (bot.Inventory.Contains("Void Crystal B", 1) || bot.Bank.Contains("Void Crystal B", 1))) TatoHighLord();
 		bot.Log("Elder");
@@ -852,9 +856,49 @@ public class VoidHighLordAIOTesting //🥔
 			bot.Log("UnbankTatoLord");
 			UnbankList(TatoLord);
 			bot.Sleep(2000);
-			bot.Log($"[{DateTime.Now:HH:mm:ss}] Buy VHL");
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] Tato HighLord Purchased");
 			SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
-			StopBot("Tato HighLord Purchased");
+			bot.Sleep(500);
+			bot.Log("Ranking VHL");
+			VHLEnhanceRank();			
+		}
+		public void VHLEnhanceRank()
+		{			
+			SkillList(SkillOrder2);
+			UnbankList(Rebank); 
+			bot.Sleep(500);
+			if (bot.Bank.Contains("Void Highlord")) bot.Bank.ToInventory("Void Highlord");
+
+			while (bot.Player.Level > 99)
+				{
+					if (bot.Player.IsMember)
+					{
+						bot.SendPacket("%xt%zm%enhanceItemShop%56963%38259%52411%763%");
+						bot.Sleep(500);
+						SafeEquip("Void Highlord");
+					}
+					else
+
+					if (!bot.Player.IsMember)
+					{
+						bot.SendPacket("%xt%zm%enhanceItemShop%56963%38259%52403%763%");
+						bot.Sleep(500);
+						SafeEquip("Void Highlord");
+					}							
+				}
+				
+			if (bot.Player.Rank < 10)
+				{
+					bot.Log("join icestormarena");
+					bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
+					bot.Log("aggropkt");
+					bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
+					AttackType("a", "*");
+					bot.Sleep(2500);
+				}
+			
+		bot.Sleep(500);
+		StopBot("VHl bought, Enchanced, and Ranked, All FInished.");
 		}
 			
 		public void MaxMePls()
