@@ -12,7 +12,7 @@ public class VoidHighLordAIOTesting //🥔
 	//-----------EDIT BELOW-------------//
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 2, 4, 3, 1 };
-	public readonly int[] SkillOrder2 = { 5, 2, 3 };
+	public readonly int[] SkillOrder2 = { 4, 1, 2 };
     //public readonly int[] SkillOrderSoloClass = { 3, 1, 2, 4 };
     //public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
     private int saveStateLoops = 8700;
@@ -869,7 +869,7 @@ public class VoidHighLordAIOTesting //🥔
 		}
 		public void VHLEnhanceRank()
 		{			
-			SkillList(SkillOrder2);
+			Skilluse(SkillOrder2);
 			bot.Sleep(500);
 			if (bot.Bank.Contains("Void Highlord")) bot.Bank.ToInventory("Void Highlord");
 			{				
@@ -889,14 +889,10 @@ public class VoidHighLordAIOTesting //🥔
 					}							
 			
 				
-				if (bot.Player.Rank < 10)
+				while (bot.Player.Rank < 10)
 					{
-					bot.Log("join icestormarena");
-					bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
-					bot.Log("aggropkt");
-					bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
-					AttackType("a", "*");
-					bot.Sleep(2500);
+					bot.Log("firewar xp - VHLEnhanceRank");
+					ItemFarm("FIre Dragon Scales", 5, true, true, 6294, "Fire Drake", "firewar");
 				}
 			}
 			
@@ -923,19 +919,17 @@ public class VoidHighLordAIOTesting //🥔
 					if (bot.Quests.IsAvailable(802)) GorillaBlood();
 				}
 			bot.Log("LevelTime");
-			bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
 			bot.Log("Maxing Level Cap");
 			while (bot.Player.Level < 100)								
 				{
-					bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
-					AttackType("a", "*");
-					bot.Sleep(2500);
-					bot.Log("EldersQuestCheck2");
+					bot.Log("firewar xp - MaxMePls");
+					ItemFarm("FIre Dragon Scales", 5, true, true, 6294, "Fire Drake", "firewar");
 					if (bot.Quests.IsAvailable(802)) GorillaBlood();
+					
 				}
 			bot.Log("EldersQuestCheck3");
 			if (bot.Quests.IsAvailable(802)) GorillaBlood();
-			Relogin();
+			StopBot();
 		}
 
 		public void KissTheVoidQuest()
@@ -1038,15 +1032,10 @@ public class VoidHighLordAIOTesting //🥔
 		
 		public void Leveling()
 		{
-			
-			bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
-				while (bot.Player.Level < 75)	
+				while (bot.Player.Level < 75)
 				{
-				bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
-				
-					AttackType("a", "*");
-					bot.Sleep(2500);
-				}	
+					ItemFarm("FIre Dragon Scales", 5, true, true, 6294, "Fire Drake", "firewar");
+				}
 				SafeMapJoin("trainers");
 				bot.Sleep(250);	
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance healer-51");		
