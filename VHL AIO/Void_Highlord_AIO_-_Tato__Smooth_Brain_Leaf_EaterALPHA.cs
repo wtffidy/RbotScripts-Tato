@@ -886,7 +886,7 @@ public class VoidHighLordAIOTesting //🥔
 					ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
 						ExitCombat();
 					SafeQuestComplete(6294);
-					if (!bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
+					if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
 						{
 							if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
 						}				
@@ -1009,7 +1009,7 @@ public class VoidHighLordAIOTesting //🥔
 				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
 				ExitCombat();
 				SafeQuestComplete(6294);
-				if (!bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
+				if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
 				{
 					if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
 				}				
