@@ -19,7 +19,7 @@ public class VoidHighLordAIOTesting //🥔
     private int turnInAttempts = 10;
     private string soloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);
     private string farmClass = "Vampire Lord"; //<-----Edit to your preference - SafeEquip(FarmClass);
-    public int[] QuestList1 = { 5660,3743 };
+    public int[] QuestList1 = { 5660,3743,6294,6295 };
     private static readonly string[] p = {
         "Aelita's Emerald",
         "Archfiend's Favor",
@@ -856,9 +856,12 @@ public class VoidHighLordAIOTesting //🥔
 			while (bot.Player.Level < 100)								
 				{
 					bot.Log("firewar xp - MaxMePls");
-					ItemFarm("Fire Dragon Scales", 5, true, true, 6294, "Fire Drakel", "firewar");
+					ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
+					ItemFarm("Fire Dragon Heart", 3, true, true, 6295, "Fire Drakel", "firewar");
 					ExitCombat();
 					SafeQuestComplete(6294);
+					SafeQuestComplete(6295);
+					
 					if (bot.Quests.IsAvailable(802)) GorillaBlood();
 					
 				}
@@ -972,9 +975,11 @@ public class VoidHighLordAIOTesting //🥔
 			SkillList(FarmClass, SkillOrderFarmClass);
 			while (bot.Player.Level < 75)
 			{
-				ItemFarm("Fire Dragon Scales", 5, true, true, 6294, "Fire Drakel", "firewar");
+				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
+				ItemFarm("Fire Dragon Heart", 3, true, true, 6295, "Fire Drakel", "firewar");
 				ExitCombat();
 				SafeQuestComplete(6294);
+				SafeQuestComplete(6295);
 			}					
 		}
 
