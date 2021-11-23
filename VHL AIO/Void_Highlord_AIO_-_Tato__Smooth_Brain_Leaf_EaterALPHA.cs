@@ -217,7 +217,10 @@ public class VoidHighLordAIOTesting //🥔
 	
 	public void MainScript()
 	{
-		while (!bot.Player.Loaded) { }
+		while (!bot.Player.Loaded) { }	
+			
+		bot.Log("VHL Owner?");
+		while (bot.Inventory.Contains("Void Highlord", 1) || bot.Bank.Contains("Void Highlord", 1)) VHLEnhanceRank();
 
 		bot.Log("bank everything");
 		UnbankList(Rebank);
@@ -240,7 +243,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Log("You're Experienced But Can You Complete It?");
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");		
 		bot.Log("VHL Owner?");
-		while (bot.Inventory.Contains("Void Highlord", 1) && bot.Bank.Contains("Void Highlord", 1)) VHLEnhanceRank();
+		while (bot.Inventory.Contains("Void Highlord", 1) || bot.Bank.Contains("Void Highlord", 1)) VHLEnhanceRank();
 		bot.Log("VHLPurchaseCheck");
 		if ((bot.Inventory.Contains("Roentgenium of Nulgath", 15) || bot.Bank.Contains("Roentgenium of Nulgath", 15)) && (bot.Inventory.Contains("Void Crystal A", 1) || bot.Bank.Contains("Void Crystal A", 1)) && (bot.Inventory.Contains("Void Crystal B", 1) || bot.Bank.Contains("Void Crystal B", 1))) TatoHighLord();
 		bot.Log("Elder");
@@ -865,13 +868,10 @@ public class VoidHighLordAIOTesting //🥔
 		public void VHLEnhanceRank()
 		{			
 			SkillList(SkillOrder2);
-			UnbankList(Rebank); 
 			bot.Sleep(500);
 			if (bot.Bank.Contains("Void Highlord")) bot.Bank.ToInventory("Void Highlord");
-
-			while (bot.Player.Level > 99)
-				{
-					if (bot.Player.IsMember)
+			{				
+				if (bot.Player.IsMember)
 					{
 						bot.SendPacket("%xt%zm%enhanceItemShop%56963%38259%52411%763%");
 						bot.Sleep(500);
@@ -879,16 +879,16 @@ public class VoidHighLordAIOTesting //🥔
 					}
 					else
 
-					if (!bot.Player.IsMember)
+				if (!bot.Player.IsMember)
 					{
 						bot.SendPacket("%xt%zm%enhanceItemShop%56963%38259%52403%763%");
 						bot.Sleep(500);
 						SafeEquip("Void Highlord");
 					}							
-				}
+			
 				
-			if (bot.Player.Rank < 10)
-				{
+				if (bot.Player.Rank < 10)
+					{
 					bot.Log("join icestormarena");
 					bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
 					bot.Log("aggropkt");
@@ -896,6 +896,8 @@ public class VoidHighLordAIOTesting //🥔
 					AttackType("a", "*");
 					bot.Sleep(2500);
 				}
+			}
+			
 			
 		bot.Sleep(500);
 		StopBot("VHl bought, Enchanced, and Ranked, All FInished.");
