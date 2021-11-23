@@ -173,7 +173,7 @@ public class VoidHighLordAIOTesting //🥔
 			}
 
 			bot.Log("Enhance time");
-			if (bot.Player.Level > 9)
+			if (bot.Player.Level < 11)
 			{					
 				bot.SendPacket("%xt%zm%enhanceItemShop%66803%15651%3707%147%"); //healer enhance lvl10
 				bot.Sleep(1500);
