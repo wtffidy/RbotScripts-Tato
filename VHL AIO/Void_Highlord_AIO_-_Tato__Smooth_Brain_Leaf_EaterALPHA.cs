@@ -15,10 +15,12 @@ public class VoidHighLordAIOTesting //🥔
 	public readonly int[] SkillOrder2 = { 4, 1, 2 };
     public readonly int[] SkillOrderSoloClass = { 4, 1, 2 };
     public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
+	public readonly int[] SkillOrderHealer = { 2, 1, 3, 4 };
     private int saveStateLoops = 8700;
     private int turnInAttempts = 10;
     private string soloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);  https://github.com/BrenoHenrike/Rbot-Scripts - run brenos "5Wolfwing(Darkovia)" in the chaoslords folder (use the guide on the site to configure your folder correctly)
     private string farmClass = "Vampire Lord"; //<-----Edit to your preference - SafeEquip(FarmClass);
+	private string LevelingClass = "Healer";
     public int[] QuestList1 = { 5660,3743,6294,6295 };
     private static readonly string[] p = {
         "Aelita's Emerald",
@@ -156,16 +158,31 @@ public class VoidHighLordAIOTesting //🥔
 		GetDropList(RequiredItems);
 		
 		while (!bot.ShouldExit())
-		{SkillList(FarmClass, SkillOrderFarmClass);
-		if (bot.Player.Level < 51)
 		{
-		MessageBox.Show($"YOU NEED LEVEL 51 TO DO THIS I CBA'ED MAKING A LEVELING FROM LVL 1 BECAUSE THIS IS TAKING TO DAMN LONG TO MAKE.... ");
-		bot.Options.AutoRelogin = false;
-		bot.Player.Logout();
-		StopBot();
-		}
+			{
+			SkillList(LevelingClass, SkillOrderHealer);
+			bot.Log("mapjoin1");
+			bot.Player.Join($"{"yulgar"}-{999999}", "Enter", "Spawn");
+			bot.Sleep(500);
+			bot.Log("mapjoin2");
+			bot.Player.Join($"{"oaklore"}-{999999}", "r2", "Left");
+			bot.Log("lvl<10 start killing");
+			while (bot.Player.Level < 10)		
+			{
+			AttackType("a", "*");
+			}
 
-		MainScript();
+			bot.Log("Enhance time");
+			if (bot.Player.Level > 9)
+			{					
+				bot.SendPacket("%xt%zm%enhanceItemShop%66803%15651%3707%147%"); //healer enhance lvl10
+				bot.Sleep(1500);
+				bot.SendPacket("%xt%zm%enhanceItemShop%66803%3%3616%147%");//default staff  enhance lvl10
+				bot.Sleep(2500);					
+			}			
+			
+			MainScript();
+			}
 		}
 	}
 	
@@ -867,11 +884,14 @@ public class VoidHighLordAIOTesting //🥔
 				{
 					bot.Log("firewar xp - MaxMePls");
 					ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
-					ItemFarm("Fire Dragon Heart", 3, true, true, 6295, "Fire Drakel", "firewar");
-					ExitCombat();
+						ExitCombat();
 					SafeQuestComplete(6294);
-					SafeQuestComplete(6295);
-					
+					if (!bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
+						{
+							if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
+						}				
+						
+											
 					if (bot.Quests.IsAvailable(802)) GorillaBlood();
 					
 				}
@@ -987,10 +1007,12 @@ public class VoidHighLordAIOTesting //🥔
 			while (bot.Player.Level < 75)
 			{				
 				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
-				ItemFarm("Fire Dragon Heart", 3, true, true, 6295, "Fire Drakel", "firewar");
 				ExitCombat();
 				SafeQuestComplete(6294);
-				SafeQuestComplete(6295);
+				if (!bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
+				{
+					if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
+				}				
 			}					
 		}
 
@@ -1573,5 +1595,4 @@ public class VoidHighLordAIOTesting //🥔
          }
       });
 	}
-
 }
