@@ -13,8 +13,8 @@ public class VoidHighLordAIOTesting //🥔
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 2, 4, 3, 1 };
 	public readonly int[] SkillOrder2 = { 4, 1, 2 };
-    //public readonly int[] SkillOrderSoloClass = { 3, 1, 2, 4 };
-    //public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
+    public readonly int[] SkillOrderSoloClass = { 4, 1, 2 };
+    public readonly int[] SkillOrderFarmClass = { 3, 1, 2, 4 };
     private int saveStateLoops = 8700;
     private int turnInAttempts = 10;
     private string soloClass = "Lycan"; //<-----Edit to your preference - SafeEquip(SoloClass);
@@ -151,7 +151,7 @@ public class VoidHighLordAIOTesting //🥔
 		DeathHandler();
 		
 		
-		SkillList(SkillOrder);	
+		SkillList(soloClass, SkillOrderSoloClass);
 		//CheckSpace(RequiredItems); InvCheck does the same thing but for a fixed inventory slot amount - as we're banking as we go, we dont need max inventory space
 		GetDropList(RequiredItems);
 		
@@ -237,7 +237,7 @@ public class VoidHighLordAIOTesting //🥔
 		
 		bot.Quests.EnsureAccept(5660);
 		bot.Log("You Level 51+?");
-		if (bot.Player.Level < 55) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, ++ to kill stuff
+		if (bot.Player.Level < 75) Leveling(); //10 for dragonslayer reward, 50 for vhl Challenge, 75 for insurance 
 		bot.Log("Checking if you did the Dragonslayer Quests");
 		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 		bot.Log("You're Experienced But Can You Complete It?");
@@ -508,6 +508,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void NationsRecruitSealYourFate()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] NationUnbank");
@@ -529,6 +530,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void TaintedGemFarm()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
@@ -562,6 +564,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void BoneDust()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);		
@@ -576,6 +579,7 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void NulArchApprovalFavorDiamond()
 			{	
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
@@ -609,6 +613,7 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void Chocolate()
 			{
+				SkillList(SoloClass, SkillOrderSoloClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(SoloClass);
@@ -649,6 +654,7 @@ public class VoidHighLordAIOTesting //🥔
 		
 			public void Craggie()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
@@ -679,6 +685,7 @@ public class VoidHighLordAIOTesting //🥔
 
 			public void TheSecret1()
 			{
+				SkillList(SoloClass, SkillOrderSoloClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(SoloClass);
@@ -775,85 +782,7 @@ public class VoidHighLordAIOTesting //🥔
 				SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1355);
 			}
 
-			/*public void BuyVHL()
-				{
-					SafeMapJoin("tercessuinotlim");
-					bot.Sleep(500);
-					UnbankList(VHlbuy);
 
-				VHlbuystart:	
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking for VCA");			
-					if(!bot.Inventory.Contains("Void Crystal A", 1))
-						{	
-						goto VCAbuy;
-						}	
-
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking for VCB");
-					if(!bot.Inventory.Contains("Void Crystal B", 1))
-						{	
-						goto VCBbuy;
-						}
-					
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Checking for VHL");
-					if(!bot.Inventory.Contains("Void Highlord", 1))
-						{
-						goto VHLbuy;
-						}
-					MessageBox.Show($"Tato Lord Aquired");
-					StopBot();
-					
-					VCAbuy:
-					SafeMapJoin("tercessuinotlim");
-					bot.Sleep(500);
-					ExitCombat();
-					UnbankList(VHlbuy);
-					bot.Sleep(500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Unidentified 10 check-vhlbuy");
-					while(!bot.Inventory.Contains("Unidentified 10", 200)) LarvaeFarm();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Gem of Nulgath check-vhlbuy");
-					while(!bot.Inventory.Contains("Gem of Nulgath", 150)) GemofNulgath();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Dark Crystal Shard check-vhlbuy");
-					while(!bot.Inventory.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Tainted Gem check-vhlbuy");
-					while(!bot.Inventory.Contains("Tainted Gem", 200)) TaintedGemFarm();
-					bot.Sleep(500);
-					SafePurchase("Void Crystal A", 1, "tercessuinotlim", 1355);
-					goto VHlbuystart;
-					
-					VCBbuy:
-					SafeMapJoin("tercessuinotlim");
-					bot.Sleep(500);
-					ExitCombat();
-					UnbankList(VHlbuy);
-					bot.Sleep(500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] VCB Item Checks");
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath check-vhlbuy");
-					if(!bot.Inventory.Contains("Diamond of Nulgath", 200)) NulArchApprovalFavorDiamond();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Blood Gem of the Archfiend check-vhlbuy");
-					if(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Totem of Nulgath check-vhlbuy");
-					if(!bot.Inventory.Contains("Totem of Nulgath", 15)) TotemofNulgath();
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Elders' Blood check-vhlbuy");
-					if(!bot.Inventory.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
-					if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) MaxMePls();
-
-					bot.Sleep(500);
-					SafePurchase("Void Crystal B", 1, "tercessuinotlim", 1355);
-					goto VHlbuystart;
-					
-
-					VHLbuy:
-					SafeMapJoin("tercessuinotlim");
-					bot.Sleep(500);
-					ExitCombat();
-					UnbankList(VHlbuy);
-					bot.Sleep(500);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] Buying VHL-vhlbuy");
-					SafePurchase("Void Highlord", 1, "tercessuinotlim", 1355);
-					goto VHlbuystart;
-				}
-				*/
 		public void TatoHighLord()
 		{
 			SafeMapJoin("tercessuinotlim");
@@ -869,7 +798,7 @@ public class VoidHighLordAIOTesting //🥔
 		}
 		public void VHLEnhanceRank()
 		{			
-			Skilluse(SkillOrder2);
+			SkillList(FarmClass, SkillOrderFarmClass);
 			bot.Sleep(500);
 			if (bot.Bank.Contains("Void Highlord")) bot.Bank.ToInventory("Void Highlord");
 			{				
@@ -886,13 +815,16 @@ public class VoidHighLordAIOTesting //🥔
 						bot.SendPacket("%xt%zm%enhanceItemShop%56963%38259%52403%763%");
 						bot.Sleep(500);
 						SafeEquip("Void Highlord");
-					}							
-			
+					}			
 				
 				while (bot.Player.Rank < 10)
 					{
-					bot.Log("firewar xp - VHLEnhanceRank");
-					ItemFarm("FIre Dragon Scales", 5, true, true, 6294, "Fire Drake", "firewar");
+						
+					bot.Player.Join($"{"icestormarena"}-{9999999}", "r3b", "Left");						
+						{						
+							AttackType("a", "*");
+							bot.Sleep(2500);
+						}	
 				}
 			}
 			
@@ -903,7 +835,8 @@ public class VoidHighLordAIOTesting //🥔
 			
 		public void MaxMePls()
 		{
-		bot.Log("Maxing Gold Cap");
+			SkillList(FarmClass, SkillOrderFarmClass);
+			bot.Log("Maxing Gold Cap");
 			while(bot.Player.Gold < 100000000)
 				{
 					SafeEquip(SoloClass);
@@ -923,7 +856,9 @@ public class VoidHighLordAIOTesting //🥔
 			while (bot.Player.Level < 100)								
 				{
 					bot.Log("firewar xp - MaxMePls");
-					ItemFarm("FIre Dragon Scales", 5, true, true, 6294, "Fire Drake", "firewar");
+					ItemFarm("Fire Dragon Scales", 5, true, true, 6294, "Fire Drakel", "firewar");
+					ExitCombat();
+					SafeQuestComplete(6294);
 					if (bot.Quests.IsAvailable(802)) GorillaBlood();
 					
 				}
@@ -934,6 +869,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		public void KissTheVoidQuest()
 		{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			bot.Log("KissTheVoidBank");
 			UnbankList(KissTheVoid);
 			while(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30))
@@ -968,7 +904,8 @@ public class VoidHighLordAIOTesting //🥔
 		}
 
 		public void DragonSlayerRewardQuests()
-		{   					
+		{   
+			SkillList(FarmClass, SkillOrderFarmClass);					
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards1");
 		DragonSlayerRewardAIO:
 		if (bot.Quests.IsAvailable(169))
@@ -1032,18 +969,17 @@ public class VoidHighLordAIOTesting //🥔
 		
 		public void Leveling()
 		{
-				while (bot.Player.Level < 75)
-				{
-					ItemFarm("FIre Dragon Scales", 5, true, true, 6294, "Fire Drake", "firewar");
-				}
-				SafeMapJoin("trainers");
-				bot.Sleep(250);	
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance healer-51");		
-				bot.SendPacket("%xt%zm%enhanceItemShop%33392%15651%19606%768%");						
-				bot.Sleep(250);	
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance stick-51");
-				bot.SendPacket("%xt%zm%enhanceItemShop%35751%3%19604%768%");					
+			SkillList(FarmClass, SkillOrderFarmClass);
+			while (bot.Player.Level < 75)
+			{
+				ItemFarm("Fire Dragon Scales", 5, true, true, 6294, "Fire Drakel", "firewar");
+				ExitCombat();
+				SafeQuestComplete(6294);
+			}					
 		}
+
+
+		
 
 	/*------------------------------------------------------------------------------------------------------------
 													 Invokable Functions
@@ -1482,8 +1418,11 @@ public class VoidHighLordAIOTesting //🥔
 	/// <summary>
 	/// Spams Skills when in combat. You can get in combat by going to a cell with monsters in it with bot.Options.AggroMonsters enabled or using an attack command against one.
 	/// </summary>
-	public void SkillList(params int[] Skillset)
+	
+	string currentSkillSet = "" ;
+	public void SkillList(string skillSetName, params int[] Skillset)
 	{
+		bot.Handlers.RemoveAll(handlers => handlers.Name == currentSkillSet);
 		bot.RegisterHandler(1, b => {
 			if (bot.Player.InCombat)
 			{
@@ -1492,7 +1431,8 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Player.UseSkill(Skill);
 				}
 			}
-		});
+		}, skillSetName);
+		currentSkillSet = skillSetName;
 	}
 
 	/// <summary>
