@@ -685,7 +685,9 @@ public class VoidHighLordAIOTesting //🥔
 				/*if(bot.Inventory.Contains(" new string = { VHLQuest } ", 1))
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Roentgenium1");*/
 				SafeMapJoin("party");
+				bot.Log("RoentUnbank");
 				UnbankList(VHLQuest);
+				bot.Log("RoentChecks");
 				if (!bot.Quests.IsInProgress(5660)) bot.Quests.EnsureAccept(5660);
 				if (!bot.Quests.CanComplete(5660)) VCA();
 				else bot.Quests.EnsureComplete(5660);
@@ -716,10 +718,12 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void VCA()
 			{
+				bot.Log("VCA InvCheck");
 				if (bot.Inventory.Contains("Void Crystal A", 1) || bot.Bank.Contains("Void Crystal A", 1)) VCB();
 				SafeMapJoin("tercessuinotlim");
 				bot.Sleep(500);
 				ExitCombat();
+				bot.Log("VCA Unbank");
 				UnbankList(VCAList);
 				bot.Sleep(500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
@@ -740,10 +744,12 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void VCB()
 			{
-				if (bot.Inventory.Contains("Void Crystal B", 1) || bot.Bank.Contains("Void Crystal B", 1)) Relogin();
+				bot.Log("VCB InvCheck");
+				if (bot.Inventory.Contains("Void Crystal B", 1) || bot.Bank.Contains("Void Crystal B", 1)) MaxMePls();
 				SafeMapJoin("tercessuinotlim");
 				bot.Sleep(500);
 				ExitCombat();
+				bot.Log("VCB Unbank");
 				UnbankList(VCBList);
 				bot.Sleep(500);
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] VCB Item Checks");
@@ -851,44 +857,51 @@ public class VoidHighLordAIOTesting //🥔
 			StopBot("Tato HighLord Purchased");
 		}
 			
-					public void MaxMePls()
-					{
-					bot.Log("Maxing Gold Cap");
-						while(bot.Player.Gold < 100000000)
-							{
-								SafeEquip(SoloClass);
-								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");	
-								SafeQuestComplete(236);								
-								SafeSell("Berserker Bunny", 0);
-								if (bot.Quests.IsAvailable(802)) GorillaBlood();
-							}
-					
-						bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
-						bot.Log("Maxing Level Cap");
-						while (bot.Player.Level < 100)								
-							{
-								bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
-								AttackType("a", "*");
-								bot.Sleep(2500);
-								if (bot.Quests.IsAvailable(802)) GorillaBlood();
-							}
-						if (bot.Quests.IsAvailable(802)) GorillaBlood();
-					}
-				
-				
-				public void KissTheVoidQuest()
+		public void MaxMePls()
+		{
+		bot.Log("Maxing Gold Cap");
+			while(bot.Player.Gold < 100000000)
 				{
-					bot.Log("KissTheVoidBank");
-					UnbankList(KissTheVoid);
-					while(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30))
-					{
-						bot.Log("KissTheVoidFarm");						
-						ItemFarm("Tendurrr The Assistant", 1, false, false, 3743, "Dark Makai", "tercessuinotlim", "m2", "Left");//1% may take a minute						
-						ItemFarm("Fragment of Chaos", 80, false, true, 3743, "Water Draconian", "lair");
-						ItemFarm("Broken Betrayal Blade", 8, true, true, 3743, "Legion Fenrir", "evilwarnul");
-						bot.Quests.EnsureComplete(3743);
-					}
+					SafeEquip(SoloClass);
+					bot.Log("GoldFarm");
+					ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
+					bot.Log("GoldTurnIn");
+					SafeQuestComplete(236);
+					bot.Sleep(1000);
+					bot.Log("GoldSell");					
+					SafeSell("Berserker Bunny", 0);
+					bot.Log("EldersQuestCheck1");
+					if (bot.Quests.IsAvailable(802)) GorillaBlood();
 				}
+			bot.Log("LevelTime");
+			bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
+			bot.Log("Maxing Level Cap");
+			while (bot.Player.Level < 100)								
+				{
+					bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
+					AttackType("a", "*");
+					bot.Sleep(2500);
+					bot.Log("EldersQuestCheck2");
+					if (bot.Quests.IsAvailable(802)) GorillaBlood();
+				}
+			bot.Log("EldersQuestCheck3");
+			if (bot.Quests.IsAvailable(802)) GorillaBlood();
+			Relogin();
+		}
+
+		public void KissTheVoidQuest()
+		{
+			bot.Log("KissTheVoidBank");
+			UnbankList(KissTheVoid);
+			while(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30))
+			{
+				bot.Log("KissTheVoidFarm");						
+				ItemFarm("Tendurrr The Assistant", 1, false, false, 3743, "Dark Makai", "tercessuinotlim", "m2", "Left");//1% may take a minute						
+				ItemFarm("Fragment of Chaos", 80, false, true, 3743, "Water Draconian", "lair");
+				ItemFarm("Broken Betrayal Blade", 8, true, true, 3743, "Legion Fenrir", "evilwarnul");
+				bot.Quests.EnsureComplete(3743);
+			}
+		}
 				
 
 				/*public void SpinTheWheel()
@@ -899,99 +912,100 @@ public class VoidHighLordAIOTesting //🥔
 				//ItemFarm("ItemName", ItemQuantity, Temporary, HuntFor, QuestID, "MonsterName", "MapName", "CellName", "PadName");
 				}*/
 				
-				public void Unbank(params string[] Unbank)
+		public void Unbank(params string[] Unbank)
+		{
+		if (bot.Player.Cell != "Wait") bot.Player.Jump("Wait", "Spawn");
+		while (bot.Player.State == 2) { }
+		bot.Player.LoadBank();
+		List<string> Whitelisted = new List<string>() { "Note", "Item", "Resource", "QuestItem", "ServerUse" };
+		foreach (var item in Unbank)
+			{
+				if (bot.Bank.Contains(item)) bot.Bank.ToInventory(item);
+			}
+		}
+
+		public void DragonSlayerRewardQuests()
+		{   					
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards1");
+		DragonSlayerRewardAIO:
+		if (bot.Quests.IsAvailable(169))
+			{	goto DragonSlayerReward;
+				if (bot.Quests.IsAvailable(168))
+					{	goto DragonSlayerMarsh;
+					 if (bot.Quests.IsAvailable(167))
+							{	goto DragonSlayerCapt;									
+							 if (bot.Quests.IsAvailable(166))
+									{	goto DragonSlayerSerg;											
+									 if (bot.Quests.IsAvailable(165))
+											{	goto DragonSlayerVet;
+											}}}}}
+			DragonSlayerVet:
+				SafeEquip(FarmClass);
+				ItemFarm("Dragonslayer Veteran Medal", 8, true, true, 165, "Wyvern", "lair");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards2");
+				ExitCombat();
+				bot.Quests.EnsureComplete(165);
+			
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards3");
+				goto DragonSlayerSerg;
+
+			DragonSlayerSerg:
+				SafeEquip(FarmClass);
+				ItemFarm("Dragonslayer Sergeant Medal", 8, true, true, 166, "Bronze Draconian|Purple Draconian|Venom Draconian", "lair");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards4");
+				ExitCombat();
+				bot.Quests.EnsureComplete(166);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards5");
+										
+				goto DragonSlayerCapt;
+
+			DragonSlayerCapt:
+				SafeEquip(FarmClass);
+				ItemFarm("Dragonslayer Captain Medal", 8, true, true, 167, "Dark Draconian|Golden Draconian", "lair");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards6");
+				ExitCombat();
+				bot.Quests.EnsureComplete(167);	
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards7");
+				goto DragonSlayerMarsh;	
+
+			DragonSlayerMarsh:
+				SafeEquip(SoloClass);
+				ItemFarm("Dragonslayer Marshal Medal", 8, true, true, 168, "Red Dragon", "lair");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards8");
+				ExitCombat();
+				bot.Quests.EnsureComplete(168);
+				
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards9");
+				goto DragonSlayerReward;
+
+			DragonSlayerReward:
+				SafeEquip(FarmClass);
+				ItemFarm("Wisp of Dragonspirit", 12, true, true, 169, "Wyvern", "lair");
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards10");
+				ExitCombat();
+				bot.Quests.EnsureComplete(169);					
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards11");		
+		}
+		
+		public void Leveling()
+		{
+			
+			bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
+				while (bot.Player.Level < 75)	
 				{
-				if (bot.Player.Cell != "Wait") bot.Player.Jump("Wait", "Spawn");
-				while (bot.Player.State == 2) { }
-				bot.Player.LoadBank();
-				List<string> Whitelisted = new List<string>() { "Note", "Item", "Resource", "QuestItem", "ServerUse" };
-				foreach (var item in Unbank)
-					{
-						if (bot.Bank.Contains(item)) bot.Bank.ToInventory(item);
-					}
-				}
-
-				public void DragonSlayerRewardQuests()
-				{   					
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards1");
-				DragonSlayerRewardAIO:
-				if (bot.Quests.IsAvailable(169))
-					{	goto DragonSlayerReward;
-						if (bot.Quests.IsAvailable(168))
-							{	goto DragonSlayerMarsh;
-							 if (bot.Quests.IsAvailable(167))
-									{	goto DragonSlayerCapt;									
-									 if (bot.Quests.IsAvailable(166))
-											{	goto DragonSlayerSerg;											
-											 if (bot.Quests.IsAvailable(165))
-													{	goto DragonSlayerVet;
-													}}}}}
-					DragonSlayerVet:
-						SafeEquip(FarmClass);
-						ItemFarm("Dragonslayer Veteran Medal", 8, true, true, 165, "Wyvern", "lair");
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards2");
-						ExitCombat();
-						bot.Quests.EnsureComplete(165);
-					
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards3");
-						goto DragonSlayerSerg;
-
-					DragonSlayerSerg:
-						SafeEquip(FarmClass);
-						ItemFarm("Dragonslayer Sergeant Medal", 8, true, true, 166, "Bronze Draconian|Purple Draconian|Venom Draconian", "lair");
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards4");
-						ExitCombat();
-						bot.Quests.EnsureComplete(166);
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards5");
-												
-						goto DragonSlayerCapt;
-
-					DragonSlayerCapt:
-						SafeEquip(FarmClass);
-						ItemFarm("Dragonslayer Captain Medal", 8, true, true, 167, "Dark Draconian|Golden Draconian", "lair");
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards6");
-						ExitCombat();
-						bot.Quests.EnsureComplete(167);	
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards7");
-						goto DragonSlayerMarsh;	
-
-					DragonSlayerMarsh:
-						SafeEquip(SoloClass);
-						ItemFarm("Dragonslayer Marshal Medal", 8, true, true, 168, "Red Dragon", "lair");
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards8");
-						ExitCombat();
-						bot.Quests.EnsureComplete(168);
-						
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards9");
-						goto DragonSlayerReward;
-
-					DragonSlayerReward:
-						SafeEquip(FarmClass);
-						ItemFarm("Wisp of Dragonspirit", 12, true, true, 169, "Wyvern", "lair");
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards10");
-						ExitCombat();
-						bot.Quests.EnsureComplete(169);					
-								bot.Log($"[{DateTime.Now:HH:mm:ss}] DSRewards11");		
+				bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
+				
+					AttackType("a", "*");
+					bot.Sleep(2500);
 				}	
-				public void Leveling()
-				{
-					
-					bot.Player.Join($"{"icestormarena"}-{1}", "r4", "Bottom");
-						while (bot.Player.Level < 75)	
-						{
-						bot.SendPacket("%xt%zm%aggroMon%32640%70%71%72%73%74%75%");
-						
-							AttackType("a", "*");
-							bot.Sleep(2500);
-						}	
-						SafeMapJoin("trainers");
-						bot.Sleep(250);	
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance healer-51");		
-						bot.SendPacket("%xt%zm%enhanceItemShop%33392%15651%19606%768%");						
-						bot.Sleep(250);	
-						bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance stick-51");
-						bot.SendPacket("%xt%zm%enhanceItemShop%35751%3%19604%768%");					
-				}
+				SafeMapJoin("trainers");
+				bot.Sleep(250);	
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance healer-51");		
+				bot.SendPacket("%xt%zm%enhanceItemShop%33392%15651%19606%768%");						
+				bot.Sleep(250);	
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] enhance stick-51");
+				bot.SendPacket("%xt%zm%enhanceItemShop%35751%3%19604%768%");					
+		}
 
 	/*------------------------------------------------------------------------------------------------------------
 													 Invokable Functions
