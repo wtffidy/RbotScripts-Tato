@@ -544,9 +544,10 @@ public class VoidHighLordAIOTesting //🥔
 						if (!bot.Inventory.Contains("Cubes", 25))
 							{
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] CubeFarm");
-								ItemFarm("Cubes", 480, false, true, 569, "Grizzlespit|Box Guardian", "boxes"); //Sneevils might be faster, haven't decided yet.
+								ItemFarm("Cubes", 480, false, true, 569, "Grizzlespit|Box Guardian", "boxes");
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Cubes x480 Complete");
 							}
+						bot.Sleep(1000);
 						bot.Log($"[{DateTime.Now:HH:mm:ss}] IceCubeCheck");
 						if (!bot.Inventory.ContainsTempItem("Ice Cubes", 1))
 							{
@@ -554,6 +555,7 @@ public class VoidHighLordAIOTesting //🥔
 								ItemFarm("Ice Cubes", 5, true, false, 569, "Snow Golem", "mountfrost", "War", "Left");
 								bot.Log($"[{DateTime.Now:HH:mm:ss}] Ice Cubes Complete");
 							}
+						bot.Sleep(1000);
 						SafeQuestComplete(569);
 					}
 			}
