@@ -870,6 +870,7 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(1000);
 					bot.Log("GoldSell");					
 					SafeSell("Berserker Bunny", 0);
+					bot.Sleep(1000);
 					bot.Log("EldersQuestCheck1");
 					if (bot.Quests.IsAvailable(802)) GorillaBlood();
 				}
