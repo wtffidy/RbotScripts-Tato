@@ -1004,7 +1004,7 @@ public class VoidHighLordAIOTesting //🥔
 		{	
 			{
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl>29");
-				if (bot.Player.Level > 29)
+				if (bot.Player.Level > 30)
 					{
 					SafeMapJoin("party");
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance30'start");	
@@ -1018,8 +1018,8 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(2500);					
 					}
 				else
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl>29");
-				if (bot.Player.Level > 74)
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl>70");
+				if (bot.Player.Level > 70)
 					{
 					SafeMapJoin("party");
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance70'start");	
@@ -1033,41 +1033,30 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(2500);					
 					}
 			}
+			
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling");
 			SkillList(FarmClass, SkillOrderFarmClass);			
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75");
 			while (bot.Player.Level < 75)
-			{	
-				
-	
+			{
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<30>");
 			while (bot.Player.Level < 30)				
 			{
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling to 30");			
-				ItemFarm("Fire Dragon Scale", 500, true, true, 6294, "Fire Drakel", "firewar");
+				ItemFarm("Fire Dragon Scale", 100, true, true, 6294, "Fire Drakel", "firewar");
 				ExitCombat();
 				while(!bot.Inventory.Contains("Fire Dragon Scale", 5))
 				{
-				SafeQuestComplete(6294);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] turning in heart");
-					if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
-					{
-						if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
-					}
+				SafeQuestComplete(6294);				
 				}						
 			}	
 				
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75-2");							
-			ItemFarm("Fire Dragon Scale", 500, true, true, 6294, "Fire Drakel", "firewar");
+			ItemFarm("Fire Dragon Scale", 100, true, true, 6294, "Fire Drakel", "firewar");
 			ExitCombat();
 				while(!bot.Inventory.Contains("Fire Dragon Scale", 5))
 				{
 					SafeQuestComplete(6294);
-					bot.Log($"[{DateTime.Now:HH:mm:ss}] turning in heart");
-					if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
-					{
-						if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
-					}
 				}
 			}
 		}				
