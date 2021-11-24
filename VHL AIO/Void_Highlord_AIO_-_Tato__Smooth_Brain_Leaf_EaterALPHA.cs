@@ -1002,20 +1002,55 @@ public class VoidHighLordAIOTesting //🥔
 		
 		public void Leveling()
 		{	
-			SkillList(FarmClass, SkillOrderFarmClass);
-			
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling");
+			SkillList(FarmClass, SkillOrderFarmClass);			
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75");
 			while (bot.Player.Level < 75)
-			{				
+			{	
+				
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl>29");
+				if (bot.Player.Level > 29)
+					{
+					SafeMapJoin("party");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance30'start");	
+					ExitCombat();	
+					bot.Sleep(1500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance30's-1");			
+					bot.SendPacket("%xt%zm%enhanceItemShop%79690%15651%3727%147%"); //healer enhance lvl30
+					bot.Sleep(1500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance30's-2");
+					bot.SendPacket("%xt%zm%enhanceItemShop%79690%3%3636%147%");//default staff  enhance lvl29
+					bot.Sleep(2500);					
+					}	
+
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<30>");
+				while (bot.Player.Level < 30)				
+					{
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling to 30");			
+						ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
+						ExitCombat();
+						SafeQuestComplete(6294);
+						bot.Log($"[{DateTime.Now:HH:mm:ss}] turning in heart");
+						if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
+						{
+							if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
+						}
+					}	
+				
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75-2");							
 				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
 				ExitCombat();
 				SafeQuestComplete(6294);
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] turning in heart2");
 				if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
 				{
 					if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
-				}				
-			}					
-		}
+				}
+			}
+		}				
+				
 
+			
 		public void Lycan() //https://github.com/BrenoHenrike/Rbot-Scripts - run brenos "5Wolfwing(Darkovia)" in the chaoslords folder (use the guide on the site to configure your folder correctly)
 		{
 			if (!bot.Quests.IsAvailable(537)) MainScript();
