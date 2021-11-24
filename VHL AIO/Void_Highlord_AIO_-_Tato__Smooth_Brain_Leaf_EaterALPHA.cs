@@ -1042,11 +1042,7 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling to 30");			
 				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
 				ExitCombat();
-				SafeQuestComplete(6294);
-				while(!bot.Inventory.Contains("Fire Dragon Heart", 5))
-				{
-				SafeQuestComplete(6295);				
-				}						
+				SafeQuestComplete(6294);					
 			}
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75");
 			while (bot.Player.Level < 75)
@@ -1055,10 +1051,6 @@ public class VoidHighLordAIOTesting //🥔
 			ItemFarm("Fire Dragon Scale", 100, true, true, 6294, "Fire Drakel", "firewar");
 			ExitCombat();
 				SafeQuestComplete(6294);
-				while(!bot.Inventory.Contains("Fire Dragon Heart", 5))
-				{
-					SafeQuestComplete(6295);
-				}
 			}
 		}				
 				
