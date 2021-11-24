@@ -1033,30 +1033,31 @@ public class VoidHighLordAIOTesting //🥔
 					bot.Sleep(2500);					
 					}
 			}
-			
+
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling");
 			SkillList(FarmClass, SkillOrderFarmClass);			
-			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75");
-			while (bot.Player.Level < 75)
-			{
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<30>");
 			while (bot.Player.Level < 30)				
 			{
 				bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling to 30");			
-				ItemFarm("Fire Dragon Scale", 100, true, true, 6294, "Fire Drakel", "firewar");
+				ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
 				ExitCombat();
-				while(!bot.Inventory.Contains("Fire Dragon Scale", 5))
+				SafeQuestComplete(6294);
+				while(!bot.Inventory.Contains("Fire Dragon Heart", 5))
 				{
-				SafeQuestComplete(6294);				
+				SafeQuestComplete(6295);				
 				}						
-			}	
-				
+			}
+			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75");
+			while (bot.Player.Level < 75)
+			{				
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75-2");							
 			ItemFarm("Fire Dragon Scale", 100, true, true, 6294, "Fire Drakel", "firewar");
 			ExitCombat();
-				while(!bot.Inventory.Contains("Fire Dragon Scale", 5))
+				SafeQuestComplete(6294);
+				while(!bot.Inventory.Contains("Fire Dragon Heart", 5))
 				{
-					SafeQuestComplete(6294);
+					SafeQuestComplete(6295);
 				}
 			}
 		}				
