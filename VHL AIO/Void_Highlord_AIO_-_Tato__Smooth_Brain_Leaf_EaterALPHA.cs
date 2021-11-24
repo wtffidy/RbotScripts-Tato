@@ -1040,7 +1040,6 @@ public class VoidHighLordAIOTesting //🥔
 			{	
 				
 	
-
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<30>");
 			while (bot.Player.Level < 30)				
 			{
