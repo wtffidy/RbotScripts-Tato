@@ -1054,7 +1054,6 @@ public class VoidHighLordAIOTesting //🥔
 			}
 		}				
 				
-
 			
 		public void Lycan() //https://github.com/BrenoHenrike/Rbot-Scripts - run brenos "5Wolfwing(Darkovia)" in the chaoslords folder (use the guide on the site to configure your folder correctly)
 		{
