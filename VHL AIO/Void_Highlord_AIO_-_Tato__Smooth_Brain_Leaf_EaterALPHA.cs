@@ -247,7 +247,7 @@ public class VoidHighLordAIOTesting //🥔
 		while (!bot.Player.Loaded) { }	
 			
 		bot.Log("VHL Owner?");
-		while (bot.Inventory.Contains("Void Highlord", 1) || bot.Bank.Contains("Void Highlord", 1)) VHLEnhanceRank();
+		while (bot.Inventory.Contains("Void Highlord", 1) || bot.Bank.Contains("Void Hfighlord", 1)) VHLEnhanceRank();
 
 		bot.Log("bank everything");
 		UnbankList(Rebank);
@@ -284,9 +284,13 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Sleep(2000);
 		UnbankList(Larvae);
 		bot.Log("VoucherNonMem");
-		while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) LarvaeFarm();
+		while (!bot.Inventory.Contains("Voucher of Nulgath (non-mem)", 1) && !bot.Bank.Contains("Voucher of Nulgath (non-mem)", 1)) VoucherNM();
 		bot.Log("Uni 13");
 		while (!bot.Inventory.Contains("Unidentified 13", 1) && !bot.Bank.Contains("Unidentified 13", 1)) Unidentified13();
+		//bot.Log("Dark Crystal Shard");
+		//while (!bot.Inventory.Contains("Dark Crystal Shard", InsertAmount) && !bot.Bank.Contains("Dark Crystal Shard", InsertAmount)) DarkCrystalShard();
+		//bot.Log("Uni 10");
+		//while (!bot.Inventory.Contains("Unidentified 10", InsertAmount) && !bot.Bank.Contains("Unidentified 10", InsertAmount)) BagofDirt(); //uni13 --preserved for later
 		bot.Log("BKOrb");
 		while (!bot.Inventory.Contains("Black Knight Orb", 1) && !bot.Bank.Contains("Black Knight Orb", 1)) BlackKnightOrb();
 		bot.Log("Emerald");
