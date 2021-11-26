@@ -23,6 +23,8 @@ public class VoidHighLordAIOTesting //🥔
 	private string LevelingClass = "Healer";
     public int[] QuestList1 = { 5660,3743,6294,6295 };
     private static readonly string[] p = {
+		"Bounty Hunter's Drone Pet",
+		"War-Torn Memorabilia",
         "Aelita's Emerald",
         "Archfiend's Favor",
         "Berserker Bunny",
@@ -934,6 +936,99 @@ public class VoidHighLordAIOTesting //🥔
 			{
 				if (bot.Bank.Contains(item)) bot.Bank.ToInventory(item);
 			}
+		}
+
+		public void Uni13Also() //diamond exchange
+		{
+
+		}
+
+		public void VoucherNM()
+		{
+			TheAssistant();
+		}
+
+		public void TheAssistant()
+		{
+			{
+				if(bot.Player.Gold < 100000)
+				{
+				HalpINeedGoldAssistant();
+				}
+				SafePurchase("War-Torn Memorabilia", 1, "underworld", 456);
+				SafeQuestComplete(2859);
+			}
+		}
+
+		public void HalpINeedGold1Mil()
+		{
+			while(bot.Player.Gold < 10000000) //200 turn ins
+			{
+				SafeEquip(SoloClass);
+				bot.Log("GoldFarm");
+				ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
+				bot.Log("GoldTurnIn");
+				SafeQuestComplete(236);
+				bot.Sleep(1000);
+				bot.Log("GoldSell");					
+				SafeSell("Berserker Bunny", 0);
+				bot.Sleep(1000);
+				bot.Log("EldersQuestCheck1");
+				if (bot.Quests.IsAvailable(802)) GorillaBlood();
+			}
+		}
+
+		public void HalpINeedGoldAssistant()
+		{
+			while(bot.Player.Gold < 1000000) //20 turn ins
+			{
+				SafeEquip(SoloClass);
+				bot.Log("GoldFarm");
+				ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
+				bot.Log("GoldTurnIn");
+				SafeQuestComplete(236);
+				bot.Sleep(1000);
+				bot.Log("GoldSell");					
+				SafeSell("Berserker Bunny", 0);
+				bot.Sleep(1000);
+				bot.Log("EldersQuestCheck1");
+				if (bot.Quests.IsAvailable(802)) GorillaBlood();
+			}
+		}
+
+		public void DarkCrystalShard() //
+		{
+			if (bot.Player.IsMember) //NWNO - 6697
+			{
+				while(!bot.Inventory.Contains(" Bounty Hunter's Drone Pet", 1))
+				{
+				ItemFarm("Slugfit Horn", 5, true, true, 6697, "Slugfit", "Mobius");
+				ItemFarm("Imp Flame", 5, true, true, 6697, "Fire Imp", "Mobius");
+				SafeMapJoin("tercessuinotlim");
+				ItemFarm("Makai Fang", 3, true, true, 6697, "Dark Makai", "Tercessuinotlim");
+				ItemFarm("Cyclops Horn", 3, true, true, 6697, "Cyclops Warlord", "faerie");
+				ItemFarm("Wereboar Tusk", 2, true, true, 6697, "Big Bad Boar", "greenguardwest");
+				SafeQuestComplete(6697);
+			}}
+			else
+			if (!bot.Player.IsMember) //The Assistant 100k Gold  --  2859
+			{
+				if(bot.Player.Gold < 100000)
+				{
+					{
+					HalpINeedGoldAssistant();
+					}
+				TheAssistant();
+				}
+			}		
+		}
+
+		public void BagofDirt() //uni 10 //dirt-y deeds Doe Dirt Cheap //7818
+		{
+			ItemFarm("Slugbutter Digging Advice", 1, true, true, 7818, "Slugbutter", "towerofdoom10");
+			ItemFarm("Chaotic Tunneling Techniques", 2, true, true, 7818, "Chaos Tunneler", "crownsreach");
+			ItemFarm("Crystalized Corporate Digging Secrets", 3, true, true, 7818, "Crystal Mana Construct", "downward");
+			SafeQuestComplete(7818);
 		}
 
 		public void DragonSlayerRewardQuests()
