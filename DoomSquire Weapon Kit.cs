@@ -9,7 +9,10 @@ public class DoomSquireWeaponKit // by Tato
 	public readonly int[] SkillOrder = { 3, 1, 2, 4 };
 	public int SaveStateLoops = 8700;
 	public int TurnInAttempts = 10;
-	public string[] RequiredItems = { "War Mummy Wrap", "Burlap Cloth" "DoomSquire Weapon Kit" };
+	public string[] RequiredItems = {
+	"War Mummy Wrap",
+	"DoomSquire Weapon Kit" 
+	};
 	public string[] EquippedItems = { };
 	//-----------EDIT ABOVE-------------//
 
@@ -40,7 +43,7 @@ public class DoomSquireWeaponKit // by Tato
 			{
 				if(bot.Player.Gold > 4000)
 				{
-				SafePurchase("Iron Hammer", 1, "swordhaven", 179)	
+				SafePurchase("Iron Hammer", 1, "swordhaven", 179);	
 				}
 				else if(bot.Player.Gold < 4000)
 				{
@@ -51,7 +54,7 @@ public class DoomSquireWeaponKit // by Tato
 			ItemFarm("War Mummy Wrap", 1, false, true, 2144, "War Mummy", "sandcastle");
 			ItemFarm("Noob Blade Oil", 1, true, true, 2144, "Horc Noob", "noobshire");
 			ItemFarm("Bronze Brush", 1, true, true, 2144, "Bronze Draconian", "lair");
-			ItemFarm("Burlap Cloth", 4, false, true, 2144, "Scarecrow", "farm");
+			ItemFarm("Burlap Cloth", 4, true, true, 2144, "Scarecrow", "farm");
 			ItemFarm("Elemental Stone Sharpener", 1, true, true, 2144, "Rock Elemental", "bludrut");
 			ItemFarm("Dark Makai Lacquer Finish", 1, true, true, 2144, "Dark Makai", "tercessuinotlim"); 
 			SafeQuestComplete(2144);
@@ -64,7 +67,6 @@ public class DoomSquireWeaponKit // by Tato
 		{
 			while(bot.Player.Gold < 4000) //1 turn ins
 			{
-				SafeEquip(SoloClass);
 				bot.Log("GoldFarm");
 				ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
 				bot.Log("GoldTurnIn");
@@ -74,7 +76,6 @@ public class DoomSquireWeaponKit // by Tato
 				SafeSell("Berserker Bunny", 0);
 				bot.Sleep(1000);
 				bot.Log("EldersQuestCheck1");
-				if (bot.Quests.IsAvailable(802)) GorillaBlood();
 			}
 		}
 
@@ -137,7 +138,7 @@ public class DoomSquireWeaponKit // by Tato
 					FarmLoop++;
 					if (bot.Map.Name != MapName.ToLower()) SafeMapJoin(MapName.ToLower());
 					if (QuestID > 0) bot.Quests.EnsureAccept(QuestID);
-					bot.Options.AggroMonsters = true;
+					bot.Options.AggroMonsters = false;
 					AttackType("h", MonsterName);
 					if (FarmLoop > SaveStateLoops) goto breakFarmLoop;
 				}
@@ -150,7 +151,7 @@ public class DoomSquireWeaponKit // by Tato
 					if (bot.Map.Name != MapName.ToLower()) SafeMapJoin(MapName.ToLower(), CellName, PadName);
 					if (bot.Player.Cell != CellName) bot.Player.Jump(CellName, PadName);
 					if (QuestID > 0) bot.Quests.EnsureAccept(QuestID);
-					bot.Options.AggroMonsters = true;
+					bot.Options.AggroMonsters = false;
 					AttackType("a", MonsterName);
 					if (FarmLoop > SaveStateLoops) goto breakFarmLoop;
 				}
@@ -165,7 +166,7 @@ public class DoomSquireWeaponKit // by Tato
 					FarmLoop++;
 					if (bot.Map.Name != MapName.ToLower()) SafeMapJoin(MapName.ToLower());
 					if (QuestID > 0) bot.Quests.EnsureAccept(QuestID);
-					bot.Options.AggroMonsters = true;
+					bot.Options.AggroMonsters = false;
 					AttackType("h", MonsterName);
 					if (FarmLoop > SaveStateLoops) goto breakFarmLoop;
 				}
@@ -178,7 +179,7 @@ public class DoomSquireWeaponKit // by Tato
 					if (bot.Map.Name != MapName.ToLower()) SafeMapJoin(MapName.ToLower(), CellName, PadName);
 					if (bot.Player.Cell != CellName) bot.Player.Jump(CellName, PadName);
 					if (QuestID > 0) bot.Quests.EnsureAccept(QuestID);
-					bot.Options.AggroMonsters = true;
+					bot.Options.AggroMonsters = false;
 					AttackType("a", MonsterName);
 					if (FarmLoop > SaveStateLoops) goto breakFarmLoop;
 				}
@@ -225,7 +226,7 @@ public class DoomSquireWeaponKit // by Tato
 			if (!bot.Quests.IsInProgress(Quest)) bot.Quests.EnsureAccept(Quest);
 			if (bot.Quests.CanComplete(Quest)) SafeQuestComplete(Quest);
 		}
-		bot.Options.AggroMonsters = true;
+		bot.Options.AggroMonsters = false;
 		AttackType("a", MonsterName);
 		if (FarmLoop > SaveStateLoops) goto breakFarmLoop;
 	}
@@ -418,7 +419,7 @@ public class DoomSquireWeaponKit // by Tato
 	/// Change the player's name and guild for your bots specifications.
 	/// Recommended Default Bot Configurations.
 	/// </summary>
-	public void ConfigureBotOptions(string PlayerName = "Bot By AuQW", string GuildName = "https://auqw.tk/", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
+	public void ConfigureBotOptions(string PlayerName = "Tato", string GuildName = "no please no", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
 	{
 		SendMSGPacket("Configuring bot.", "AuQW", "moderator");
 		bot.Options.CustomName = PlayerName;
@@ -481,7 +482,7 @@ public class DoomSquireWeaponKit // by Tato
 	/// Allows you to turn on and off AQLite functions.
 	/// Recommended Default Bot Configurations.
 	/// </summary>
-	public void ConfigureLiteSettings(bool UntargetSelf = true, bool UntargetDead = true, bool CustomDrops = false, bool ReacceptQuest = false, bool SmoothBackground = true, bool Debugger = false)
+	public void ConfigureLiteSettings(bool UntargetSelf = true, bool UntargetDead = true, bool CustomDrops = true, bool ReacceptQuest = false, bool SmoothBackground = true, bool Debugger = false)
 	{
 		SetLite("bUntargetSelf", UntargetSelf);
 		SetLite("bUntargetDead", UntargetDead);
