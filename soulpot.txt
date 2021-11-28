@@ -1,0 +1,2 @@
+%xt%zm%crafting%1%getAlchWait%11474%11475%true%Ready to Mix%Dried Slime%Dragon Scale%Gebo%Moose%
+%xt%zm%crafting%1%checkAlchComplete%11474%11475%true%Mix Complete%Dried Slime%Dragon Scale%Gebo%Moose%

@@ -1,20 +1,178 @@
 using System;
 using RBot;
 using System.Collections.Generic;
-
-public class DoomSquireWeaponKit // by Tato
+using RBot.Servers;
+using System.Windows.Forms;
+public class A_Dark_Knight_May_Rise //by Tato
 {
 	//-----------EDIT BELOW-------------//
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 3, 1, 2, 4 };
 	public int SaveStateLoops = 8700;
 	public int TurnInAttempts = 10;
-	public string[] RequiredItems = {
-	"War Mummy Wrap",
-	"DoomSquire Weapon Kit" 
-	};
+	public string[] RequiredItems = { 
+    //Q1Items
+    "Shadowworn",
+    "Empowered Essence",
+    "Shadowscythe Venom Head",
+    "Hollow Soul",
+    //Q1Rewards
+    "Dark Fragment",
+
+    //Q2items
+    "Doomatter ",
+    "Shadow DoomReaver",
+    "Worshipper of Doom",
+    //Q2rewards
+    "Doom Fragment",
+    "Classic Hollowborn Doomknight",
+    
+    //Q3Items
+    "Unidentified 25",
+    "(Necro) Scroll of Dark Arts",
+    "Royal ShadowScythe Blade",
+    "Weapon Imprint",
+    "Dark Fragment",
+    "Doom Fragment",
+    //Q3Rewards
+    "Hollowborn Empress' Blade",
+    "Hollowborn DoomBlade",
+
+    //Q4Items
+    "Dark Energy",
+    "(Necro) Scroll of Dark Arts",
+    "Bones from the Void Realm",
+    "Doom Heart",
+    "Weapon Imprint",
+    "Desolich's Dark Horn",
+    "Dark Fragment",
+    "Doom Fragment",
+    //Q4Rewards
+    "Hollowborn DoomKnight",
+    "Hollowborn Sepulchure's Helm",
+    "Hollowborn Doom Shade",
+    "Hollowborn Sword of Doom",
+    //Q4RequiredItems
+    "Hollowborn Shadow of Fate",
+    "Lae's Hardcore Contract",
+    "Necrotic Sword of Doom (Sword)",
+    "Sepulchure's DoomKnight Armor",
+    "Sepulchure's Original Helm",
+    //ContractRequirements
+    "Dried Slime",
+    "Dragon Scale",
+    "Soul Potion",
+    "Human Soul",
+    "Fallen Soul"
+    };
+    public string[] Q1Items = { 
+    "Lae's Hardcore Contract",
+    "Shadowworn",
+    "Empowered Essence",
+    "Shadowscythe Venom Head",
+    "Hollow Soul",
+    //Q1Rewards
+    "Dark Fragment"
+    };
+    public string[] Q2Items = { 
+    //Q2items
+    "Lae's Hardcore Contract",
+    "Doomatter ",
+    "Shadow DoomReaver",
+    "Worshipper of Doom",
+    //Q2rewards
+    "Doom Fragment",
+    "Classic Hollowborn Doomknight"
+    };
+    public string[] Q3Items = { 
+    //Q3Items
+    "Lae's Hardcore Contract",
+    "Unidentified 25",
+    "(Necro) Scroll of Dark Arts",
+    "Royal ShadowScythe Blade",
+    "Weapon Imprint",
+    "Dark Fragment",
+    "Doom Fragment",
+    //Q3Rewards
+    "Hollowborn Empress' Blade",
+    "Hollowborn DoomBlade"
+    };
+    public string[] Q4Items = { 
+    //Q4Items
+    "Dark Energy",
+    "(Necro) Scroll of Dark Arts",
+    "Bones from the Void Realm",
+    "Doom Heart",
+    "Weapon Imprint",
+    "Desolich's Dark Horn",
+    "Dark Fragment",
+    "Doom Fragment",
+    //Q4Rewards
+    "Hollowborn DoomKnight",
+    "Hollowborn Sepulchure's Helm",
+    "Hollowborn Doom Shade",
+    "Hollowborn Sword of Doom",
+    //Q4RequiredItems
+    "Hollowborn Shadow of Fate",
+    "Lae's Hardcore Contract",
+    "Necrotic Sword of Doom (Sword)",
+    "Sepulchure's DoomKnight Armor",
+    "Sepulchure's Original Helm"
+    };
+    public string[] ContractRequirements = {
+    "Dried Slime",
+    "Dragon Scale",
+    "Soul Potion",
+    "Human Soul",
+    "Fallen Soul"
+    };
+    public string[] Contract = { "Lae's Hardcore Contract"};
+    public string[] Q4RequiredItems = { 
+    "Hollowborn Shadow of Fate",
+    "Lae's Hardcore Contract",
+    "Necrotic Sword of Doom (Sword)",
+    "Sepulchure's DoomKnight Armor",
+    "Sepulchure's Original Helm"
+    };
+
 	public string[] EquippedItems = { };
+    
 	//-----------EDIT ABOVE-------------//
+
+    //info i need for script;
+    //map; hollowdeep
+    //quest ids; 
+    //1. A Dark Knight - 8413
+    //ADarkKnight();
+    
+    //2. A Dark Knight Rises - 8414
+    // ADarkKnightRises();
+
+    //3. A Dark Knight Falls - 8415
+    //ADarkKnightFalls();
+
+    //4. A Dark Knight ReTurns - 8416
+    //ADarkKnightReTurns();
+
+    //1. Now We're Talking! - 7556
+    //nowweretalking();
+
+    //4.1 Must be Level 100.
+    //Must have the following items in your inventory:
+    //Hollowborn Shadow of Fate
+    //Lae's Hardcore Contract
+    //Necrotic Sword of Doom (Sword)
+    //Sepulchure's DoomKnight Armor
+    //Sepulchure's Original Helm
+    //Lae's Hardcore Contract
+
+    //faction ank check
+    //while (bot.Player.GetFactionRank("Evil") < 10)
+    //if (bot.Player.Level < 100)
+
+
+
+    
 
 
 	public int FarmLoop;
@@ -38,46 +196,203 @@ public class DoomSquireWeaponKit // by Tato
 		while (!bot.ShouldExit())
 		{
 			while (!bot.Player.Loaded) { }
-
-			//while(!bot.Inventory.Contains("Iron Hammer", 1))
-			//{
-			//	if(bot.Player.Gold > 4000)
-			//	{
-			//	SafePurchase("Iron Hammer", 1, "swordhaven", 179);	
-			//	}
-			//	else if(bot.Player.Gold < 4000)
-			//	{
-			//	HalpINeedGoldAssistant4kForIronHammer();
-			//	}
-			//} //Skeletal Warrior
-			ItemFarm("Iron Hammer", 1, false, true, 2144, "Skeletal Warrior", "battleunderb");
-			ItemFarm("War Mummy Wrap", 1, false, true, 2144, "War Mummy", "sandcastle");
-			ItemFarm("Noob Blade Oil", 1, true, true, 2144, "Horc Noob", "noobshire");
-			ItemFarm("Bronze Brush", 1, true, true, 2144, "Bronze Draconian", "lair");
-			ItemFarm("Burlap Cloth", 4, true, true, 2144, "Scarecrow", "farm");
-			ItemFarm("Elemental Stone Sharpener", 1, true, true, 2144, "Rock Elemental", "bludrut");
-			ItemFarm("Dark Makai Lacquer Finish", 1, true, true, 2144, "Dark Makai", "tercessuinotlim"); 
-			SafeQuestComplete(2144);
+			
+            Main();
 		}
-		bot.Log($"[{DateTime.Now:HH:mm:ss}] Script stopped successfully.");
-		StopBot();
 	}
 
-	public void HalpINeedGoldAssistant4kForIronHammer()
+
+    public void Main()
+    {
+        {
+            CheckInv(ContractRequirements);
+            {
+            if(!bot.Inventory.Contains(" Lae's Hardcore Contract", 1)) nowweretalking();
+            }
+
+            if (bot.Player.GetFactionRank("Evil") < 10) EbilRep();
+
+            if(bot.Player.Gold < 100000) Gold();
+            if(!bot.Inventory.Contains("Dark Fragment", 300)) ADarkKnight();             
+            if(!bot.Inventory.Contains("Doom Fragment", 300)) ADarkKnightRises();
+
+           // CheckInv(Q4RequiredItems);
+            //{
+            //    if (bot.Player.Level < 100)
+             //   {
+            //        bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling to 100");			
+            //        ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
+            //        ExitCombat();
+            //        SafeQuestComplete(6294);					
+           //     
+           //     }
+           // }
+            
+        }
+        bot.Log($"[{DateTime.Now:HH:mm:ss}] Finished Farming The First 2 Quests");
+		StopBot();
+    }
+    public void nowweretalking()
+    {
+        if (bot.Quests.IsAvailable(7556))
+        {
+            if (bot.Player.Level < 65)
+                {
+                    bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling to 100");			
+                    ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
+                    ExitCombat();
+                    SafeQuestComplete(6294);					
+                
+                }
+            else
+            if(!bot.Inventory.Contains("Soul Potion", 1))                
+                {
+                StopBot($"please do this manualy scripting this is a pain... thanks");
+                }
+            else
+            if(bot.Inventory.Contains("Soul Potion", 1))
+            { 
+            ItemFarm("Human Soul", 50, false, true, 7556, "Lightguard Caster", "noxustower");
+            ItemFarm("Fallen Soul", 13, false, true, 7556, "Undead Paladin", "doomwood");
+            }
+            SafeQuestComplete(8413);
+            }
+
+        }
+    
+    public void ADarkKnight()
+    {
+        while(!bot.Inventory.Contains("Dark Fragment", 300))
+        {
+        UnbankList(Q1Items);
+        ItemFarm("Shadowworn", 1, false, true, 8413, "Shadow Lord", "shadowrealmpast");
+        ItemFarm("Empowered Essence", 10, false, true, 8413, "Shadow Guardian|Shadow Warrior|Pure Shadowscythe", "shadowrealmpast");
+		SafePurchase("Shadowscythe Venom Head", 1, "shadowfall", 89);
+        ItemFarm("Hollow Soul", 10, false, true, 8413, "Hollowborn Sentinel", "shadowrealm");
+        SafeQuestComplete(8413);
+        }
+        Main();
+    }
+    
+    public void ADarkKnightRises()
+    {
+        while(!bot.Inventory.Contains("Doom Fragment", 300))
+            {
+            UnbankList(Q2Items);
+            while(!bot.Inventory.Contains("Dark Fragment", 5)) ADarkKnight();
+            ItemFarm("Doomatter", 10, false, true, 8414, "Enraged Vordred", "vordredboss");
+            ItemFarm("Shadow DoomReaver", 1, false, true, 8414, "Shadow Lord", "shadowrealmpast");
+            ItemFarm("Worshipper of Doom", 1, false, true, 8414, "Corrupted Luma", "lumafortress");
+            if (bot.Player.IsMember)
+            {
+            ItemFarm("Ingredients?", 10, false, true, 8414, "Ultra Kathool", "ultravoid");
+            }
+            else
+            if (!bot.Player.IsMember)
+            {
+            ItemFarm("Ingredients?", 10, false, true, 8414, "Binky", "doomvault");
+            }
+        SafeQuestComplete(8414);
+        }
+        Main();
+
+    }
+    
+    public void ADarkKnightFalls()
+    {
+        UnbankList(Q3Items);
+        // ItemFarm("thingname3", amnt, tempy1, true, 8415, "mobster", "placename");
+        // ItemFarm("thingname3", amnt, tempy1, true, 8415, "mobster", "placename");
+        // ItemFarm("thingname3", amnt, tempy1, true, 8415, "mobster", "placename");
+        // ItemFarm("thingname3", amnt, tempy1, true, 8415, "mobster", "placename");
+        // ItemFarm("thingname3", amnt, tempy1, true, 8415, "mobster", "placename");
+        // ItemFarm("thingname3", amnt, tempy1, true, 8415, "mobster", "placename");
+        SafeQuestComplete(8415);
+
+    }
+    
+    public void ADarkKnightReTurns()
+    {
+        UnbankList(Q4Items);
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        // ItemFarm("thingname4", amnt, tempy2, true, 8416, "mobster", "placename");
+        SafeQuestComplete(8416);
+
+    }
+
+    public void EbilRep()
+	{
+		bot.Log("Ebil Rep Start");
+		while (bot.Player.GetFactionRank("Evil") < 10)
+            {
+				bot.Log("EbilRep Start");
+                ItemFarm("Youthanize", 1, true, true, 364, "slime", "swordhavenbridge");
+				SafeQuestComplete(364);
+				// ItemFarm("ItemName", Amount, temp, hunt, Questbit, "monster", "mapname");
+			}
+            Main();
+    }
+
+    public void Unbank(params string[] Unbank)
 		{
-			while(bot.Player.Gold < 4000) //1 turn ins
+		if (bot.Player.Cell != "Wait") bot.Player.Jump("Wait", "Spawn");
+		while (bot.Player.State == 2) { }
+		bot.Player.LoadBank();
+		List<string> Whitelisted = new List<string>() { "Note", "Item", "Resource", "QuestItem", "ServerUse" };
+		foreach (var item in Unbank)
 			{
-				bot.Log("GoldFarm");
-				ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
-				bot.Log("GoldTurnIn");
-				SafeQuestComplete(236);
-				bot.Sleep(1000);
-				bot.Log("GoldSell");					
-				SafeSell("Berserker Bunny", 0);
-				bot.Sleep(1000);
-				bot.Log("EldersQuestCheck1");
+				if (bot.Bank.Contains(item)) bot.Bank.ToInventory(item);
 			}
 		}
+
+    public bool CheckInv(params string[] items)
+		{
+		foreach (string item in items)
+		{
+			if (bot.Inventory.Contains(item) || bot.Bank.Contains(item))
+				continue;
+			else
+				return false;
+		}
+		return true;
+		}
+
+    public void Gold()
+    {
+    while(bot.Player.Gold < 100000) //20 turn ins
+        {
+        bot.Log("GoldFarm");
+        ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
+        bot.Log("GoldTurnIn");
+        SafeQuestComplete(236);
+        bot.Sleep(1000);
+        bot.Log("GoldSell");					
+        SafeSell("Berserker Bunny", 0);
+        }
+    }
+
+	public void Relogin()
+			{
+				bot.Options.AutoRelogin = false;
+				bot.Sleep(10000);
+				bot.Player.Logout();
+				bot.Sleep(10000);
+       			bot.Player.Login(bot.Player.Username, bot.Player.Password);
+        		RBot.Servers.Server server = bot.Options.AutoReloginAny ? RBot.Servers.ServerList.Servers.Find(x => x.IP != RBot.Servers.ServerList.LastServerIP) : bot.Options.LoginServer ?? RBot.Servers.ServerList.Servers[0];
+        		bot.Player.Connect(server);
+        		while (!bot.Player.LoggedIn) { bot.Sleep(2500); }
+				bot.Sleep(10000);
+				bot.Options.AutoRelogin = true;
+				bot.Sleep(10000);
+				Main();
+			}
+
 
 	/*------------------------------------------------------------------------------------------------------------
 													 Invokable Functions
@@ -419,7 +734,7 @@ public class DoomSquireWeaponKit // by Tato
 	/// Change the player's name and guild for your bots specifications.
 	/// Recommended Default Bot Configurations.
 	/// </summary>
-	public void ConfigureBotOptions(string PlayerName = "Tato", string GuildName = "no please no", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
+	public void ConfigureBotOptions(string PlayerName = "Bot By AuQW", string GuildName = "https://auqw.tk/", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
 	{
 		SendMSGPacket("Configuring bot.", "AuQW", "moderator");
 		bot.Options.CustomName = PlayerName;
