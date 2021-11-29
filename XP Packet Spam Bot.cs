@@ -82,7 +82,7 @@ public class BluuPurpleTemplate
 					}
 
 					Quest2:
-					if (bot.Quests.IsAvailable(5229))
+					if (bot.Quests.IsAvailable(5299))
 					{
 					bot.Quests.EnsureAccept(5299);
 					bot.Player.Jump("r11", "Bottom");
