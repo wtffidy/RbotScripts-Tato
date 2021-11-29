@@ -886,21 +886,10 @@ public class VoidHighLordAIOTesting //🥔
 				}
 			bot.Log("LevelTime");
 			bot.Log("Maxing Level Cap");
-			while (bot.Player.Level < 100)								
-				{
-					bot.Log("firewar xp - MaxMePls");
-					ItemFarm("Fire Dragon Scale", 5, true, true, 6294, "Fire Drakel", "firewar");
-						ExitCombat();
-					SafeQuestComplete(6294);
-					if (bot.Inventory.ContainsTempItem("Fire Dragon Heart", 3))
-						{
-							if (bot.Quests.CanComplete(6295)) SafeQuestComplete(6295);
-						}				
-						
-											
-					if (bot.Quests.IsAvailable(802)) GorillaBlood();
-					
-				}
+			while (bot.Player.Level < 100)
+			{		
+					HedgeMaze();				
+			}
 			bot.Log("EldersQuestCheck3");
 			if (bot.Quests.IsAvailable(802)) GorillaBlood();
 			StopBot();
@@ -1118,19 +1107,48 @@ public class VoidHighLordAIOTesting //🥔
 					}
 				else
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl>70");
-				if (bot.Player.Level > 70)
+				if (bot.Player.Level > 51)
+					{
+					SafeMapJoin("party");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance50'start");	
+					ExitCombat();	
+					bot.Sleep(1500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance50's-1");			
+					bot.SendPacket("%xt%zm%enhanceItemShop%56905%3%19660%763%"); //healer enhance lvl51
+					bot.Sleep(1500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance50's-2");
+					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%19662%763%");//default staff  enhance lvl51
+					bot.Sleep(2500);					
+					}
+					else
+				if (bot.Player.Level > 61)
+					{
+					SafeMapJoin("party");
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance60'start");	
+					ExitCombat();	
+					bot.Sleep(1500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance60's-1");			
+					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%26378%763%"); //healer enhance lvl61
+					bot.Sleep(1500);
+					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance60's-2");
+					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%26378%763%");//default staff  enhance lvl61
+					bot.Sleep(2500);					
+					}
+				if (bot.Player.Level > 71)
 					{
 					SafeMapJoin("party");
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance70'start");	
 					ExitCombat();	
 					bot.Sleep(1500);
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance70's-1");			
-					bot.SendPacket("Insert70+Packet"); //healer enhance lvl30
+					bot.SendPacket("%xt%zm%enhanceItemShop%56905%3%39972%763%"); //healer enhance lvl71
 					bot.Sleep(1500);
 					bot.Log($"[{DateTime.Now:HH:mm:ss}] Enhance70's-2");
-					bot.SendPacket("Insert70+Packet");//default staff  enhance lvl29
+					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%39974%763%");//default staff  enhance lvl71
 					bot.Sleep(2500);					
 					}
+					
+					
 			}
 
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] Leveling");
@@ -1146,10 +1164,7 @@ public class VoidHighLordAIOTesting //🥔
 			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75");
 			while (bot.Player.Level < 75)
 			{				
-			bot.Log($"[{DateTime.Now:HH:mm:ss}] lvl<75-2");							
-			ItemFarm("Fire Dragon Scale", 100, true, true, 6294, "Fire Drakel", "firewar");
-			ExitCombat();
-				SafeQuestComplete(6294);
+			HedgeMaze_XP_Till_75();
 			}
 		}				
 				
@@ -1165,6 +1180,90 @@ public class VoidHighLordAIOTesting //🥔
 			}
 			
 		}
+
+		public void HedgeMaze_XP_Till_75()
+			{
+				CompleteTheFirst3Quests:
+				{				
+				if (bot.Quests.IsAvailable(5301))
+				{
+					goto Quest4;
+				}
+				if (bot.Quests.IsAvailable(5300))
+				{
+					goto Quest3;
+				}
+				if (bot.Quests.IsAvailable(5299))
+				{
+					goto Quest2;
+				}
+				if (bot.Quests.IsAvailable(5298))
+				{
+					goto Quest1;
+				}}
+
+				
+				
+					Quest1:
+					if (bot.Quests.IsAvailable(5298))
+					{
+					SafeMapJoin("hedgemaze");
+					bot.Sleep(500);
+					bot.SendPacket("%xt%zm%getMapItem%40753%4678%");
+					ItemFarm("Knight's Reflection Dispersed", 1, true, true, 5298, "Knight's Reflection", "hedgemaze");
+					SafeQuestComplete(5298);
+					}
+
+					Quest2:
+					if (bot.Quests.IsAvailable(5229))
+					{
+					bot.Quests.EnsureAccept(5299);
+					bot.Player.Jump("r11", "Bottom");
+					bot.Sleep(500);
+					if (bot.Inventory.ContainsTempItem("Maze Explored", 1))
+					{
+					ItemFarm("Mirror Shard Slain", 4, true, true, 5299, "Knight's Reflection", "hedgemaze");
+					ItemFarm("Hedge Goblin Slain", 4, true, true, 5299, "Hedge Goblin", "hedgemaze");
+					ItemFarm("Minotaur  Slain", 3, true, true, 5298, "Minotaur", "hedgemaze");
+					}
+					SafeQuestComplete(5299);
+					}
+		
+					
+
+					Quest3:
+					if (bot.Quests.IsAvailable(5300))
+					{
+					ItemFarm("Knights \"Questioned\"", 5, true, true, 5300, "Knight's Reflection", "hedgemaze");
+					SafeQuestComplete(5300);
+					}			
+
+				Quest4:
+				{ //Xp farm - Hedgemaze packet 200xp/per turnin
+					SafeMapJoin("hedgemaze");
+						bot.Sleep(500);
+					while (bot.Player.Level < 75)
+					{						
+						bot.Quests.EnsureAccept(5301);
+						bot.SendPacket("%xt%zm%getMapItem%346749%4680%");
+						SafeQuestComplete(5301);
+					}
+					MainScript();
+
+				}
+
+				
+			}
+	public void HedgeMaze()
+	{
+		while (bot.Player.Level < 100)
+		{						
+		bot.Quests.EnsureAccept(5301);
+		bot.SendPacket("%xt%zm%getMapItem%346749%4680%");
+		SafeQuestComplete(5301);
+		}
+	}
+		
 
 
 		
