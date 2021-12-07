@@ -1,18 +1,17 @@
 using System;
 using RBot;
 using System.Collections.Generic;
+using RBot.Servers;
+using System.Windows.Forms;
 
-public class DoomSquireWeaponKit // by Tato
+public class BluuPurpleTemplate
 {
 	//-----------EDIT BELOW-------------//
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 3, 1, 2, 4 };
 	public int SaveStateLoops = 8700;
 	public int TurnInAttempts = 10;
-	public string[] RequiredItems = {
-	"War Mummy Wrap",
-	"DoomSquire Weapon Kit" 
-	};
+	public string[] RequiredItems = { "Dragon Scale", "Dried Slime", "Soul Potion", "Dragon Runestone" };
 	public string[] EquippedItems = { };
 	//-----------EDIT ABOVE-------------//
 
@@ -38,47 +37,20 @@ public class DoomSquireWeaponKit // by Tato
 		while (!bot.ShouldExit())
 		{
 			while (!bot.Player.Loaded) { }
-
-			//while(!bot.Inventory.Contains("Iron Hammer", 1))
-			//{
-			//	if(bot.Player.Gold > 4000)
-			//	{
-			//	SafePurchase("Iron Hammer", 1, "swordhaven", 179);	
-			//	}
-			//	else if(bot.Player.Gold < 4000)
-			//	{
-			//	HalpINeedGoldAssistant4kForIronHammer();
-			//	}
-			//} //Skeletal Warrior
-			ItemFarm("Iron Hammer", 1, false, true, 2144, "Skeletal Warrior", "battleunderb");
-			ItemFarm("War Mummy Wrap", 1, false, true, 2144, "War Mummy", "sandcastle");
-			ItemFarm("Noob Blade Oil", 1, true, true, 2144, "Horc Noob", "noobshire");
-			ItemFarm("Bronze Brush", 1, true, true, 2144, "Bronze Draconian", "lair");
-			ItemFarm("Burlap Cloth", 4, true, true, 2144, "Scarecrow", "farm");
-			ItemFarm("Elemental Stone Sharpener", 1, true, true, 2144, "Rock Elemental", "bludrut");
-			ItemFarm("Dark Makai Lacquer Finish", 1, true, true, 2144, "Dark Makai", "tercessuinotlim"); 
-			SafeQuestComplete(2144);
+			main();
 		}
+	}
+
+
+	public void main()
+	{
+
+		
 		bot.Log($"[{DateTime.Now:HH:mm:ss}] Script stopped successfully.");
 		StopBot();
 	}
-
-	public void HalpINeedGoldAssistant4kForIronHammer()
-		{
-			while(bot.Player.Gold < 4000) //1 turn ins
-			{
-				bot.Log("GoldFarm");
-				ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
-				bot.Log("GoldTurnIn");
-				SafeQuestComplete(236);
-				bot.Sleep(1000);
-				bot.Log("GoldSell");					
-				SafeSell("Berserker Bunny", 0);
-				bot.Sleep(1000);
-				bot.Log("EldersQuestCheck1");
-			}
-		}
-
+	
+	
 	/*------------------------------------------------------------------------------------------------------------
 													 Invokable Functions
 	------------------------------------------------------------------------------------------------------------*/
@@ -419,7 +391,7 @@ public class DoomSquireWeaponKit // by Tato
 	/// Change the player's name and guild for your bots specifications.
 	/// Recommended Default Bot Configurations.
 	/// </summary>
-	public void ConfigureBotOptions(string PlayerName = "Tato", string GuildName = "no please no", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
+	public void ConfigureBotOptions(string PlayerName = "Bot By AuQW", string GuildName = "https://auqw.tk/", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
 	{
 		SendMSGPacket("Configuring bot.", "AuQW", "moderator");
 		bot.Options.CustomName = PlayerName;

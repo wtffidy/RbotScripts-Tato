@@ -1,18 +1,16 @@
+﻿
 using System;
 using RBot;
 using System.Collections.Generic;
 
-public class DoomSquireWeaponKit // by Tato
+public class BluuPurpleTemplate
 {
 	//-----------EDIT BELOW-------------//
 	public int MapNumber = 2142069;
 	public readonly int[] SkillOrder = { 3, 1, 2, 4 };
 	public int SaveStateLoops = 8700;
 	public int TurnInAttempts = 10;
-	public string[] RequiredItems = {
-	"War Mummy Wrap",
-	"DoomSquire Weapon Kit" 
-	};
+	public string[] RequiredItems = { };
 	public string[] EquippedItems = { };
 	//-----------EDIT ABOVE-------------//
 
@@ -38,46 +36,98 @@ public class DoomSquireWeaponKit // by Tato
 		while (!bot.ShouldExit())
 		{
 			while (!bot.Player.Loaded) { }
-
-			//while(!bot.Inventory.Contains("Iron Hammer", 1))
-			//{
-			//	if(bot.Player.Gold > 4000)
-			//	{
-			//	SafePurchase("Iron Hammer", 1, "swordhaven", 179);	
-			//	}
-			//	else if(bot.Player.Gold < 4000)
-			//	{
-			//	HalpINeedGoldAssistant4kForIronHammer();
-			//	}
-			//} //Skeletal Warrior
-			ItemFarm("Iron Hammer", 1, false, true, 2144, "Skeletal Warrior", "battleunderb");
-			ItemFarm("War Mummy Wrap", 1, false, true, 2144, "War Mummy", "sandcastle");
-			ItemFarm("Noob Blade Oil", 1, true, true, 2144, "Horc Noob", "noobshire");
-			ItemFarm("Bronze Brush", 1, true, true, 2144, "Bronze Draconian", "lair");
-			ItemFarm("Burlap Cloth", 4, true, true, 2144, "Scarecrow", "farm");
-			ItemFarm("Elemental Stone Sharpener", 1, true, true, 2144, "Rock Elemental", "bludrut");
-			ItemFarm("Dark Makai Lacquer Finish", 1, true, true, 2144, "Dark Makai", "tercessuinotlim"); 
-			SafeQuestComplete(2144);
-		}
-		bot.Log($"[{DateTime.Now:HH:mm:ss}] Script stopped successfully.");
-		StopBot();
-	}
-
-	public void HalpINeedGoldAssistant4kForIronHammer()
-		{
-			while(bot.Player.Gold < 4000) //1 turn ins
-			{
-				bot.Log("GoldFarm");
-				ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");
-				bot.Log("GoldTurnIn");
-				SafeQuestComplete(236);
-				bot.Sleep(1000);
-				bot.Log("GoldSell");					
-				SafeSell("Berserker Bunny", 0);
-				bot.Sleep(1000);
-				bot.Log("EldersQuestCheck1");
+            {
+			Main(); 
 			}
 		}
+	}
+	
+	
+
+
+
+
+    	
+			public void Main()
+			{
+				CompleteTheFirst3Quests:
+				{				
+				if (bot.Quests.IsAvailable(5301))
+				{
+					goto Quest4;
+				}
+				if (bot.Quests.IsAvailable(5300))
+				{
+					goto Quest3;
+				}
+				if (bot.Quests.IsAvailable(5299))
+				{
+					goto Quest2;
+				}
+				if (bot.Quests.IsAvailable(5298))
+				{
+					goto Quest1;
+				}}
+
+				
+				
+					Quest1:
+					if (bot.Quests.IsAvailable(5298))
+					{
+					SafeMapJoin("hedgemaze");
+					bot.Sleep(500);
+					bot.SendPacket("%xt%zm%getMapItem%40753%4678%");
+					ItemFarm("Knight's Reflection Dispersed", 1, true, true, 5298, "Knight's Reflection", "hedgemaze");
+					SafeQuestComplete(5298);
+					}
+
+					Quest2:
+					if (bot.Quests.IsAvailable(5299))
+					{
+					bot.Quests.EnsureAccept(5299);
+					bot.Player.Jump("r11", "Bottom");
+					bot.Sleep(500);
+					if (bot.Inventory.ContainsTempItem("Maze Explored", 1))
+					{
+					ItemFarm("Mirror Shard Slain", 4, true, true, 5299, "Knight's Reflection", "hedgemaze");
+					ItemFarm("Hedge Goblin Slain", 4, true, true, 5299, "Hedge Goblin", "hedgemaze");
+					ItemFarm("Minotaur  Slain", 3, true, true, 5298, "Minotaur", "hedgemaze");
+					}
+					SafeQuestComplete(5299);
+					}
+		
+					
+
+					Quest3:
+					if (bot.Quests.IsAvailable(5300))
+					{
+					ItemFarm("Knights \"Questioned\"", 5, true, true, 5300, "Knight's Reflection", "hedgemaze");
+					SafeQuestComplete(5300);
+					}			
+
+				Quest4:
+				{
+					Xp:
+					SafeMapJoin("hedgemaze");
+						bot.Sleep(500);
+					while (bot.Player.Level < 100)
+					{						
+						bot.Quests.EnsureAccept(5301);
+						bot.SendPacket("%xt%zm%getMapItem%346749%4680%");
+						SafeQuestComplete(5301);
+					}
+
+				}
+				bot.Log($"[{DateTime.Now:HH:mm:ss}] Script stopped successfully.");
+            	StopBot();
+
+            }
+            
+
+	
+
+
+	
 
 	/*------------------------------------------------------------------------------------------------------------
 													 Invokable Functions
@@ -419,7 +469,7 @@ public class DoomSquireWeaponKit // by Tato
 	/// Change the player's name and guild for your bots specifications.
 	/// Recommended Default Bot Configurations.
 	/// </summary>
-	public void ConfigureBotOptions(string PlayerName = "Tato", string GuildName = "no please no", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
+	public void ConfigureBotOptions(string PlayerName = "Bot By AuQW", string GuildName = "https://auqw.tk/", bool LagKiller = true, bool SafeTimings = true, bool RestPackets = true, bool AutoRelogin = true, bool PrivateRooms = false, bool InfiniteRange = true, bool SkipCutscenes = true, bool ExitCombatBeforeQuest = true, bool HideMonster=true)
 	{
 		SendMSGPacket("Configuring bot.", "AuQW", "moderator");
 		bot.Options.CustomName = PlayerName;
@@ -619,3 +669,11 @@ public class DoomSquireWeaponKit // by Tato
 
 
 }
+////%xt%zm%getQuests%348456%5301%
+
+//%xt%zm%acceptQuest%348456%5301%
+//%xt%zm%getMapItem%346749%4680%
+
+//%xt%zm%tryQuestComplete%346749%5301%-1%false%wvz%
+
+
