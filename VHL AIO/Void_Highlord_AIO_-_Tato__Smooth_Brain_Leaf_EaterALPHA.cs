@@ -981,8 +981,7 @@ public class VoidHighLordAIOTesting //🥔
 			if (bot.Quests.IsAvailable(802)) GorillaBlood();
 			else
 			{
-			MessageBox.Show($"Everything you can do today/So far is complete, come back tomarrow", "RERUN THIS BOT TOMARROW");
-			StopBot();
+			MainScript();
 			}
 		}
 
