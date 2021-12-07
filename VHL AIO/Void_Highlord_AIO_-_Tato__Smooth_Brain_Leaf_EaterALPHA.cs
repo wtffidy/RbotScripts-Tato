@@ -258,7 +258,7 @@ public class VoidHighLordAIOTesting //🥔
 		FormatLog("Checking if you did the Dragonslayer Quests");
 		if (!bot.Quests.IsAvailable(570)) DragonSlayerRewardQuests(); //Dragonslayer Reward Quest Check, have you done them? No? Then we'll do it for you :D
 		FormatLog("You're Experienced But Can You Complete It?");
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] You Got The Stuff?");		
+		FormatLog("You Got The Stuff?");		
 		FormatLog("VHL Owner?");
 		while (bot.Inventory.Contains("Void Highlord", 1) || bot.Bank.Contains("Void Highlord", 1)) VHLEnhanceRank();
 		FormatLog("VHLPurchaseCheck");
@@ -343,21 +343,21 @@ public class VoidHighLordAIOTesting //🥔
 		if(!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1))
 			{
 				SafeEquip(SoloClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgathJoin");
+				FormatLog("HadeanOnyxofNulgathJoin");
 				SafeMapJoin("citadel", "m22", "Center");
 				SafeMapJoin("tercessuinotlim", "Enter", "Spawn");
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgathEquip");
+				FormatLog("HadeanOnyxofNulgathEquip");
 				SafeEquip(SoloClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgathStart");
+				FormatLog("HadeanOnyxofNulgathStart");
 				ItemFarm("Hadean Onyx of Nulgath", 1, false, true, 5660, "Shadow of Nulgath", "tercessuinotlim");
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] HadeanOnyxofNulgath Finish");
+				FormatLog("HadeanOnyxofNulgath Finish");
 			}
 	}
 	
 	public void LarvaeFarm()
 	{
 		SafeEquip(SoloClass);
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] LarvaeStart");
+		FormatLog("LarvaeStart");
 		ItemFarm("Mana Energy for Nulgath", 1, false, true, 2566, "Mana Golem", "elemental");
 		SafeEquip(FarmClass);
 		ItemFarm("Charged Mana Energy for Nulgath", 5, true, true, 2566, "Mana Falcon|Mana Imp", "elemental");
@@ -374,7 +374,7 @@ public class VoidHighLordAIOTesting //🥔
 				SafeEquip(FarmClass);
 				UnbankList(EldersBlood);
 				bot.Sleep(250);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Elders' Blood Farm");
+				FormatLog("Elders' Blood Farm");
 				if(!bot.Inventory.Contains("Elders' Blood", 5))					
 					{
 						SafeEquip(FarmClass);
@@ -389,23 +389,23 @@ public class VoidHighLordAIOTesting //🥔
 			{
 				ExitCombat();
 				bot.Sleep(2000);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] BKOUnbank");
+				FormatLog("BKOUnbank");
 				UnbankList(BKOrb);
 				SafeEquip(SoloClass);
 				if(!bot.Inventory.Contains("Black Knight Orb"))
 					{						
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] Black Knight Leg Piece");	
+						FormatLog("Black Knight Leg Piece");	
 						ItemFarm("Black Knight Leg Piece", 1, true, true, 318, "Gell Oh No", "well");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] Black Knight Chest Piece");		
+						FormatLog("Black Knight Chest Piece");		
 						ItemFarm("Black Knight Chest Piece", 1, true, true, 318, "Greenguard Dragon", "greendragon");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] Black Knight Shoulder Piece");								
+						FormatLog("Black Knight Shoulder Piece");								
 						ItemFarm("Black Knight Shoulder Piece", 1, true, true, 318, "Deathgazer", "deathgazer");							
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] Black Knight Arm Piece");
+						FormatLog("Black Knight Arm Piece");
 						ItemFarm("Black Knight Arm Piece", 1, true, true, 318, "Greenguard Basilisk", "trunk");		
 						FormatLog("BKO Quest Turnin."); 
 						bot.Quests.EnsureComplete(318);
 					}
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] BKO farmed");
+				FormatLog("BKO farmed");
 			}
 
 			public void Emerald()
@@ -454,7 +454,7 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.GetFactionRank("SpellCrafting") < 2)
 					{
 						SafeEquip(FarmClass);
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] SpellCrafting3");
+						FormatLog("SpellCrafting3");
 						FormatLog("Spellbook");
 						bot.Quests.EnsureAccept(2260);
 						ItemFarm("Arcane Parchment", 13, true, true, 0, "Skeletal Warrior|Big Jack Sprat", "graveyard");
@@ -473,7 +473,7 @@ public class VoidHighLordAIOTesting //🥔
 						SafeMapJoin("spellcraft");
 						SafePurchase("Runic Ink", 1, "spellcraft", 549);
 						bot.Quests.EnsureAccept(2353);
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] SpellCrafting7");
+						FormatLog("SpellCrafting7");
 						SafeQuestComplete(2353);
 					}
 			}
@@ -484,13 +484,13 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Sleep(2000);
 				UnbankList(ShopItems);
 				bot.Sleep(2500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Elemental Ink Start");
+				FormatLog("Elemental Ink Start");
 				while(!bot.Inventory.Contains("Mystic Quills", 4))
 					{
 						ItemFarm("Mystic Quills", 4, false, true, 0, "Slugfit", "mobius");
 					}
 				SafePurchase("Elemental Ink", 10, "spellcraft", 549);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Elemental Ink Purchased");
+				FormatLog("Elemental Ink Purchased");
 			}
 	
 			public void GemofNulgath()
@@ -498,11 +498,11 @@ public class VoidHighLordAIOTesting //🥔
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] GemUnbank");
+				FormatLog("GemUnbank");
 				UnbankList(GemOfNulgath);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] GemSleep");
+				FormatLog("GemSleep");
 				bot.Sleep(2500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] GemStart");
+				FormatLog("GemStart");
 				while(!bot.Inventory.Contains("Gem of Nulgath", 150))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
@@ -516,11 +516,11 @@ public class VoidHighLordAIOTesting //🥔
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] TotemUnbank");
+				FormatLog("TotemUnbank");
 				UnbankList(GemOfNulgath);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] TotemSleep");
+				FormatLog("TotemSleep");
 				bot.Sleep(2500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] TotemStart");
+				FormatLog("TotemStart");
 				while(!bot.Inventory.Contains("Totem of Nulgath", 15))
 					{
 						ItemFarm("Essence of Nulgath", 60, false, false, 4778, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
@@ -538,8 +538,8 @@ public class VoidHighLordAIOTesting //🥔
 						SafeEquip(FarmClass);
 						UnbankList(EssenceOfNulgathItems);
 						bot.Sleep(2500);
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] EssenceNulgathStart");
-						//FormatLog($"[{DateTime.Now:HH:mm:ss}] EssenceofNulgathVHLQuestSingleFarm");
+						FormatLog("EssenceNulgathStart");
+						//FormatLog("EssenceofNulgathVHLQuestSingleFarm");
 						ItemFarm("Essence of Nulgath", 55, false, false, 5660, "Dark Makai", "tercessuinotlim", "m2", "Center"); 
 						FormatLog("Essence of Nulgath x50 Farmed.");
 					}
@@ -550,10 +550,10 @@ public class VoidHighLordAIOTesting //🥔
 				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] NationUnbank");
+				FormatLog("NationUnbank");
 				UnbankList(EmblemofNulgath);
 				bot.Sleep(2500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] NationCheck");
+				FormatLog("NationCheck");
 				while (!bot.Inventory.Contains("Emblem of Nulgath", 20))
 					{
 						SafeEquip(FarmClass);
@@ -564,7 +564,7 @@ public class VoidHighLordAIOTesting //🥔
 						SafeQuestComplete(4748);
 						FormatLog("Nations Recruit Complete.");
 					}
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Emblems Farmed");
+				FormatLog("Emblems Farmed");
 			}
 		
 			public void TaintedGemFarm()
@@ -573,10 +573,10 @@ public class VoidHighLordAIOTesting //🥔
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] TaintedUnbank");
+				FormatLog("TaintedUnbank");
 				UnbankList(TaintedGem);
 				bot.Sleep(2500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] TaintedCheck");
+				FormatLog("TaintedCheck");
 				while(!bot.Inventory.Contains("Tainted Gem", 200))
 					{
 						ItemFarm("Cubes", 25, false, true, 569, "Grizzlespit|Box Guardian", "boxes");
@@ -592,10 +592,10 @@ public class VoidHighLordAIOTesting //🥔
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);		
 				UnbankList(BD);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] BoneDust2");
+				FormatLog("BoneDust2");
 				SafeEquip(FarmClass);
 				ItemFarm("Bone Dust", 310, false, false, 5660, "Skeleton Warrior", "battleunderb", "Enter", "Spawn");					
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] BoneDust3");
+				FormatLog("BoneDust3");
 				ExitCombat();
 				bot.Sleep(2000);
 			}
@@ -606,26 +606,26 @@ public class VoidHighLordAIOTesting //🥔
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] NulApprovalDiamondUnbank");
+				FormatLog("NulApprovalDiamondUnbank");
 				UnbankList(NulArchDiamondFavor);
 				bot.Sleep(2500);
 				SafeEquip(FarmClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] NulApprovalDiamondStart");
+				FormatLog("NulApprovalDiamondStart");
 				while (!bot.Inventory.Contains("Diamond of Nulgath", 200))
 					{
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] Diamond Farm Start");
+						FormatLog("Diamond Farm Start");
 						ItemFarm("Legion Blade", 1, false, false, 2219, "*", "evilwarnul", "r3", "Right");
 						ItemFarm("Dessicated Heart", 20, false, false, 2219, "*", "evilwarnul", "r3", "Right");
 						ItemFarm("Legion Helm", 5, true, false, 2219, "*", "evilwarnul", "r3", "Right");
 						ItemFarm("Undead Skull", 3, true, false, 2219, "*", "evilwarnul", "r3", "Right");
 						ItemFarm("Legion Champion Medal", 5, true, false, 2219, "*", "evilwarnul", "r3", "Right");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] Diamond Turn In");
+						FormatLog("Diamond Turn In");
 						if (bot.Player.IsMember)
 							SafeQuestComplete(2221);
 						else
 							SafeQuestComplete(2219);
 					}
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath x 200 Farmed");
+				FormatLog("Diamond of Nulgath x 200 Farmed");
 				if (!bot.Inventory.Contains("Nulgath's Approval", 300))
 					ItemFarm("Nulgath's Approval", 300, false, true, 0, "Legion Fenrir|Blade Master|Skull Warrior|Undead Bruiser|Undead Infantry|Undead Legend", "evilwarnul");
 				FormatLog("Nulgath's Approval x 300 Farmed");
@@ -640,18 +640,18 @@ public class VoidHighLordAIOTesting //🥔
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(SoloClass);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Chocolate1");
+				FormatLog("Chocolate1");
 				UnbankList(ShopItems);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Chocolate2");
+				FormatLog("Chocolate2");
 				bot.Sleep(250);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Chocolate3");
+				FormatLog("Chocolate3");
 				if(!bot.Inventory.Contains("Nulgath Shaped Chocolate", 1))
 					{		
 						while(bot.Player.Gold < 2000000)
 							{
 								FormatLog("Making some money");
 								SafeEquip(SoloClass);
-								FormatLog($"[{DateTime.Now:HH:mm:ss}] Chocolate7");
+								FormatLog("Chocolate7");
 								ItemFarm("Were Egg", 1, true, true, 236, "Big Bad Boar", "greenguardwest");									
 								SafeQuestComplete(236);								
 								SafeSell("Berserker Bunny", 0);
@@ -687,7 +687,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void InvCheck()
 			{
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] InvCheck1");
+				FormatLog("InvCheck1");
 				int FreeInvSpace = bot.GetGameObject<int>("world.myAvatar.objData.iBagSlots") - bot.GetGameObject<int>("world.myAvatar.items.length"); //>.> good idea 
 				if(FreeInvSpace < 18)
 					StopBot("Bot Requires 18 Inv Slots, Please Fix And Try again");
@@ -742,7 +742,7 @@ public class VoidHighLordAIOTesting //🥔
 			public void Roentgenium()
 			{
 				/*if(bot.Inventory.Contains(" new string = { VHLQuest } ", 1))
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Roentgenium1");*/
+					FormatLog("Roentgenium1");*/
 				SafeMapJoin("party");
 				FormatLog("RoentUnbank");
 				UnbankList(VHLQuest);
@@ -785,17 +785,17 @@ public class VoidHighLordAIOTesting //🥔
 				FormatLog("VCA Unbank");
 				UnbankList(VCAList);
 				bot.Sleep(500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] VCA Item Checks");
+				FormatLog("VCA Item Checks");
 				Unbank(Larvae);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Unidentified 10 check-VCA");
+				FormatLog("Unidentified 10 check-VCA");
 				while(!bot.Inventory.Contains("Unidentified 10", 200) && !bot.Bank.Contains("Unidentified 10", 200)) LarvaeFarm();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Dark Crystal Shard check-VCA");
+				FormatLog("Dark Crystal Shard check-VCA");
 				while(!bot.Inventory.Contains("Dark Crystal Shard", 200) && !bot.Bank.Contains("Dark Crystal Shard", 200)) LarvaeFarm();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Gem of Nulgath check-VCA");
+				FormatLog("Gem of Nulgath check-VCA");
 				while(!bot.Inventory.Contains("Gem of Nulgath", 150) && !bot.Bank.Contains("Gem of Nulgath", 150)) GemofNulgath();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Tainted Gem check-VCA");
+				FormatLog("Tainted Gem check-VCA");
 				while(!bot.Inventory.Contains("Tainted Gem", 200) && !bot.Bank.Contains("Tainted Gem", 200)) TaintedGemFarm();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Elders' Blood check-VCB");
+				FormatLog("Elders' Blood check-VCB");
 				if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
 				if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) MaxMePls();
 				bot.Sleep(2000);
@@ -831,14 +831,14 @@ public class VoidHighLordAIOTesting //🥔
 				FormatLog("VCB Unbank");
 				UnbankList(VCBList);
 				bot.Sleep(500);
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] VCB Item Checks");
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Diamond of Nulgath check-VCB");
+				FormatLog("VCB Item Checks");
+				FormatLog("Diamond of Nulgath check-VCB");
 				while(!bot.Inventory.Contains("Diamond of Nulgath", 200) && !bot.Bank.Contains("Diamond of Nulgath", 200)) NulArchApprovalFavorDiamond();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Blood Gem of the Archfiend check-VCB");
+				FormatLog("Blood Gem of the Archfiend check-VCB");
 				while(!bot.Inventory.Contains("Blood Gem of the Archfiend", 30) && !bot.Bank.Contains("Blood Gem of the Archfiend", 30)) KissTheVoidQuest();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Totem of Nulgath check-VCB");
+				FormatLog("Totem of Nulgath check-VCB");
 				while(!bot.Inventory.Contains("Totem of Nulgath", 15) && !bot.Bank.Contains("Totem of Nulgath", 15)) TotemofNulgath();
-				FormatLog($"[{DateTime.Now:HH:mm:ss}] Elders' Blood check-VCB");
+				FormatLog("Elders' Blood check-VCB");
 				if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && bot.Quests.IsAvailable(802)) GorillaBlood();
 				if(!bot.Inventory.Contains("Elders' Blood", 2) && !bot.Bank.Contains("Elders' Blood", 2) && !bot.Quests.IsAvailable(802)) MaxMePls();
 				bot.Sleep(2000);
@@ -872,7 +872,7 @@ public class VoidHighLordAIOTesting //🥔
 			FormatLog("UnbankTatoLord");
 			UnbankList(TatoLord);
 			bot.Sleep(2000);
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Tato HighLord Purchased");
+			FormatLog("Tato HighLord Purchased");
 
 				FormatLog("Void Highlord check --Inv2");
 				while (!bot.Inventory.Contains("Void Highlord") && !bot.Bank.Contains("Void Highlord"))
@@ -1108,7 +1108,7 @@ public class VoidHighLordAIOTesting //🥔
 		public void DragonSlayerRewardQuests()
 		{   
 			SkillList(FarmClass, SkillOrderFarmClass);					
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards1");
+			FormatLog("DSRewards1");
 		DragonSlayerRewardAIO:
 		if (bot.Quests.IsAvailable(169))
 			{	goto DragonSlayerReward;
@@ -1124,49 +1124,49 @@ public class VoidHighLordAIOTesting //🥔
 			DragonSlayerVet:
 				SafeEquip(FarmClass);
 				ItemFarm("Dragonslayer Veteran Medal", 8, true, true, 165, "Wyvern", "lair");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards2");
+						FormatLog("DSRewards2");
 				ExitCombat();
 				bot.Quests.EnsureComplete(165);
 			
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards3");
+						FormatLog("DSRewards3");
 				goto DragonSlayerSerg;
 
 			DragonSlayerSerg:
 				SafeEquip(FarmClass);
 				ItemFarm("Dragonslayer Sergeant Medal", 8, true, true, 166, "Bronze Draconian|Purple Draconian|Venom Draconian", "lair");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards4");
+						FormatLog("DSRewards4");
 				ExitCombat();
 				bot.Quests.EnsureComplete(166);
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards5");
+						FormatLog("DSRewards5");
 										
 				goto DragonSlayerCapt;
 
 			DragonSlayerCapt:
 				SafeEquip(FarmClass);
 				ItemFarm("Dragonslayer Captain Medal", 8, true, true, 167, "Dark Draconian|Golden Draconian", "lair");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards6");
+						FormatLog("DSRewards6");
 				ExitCombat();
 				bot.Quests.EnsureComplete(167);	
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards7");
+						FormatLog("DSRewards7");
 				goto DragonSlayerMarsh;	
 
 			DragonSlayerMarsh:
 				SafeEquip(SoloClass);
 				ItemFarm("Dragonslayer Marshal Medal", 8, true, true, 168, "Red Dragon", "lair");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards8");
+						FormatLog("DSRewards8");
 				ExitCombat();
 				bot.Quests.EnsureComplete(168);
 				
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards9");
+						FormatLog("DSRewards9");
 				goto DragonSlayerReward;
 
 			DragonSlayerReward:
 				SafeEquip(FarmClass);
 				ItemFarm("Wisp of Dragonspirit", 12, true, true, 169, "Wyvern", "lair");
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards10");
+						FormatLog("DSRewards10");
 				ExitCombat();
 				bot.Quests.EnsureComplete(169);					
-						FormatLog($"[{DateTime.Now:HH:mm:ss}] DSRewards11");		
+						FormatLog("DSRewards11");		
 		}
 		
 		public void Leveling()
@@ -1175,13 +1175,13 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.Level > 71)
 					{
 					SafeMapJoin("party");
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance70'start");	
+					FormatLog("Enhance70'start");	
 					ExitCombat();	
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance70's-1");			
+					FormatLog("Enhance70's-1");			
 					bot.SendPacket("%xt%zm%enhanceItemShop%56905%3%39972%763%"); //healer enhance lvl71
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance70's-2");
+					FormatLog("Enhance70's-2");
 					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%39974%763%");//default staff  enhance lvl71
 					bot.Sleep(2500);					
 					}
@@ -1191,13 +1191,13 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.Level > 61)
 					{
 					SafeMapJoin("party");
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance60'start");	
+					FormatLog("Enhance60'start");	
 					ExitCombat();	
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance60's-1");			
+					FormatLog("Enhance60's-1");			
 					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%26378%763%"); //healer enhance lvl61
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance60's-2");
+					FormatLog("Enhance60's-2");
 					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%26378%763%");//default staff  enhance lvl61
 					bot.Sleep(2500);					
 					}
@@ -1207,13 +1207,13 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.Level > 51)
 					{
 					SafeMapJoin("party");
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance50'start");	
+					FormatLog("Enhance50'start");	
 					ExitCombat();	
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance50's-1");			
+					FormatLog("Enhance50's-1");			
 					bot.SendPacket("%xt%zm%enhanceItemShop%56905%3%19660%763%"); //healer enhance lvl51
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance50's-2");
+					FormatLog("Enhance50's-2");
 					bot.SendPacket("%xt%zm%enhanceItemShop%56905%15651%19662%763%");//default staff  enhance lvl51
 					bot.Sleep(2500);					
 					}
@@ -1223,13 +1223,13 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.Level > 30)
 					{
 					SafeMapJoin("party");
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance30'start");	
+					FormatLog("Enhance30'start");	
 					ExitCombat();	
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance30's-1");			
+					FormatLog("Enhance30's-1");			
 					bot.SendPacket("%xt%zm%enhanceItemShop%79690%15651%3727%147%"); //healer enhance lvl30
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance30's-2");
+					FormatLog("Enhance30's-2");
 					bot.SendPacket("%xt%zm%enhanceItemShop%79690%3%3636%147%");//default staff  enhance lvl29
 					bot.Sleep(2500);					
 					}
@@ -1239,13 +1239,13 @@ public class VoidHighLordAIOTesting //🥔
 				if (bot.Player.Level > 20)
 					{
 					SafeMapJoin("party");
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance30'start");	
+					FormatLog("Enhance30'start");	
 					ExitCombat();	
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance30's-1");			
+					FormatLog("Enhance30's-1");			
 					bot.SendPacket("%xt%zm%enhanceItemShop%79690%15651%3727%147%"); //healer enhance lvl30
 					bot.Sleep(1500);
-					FormatLog($"[{DateTime.Now:HH:mm:ss}] Enhance30's-2");
+					FormatLog("Enhance30's-2");
 					bot.SendPacket("%xt%zm%enhanceItemShop%79690%3%3636%147%");//default staff  enhance lvl29
 					bot.Sleep(2500);					
 					}
@@ -1253,14 +1253,14 @@ public class VoidHighLordAIOTesting //🥔
 					
 			}
 
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Leveling");
+			FormatLog("Leveling");
 			SkillList(FarmClass, SkillOrderFarmClass);			
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] lvl<30>");
+			FormatLog("lvl<30>");
 			while (bot.Player.Level < 30)				
 			{
 				HedgeMaze_XP_Till_75();					
 			}
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] lvl<75");
+			FormatLog("lvl<75");
 			while (bot.Player.Level < 75)
 			{				
 			HedgeMaze_XP_Till_75();
@@ -1563,12 +1563,12 @@ public class VoidHighLordAIOTesting //🥔
 	startFarmLoop:
 		if (FarmLoop > 0) goto maintainFarmLoop;
 		SavedState++;
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Started Farming Loop {SavedState}.");
+		FormatLog("Started Farming Loop {SavedState}.");
 		goto maintainFarmLoop;
 
 	breakFarmLoop:
 		SmartSaveState();
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Completed Farming Loop {SavedState}.");
+		FormatLog("Completed Farming Loop {SavedState}.");
 		FarmLoop = 0;
 		goto startFarmLoop;
 
@@ -1652,12 +1652,12 @@ public class VoidHighLordAIOTesting //🥔
 	startFarmLoop:
 		if (FarmLoop > 0) goto maintainFarmLoop;
 		SavedState++;
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Started Farming Loop {SavedState}.");
+		FormatLog("Started Farming Loop {SavedState}.");
 		goto maintainFarmLoop;
 
 	breakFarmLoop:
 		SmartSaveState();
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Completed Farming Loop {SavedState}.");
+		FormatLog("Completed Farming Loop {SavedState}.");
 		FarmLoop = 0;
 		goto startFarmLoop;
 
@@ -1723,11 +1723,11 @@ public class VoidHighLordAIOTesting //🥔
 		{
 			if (bot.Map.Name != MapName.ToLower()) SafeMapJoin(MapName.ToLower(), "Wait", "Spawn");
 			ExitCombat();
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Purchasing \t [{ItemName}]");
+			FormatLog("Purchasing \t [{ItemName}]");
 			bot.Shops.Load(ShopID);
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Shop \t \t Loaded Shop {ShopID}.");
+			FormatLog("Shop \t \t Loaded Shop {ShopID}.");
 			bot.Shops.BuyItem(ItemName);
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Shop \t \t Purchased {ItemName} from Shop {ShopID}.");
+			FormatLog("Shop \t \t Purchased {ItemName} from Shop {ShopID}.");
 		}
 	}
 	
@@ -1761,10 +1761,10 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Quests.EnsureComplete(QuestID, ItemID, tries: 10);
 		if (bot.Quests.IsInProgress(QuestID))
 		{
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Failed to turn in Quest {QuestID}. Logging out.");
+			FormatLog("Failed to turn in Quest {QuestID}. Logging out.");
 			bot.Player.Logout();
 		}
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Turned In Quest {QuestID} successfully.");
+		FormatLog("Turned In Quest {QuestID} successfully.");
 		while (!bot.Quests.IsInProgress(QuestID)) bot.Quests.EnsureAccept(QuestID);
 	}
 	
@@ -1778,10 +1778,10 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Quests.EnsureComplete(QuestID, ItemID, tries: 10);
 		if (bot.Quests.IsInProgress(QuestID))
 		{
-			FormatLog($"[{DateTime.Now:HH:mm:ss}] Failed to turn in Quest {QuestID}. Logging out.");
+			FormatLog("Failed to turn in Quest {QuestID}. Logging out.");
 			bot.Player.Logout();
 		}
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Turned In Quest {QuestID} successfully.");
+		FormatLog("Turned In Quest {QuestID} successfully.");
 	}
 
 	/// <summary>
@@ -1798,7 +1798,7 @@ public class VoidHighLordAIOTesting //🥔
 		bot.Options.LagKiller = false;
 		bot.Options.AggroMonsters = false;
 		bot.Options.AutoRelogin = false;
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Bot stopped successfully.");
+		FormatLog("Bot stopped successfully.");
 		Console.WriteLine(Text);
 		SendMSGPacket(Text, Caption, MessageType);
 		ScriptManager.StopScript();
@@ -1833,7 +1833,7 @@ public class VoidHighLordAIOTesting //🥔
 	public void SmartSaveState()
 	{
 		bot.SendPacket("%xt%zm%whisper%1%creating save state%" + bot.Player.Username + "%");
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Successfully Saved State.");
+		FormatLog("Successfully Saved State.");
 	}
 
 	/// <summary>
@@ -1853,7 +1853,7 @@ public class VoidHighLordAIOTesting //🥔
 			bot.Sleep(500);
 		}
 		if (bot.Player.Cell != CellName) bot.Player.Jump(CellName, PadName);
-		FormatLog($"[{DateTime.Now:HH:mm:ss}] Joined map {mapname}-{MapNumber}, positioned at the {PadName} side of cell {CellName}.");
+		FormatLog("Joined map {mapname}-{MapNumber}, positioned at the {PadName} side of cell {CellName}.");
 	}
 
 	/*------------------------------------------------------------------------------------------------------------
