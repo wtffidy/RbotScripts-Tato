@@ -338,6 +338,7 @@ public class VoidHighLordAIOTesting //🥔
 	
 	public void HadeanOnyxofNulgath()
 	{
+		SkillList(FarmClass, SkillOrderFarmClass);
 		ExitCombat();
 		bot.Sleep(2000);				
 		if(!bot.Inventory.Contains("Hadean Onyx of Nulgath", 1))
@@ -356,6 +357,7 @@ public class VoidHighLordAIOTesting //🥔
 	
 	public void LarvaeFarm()
 	{
+		SkillList(FarmClass, SkillOrderFarmClass);
 		SafeEquip(SoloClass);
 		FormatLog("LarvaeStart");
 		ItemFarm("Mana Energy for Nulgath", 1, false, true, 2566, "Mana Golem", "elemental");
@@ -368,6 +370,7 @@ public class VoidHighLordAIOTesting //🥔
 	
 			public void GorillaBlood()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				if (!bot.Quests.IsAvailable(802)) MaxMePls();
 				ExitCombat();
 				bot.Sleep(2000);
@@ -387,6 +390,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void BlackKnightOrb()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				FormatLog("BKOUnbank");
@@ -453,6 +457,7 @@ public class VoidHighLordAIOTesting //🥔
 					}
 				if (bot.Player.GetFactionRank("SpellCrafting") < 2)
 					{
+						SkillList(FarmClass, SkillOrderFarmClass);
 						SafeEquip(FarmClass);
 						FormatLog("SpellCrafting3");
 						FormatLog("Spellbook");
@@ -465,6 +470,7 @@ public class VoidHighLordAIOTesting //🥔
 					}	
 				else while (bot.Player.GetFactionRank("SpellCrafting") >= 2)
 					{
+						SkillList(FarmClass, SkillOrderFarmClass);
 						SafeEquip(FarmClass);
 						if(!bot.Inventory.Contains("Mystic Quills", 10))
 							{
@@ -480,6 +486,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void ElementalInk()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				UnbankList(ShopItems);
@@ -495,6 +502,7 @@ public class VoidHighLordAIOTesting //🥔
 	
 			public void GemofNulgath()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
@@ -513,6 +521,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void TotemofNulgath()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
@@ -531,6 +540,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 			public void EssenceofNulgathVHLQuest()
 			{
+				SkillList(FarmClass, SkillOrderFarmClass);
 				ExitCombat();
 				bot.Sleep(2000);
 				while(!bot.Inventory.Contains("Essence of Nulgath", 55))
@@ -945,6 +955,7 @@ public class VoidHighLordAIOTesting //🥔
 		public void MaxMePls()
 		{
 			SkillList(FarmClass, SkillOrderFarmClass);
+			SkillList(FarmClass, SkillOrderFarmClass);
 			FormatLog("Maxing Gold Cap");
 			while(bot.Player.Gold < 100000000)
 				{
@@ -1035,6 +1046,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		public void HalpINeedGold1Mil()
 		{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			while(bot.Player.Gold < 10000000) //200 turn ins
 			{
 				SafeEquip(SoloClass);
@@ -1053,6 +1065,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		public void HalpINeedGoldAssistant()
 		{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			while(bot.Player.Gold < 1000000) //20 turn ins
 			{
 				SafeEquip(SoloClass);
@@ -1071,6 +1084,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		public void DarkCrystalShard() //
 		{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			if (bot.Player.IsMember) //NWNO - 6697
 			{
 				while(!bot.Inventory.Contains(" Bounty Hunter's Drone Pet", 1))
@@ -1099,6 +1113,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		public void BagofDirt() //uni 10 //dirt-y deeds Doe Dirt Cheap //7818
 		{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			ItemFarm("Slugbutter Digging Advice", 1, true, true, 7818, "Slugbutter", "towerofdoom10");
 			ItemFarm("Chaotic Tunneling Techniques", 2, true, true, 7818, "Chaos Tunneler", "crownsreach");
 			ItemFarm("Crystalized Corporate Digging Secrets", 3, true, true, 7818, "Crystal Mana Construct", "downward");
@@ -1171,6 +1186,7 @@ public class VoidHighLordAIOTesting //🥔
 		
 		public void Leveling()
 		{	
+			SkillList(FarmClass, SkillOrderFarmClass);
 			{
 				if (bot.Player.Level > 71)
 					{
@@ -1270,6 +1286,7 @@ public class VoidHighLordAIOTesting //🥔
 			
 		public void Lycan() //https://github.com/BrenoHenrike/Rbot-Scripts - run brenos "5Wolfwing(Darkovia)" in the chaoslords folder (use the guide on the site to configure your folder correctly)
 		{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			if (!bot.Quests.IsAvailable(537)) MainScript();
 
 			while (bot.Player.GetFactionRank("Lycan") < 10)
@@ -1282,6 +1299,7 @@ public class VoidHighLordAIOTesting //🥔
 
 		public void HedgeMaze_XP_Till_75()
 			{
+			SkillList(FarmClass, SkillOrderFarmClass);
 				SafeMapJoin("hedgemaze");
 				
 				CompleteTheFirst3Quests:
@@ -1372,6 +1390,7 @@ public class VoidHighLordAIOTesting //🥔
 			}
 	public void HedgeMaze()
 	{
+		SkillList(FarmClass, SkillOrderFarmClass);
 		if (!bot.Quests.IsAvailable(5301)) 
 		{
 			HedgeMaze_XP_Till_75();
@@ -1399,6 +1418,7 @@ public class VoidHighLordAIOTesting //🥔
 
 	public void Badges()
 	{
+			SkillList(FarmClass, SkillOrderFarmClass);
 			if (bot.Player.Level > 15) MainScript();
 
 			Starting_The_Journey:
