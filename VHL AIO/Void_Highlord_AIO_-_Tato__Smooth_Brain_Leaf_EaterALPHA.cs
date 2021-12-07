@@ -963,7 +963,7 @@ public class VoidHighLordAIOTesting //🥔
 			FormatLog("LevelTime");
 			FormatLog("Maxing Level Cap");
 			while (bot.Player.Level < 100)
-			{		
+			{		SafeMapJoin("Hedgemaze");
 					HedgeMaze();				
 			}
 			FormatLog("EldersQuestCheck3");
@@ -1377,7 +1377,8 @@ public class VoidHighLordAIOTesting //🥔
 			HedgeMaze_XP_Till_75();
 		}
 		else
-
+		SafeMapJoin("hedgemaze")
+		bot.Sleep(2500);
 		bot.SetGameObject("stage.frameRate", 10);
 		while (bot.Player.Level < 100)
 		{
