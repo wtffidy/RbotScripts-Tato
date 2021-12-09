@@ -357,6 +357,7 @@ public class VoidHighLordAIOTesting //🥔
 	
 	public void LarvaeFarm()
 	{
+		UnbankList(Larvae);
 		SkillList(FarmClass, SkillOrderFarmClass);
 		SafeEquip(SoloClass);
 		bot.Log("LarvaeStart");
@@ -375,12 +376,12 @@ public class VoidHighLordAIOTesting //🥔
 				ExitCombat();
 				bot.Sleep(2000);
 				SafeEquip(FarmClass);
+				bot.Log("Elders' Blood Unbank");
 				UnbankList(EldersBlood);
 				bot.Sleep(250);
 				bot.Log("Elders' Blood Farm");
 				if(!bot.Inventory.Contains("Elders' Blood", 5))					
 					{
-						SafeEquip(FarmClass);
 						ItemFarm("Slain Gorillaphant", 50, true, true, 802, "Gorillaphant", "arcangrove");
 						ExitCombat();
 						SafeQuestCompleteDaily(802);
@@ -1583,12 +1584,12 @@ public class VoidHighLordAIOTesting //🥔
 	startFarmLoop:
 		if (FarmLoop > 0) goto maintainFarmLoop;
 		SavedState++;
-		bot.Log("Started Farming Loop {SavedState}.");
+		bot.Log($"[{DateTime.Now:HH:mm:ss}] Started Farming Loop {SavedState}.");
 		goto maintainFarmLoop;
 
 	breakFarmLoop:
 		SmartSaveState();
-		bot.Log("Completed Farming Loop {SavedState}.");
+		bot.Log($"[{DateTime.Now:HH:mm:ss}] Completed Farming Loop {SavedState}.");
 		FarmLoop = 0;
 		goto startFarmLoop;
 
@@ -2111,24 +2112,5 @@ public class VoidHighLordAIOTesting //🥔
             MessageBox.Show($"This bot is likely glitch out if you dont have RBot {version} or above. You have been warned", "WARNING");
         }
     }
-	
-	/// <summary>
-	/// Logs following a specific format. No more than 3 tabs allowed.
-	/// </summary>
-	public void FormatLog(string Topic = "FormatLog", string Text = "Missing Input", int Tabs = 2, bool Title = false, bool Followup = false)
-	{
-		if (Title)
-			bot.Log($"[{DateTime.Now:HH:mm:ss}] -----{Text}-----");
-		else 
-		{
-			Tabs = Tabs > 3 ? 3 : Tabs;
-			string TabPlace = "";
-			for (int i = 0; i < Tabs; i++) 
-				TabPlace += "\t";
-			if (Followup) 
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] ↑ {TabPlace}{Text}");
-			else 
-				bot.Log($"[{DateTime.Now:HH:mm:ss}] {Topic} {TabPlace}{Text}");
-		}
-	}
+//edit to test onedrive
 }
